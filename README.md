@@ -3,3 +3,8 @@
 <sub>Yoobee Project, Started 20/9/22</sub>
 
 Vulnerability scanner for home networks built in Python aided by Wireshark
+
+## Install
+1. Enter Command Prompt (CMD)   
+2. ``` pip install PyQt5
+```
