@@ -9,5 +9,5 @@ Vulnerability scanner for home networks built in Python aided by Wireshark
 
 ## Install
 1. Enter Command Prompt (CMD)   
-2. ``` pip install PyQt5
-```
+2. ``` pip install PyQt5```
+3. ``` pip install psutil```
