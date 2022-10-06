@@ -4,7 +4,7 @@ Screenshot Preview:
 # HomeScan  
 <sub>Yoobee Project, Started 20/9/22</sub>
 
-Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download)  
+HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
 
 ## Main Features  
 - [ ] Port Scanner  
