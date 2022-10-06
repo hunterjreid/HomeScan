@@ -2,14 +2,24 @@
 # HomeScan
 <sub>Yoobee Project, Started 20/9/22</sub>
 
-Created with PyQt5 & psutil
+Created with Python, PyQt5 and psutil designed with [Qt Designer](https://build-system.fman.io/qt-designer-download)  
 
-Vulnerability scanner for home networks built in Python aided by Wireshark
-![image](https://user-images.githubusercontent.com/62681404/193679701-800ac938-65a4-4c90-8617-e524c2b82efa.png)
-![eqweeqwqweqwe](https://user-images.githubusercontent.com/62681404/193159632-6fbdce7b-8cc2-435d-8337-ac00bd9b8220.png)
-![MicrosoftTeams-image (6)](https://user-images.githubusercontent.com/62681404/193483972-18fff5bc-a413-44e8-805a-00c00803cf78.png)
+## Main Features  
+- [ ] Port Scanner  
+- [ ] Network Connections
+
+### Secondary Features
+- [ ] Network Stats
 
 ## Install
 1. Enter Command Prompt (CMD)   
 2. ``` pip install PyQt5```
 3. ``` pip install psutil```
+4. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
+
+
+Vulnerability scanner for home networks built in Python aided by Wireshark  
+
+![image](https://user-images.githubusercontent.com/62681404/193679701-800ac938-65a4-4c90-8617-e524c2b82efa.png)
+![eqweeqwqweqwe](https://user-images.githubusercontent.com/62681404/193159632-6fbdce7b-8cc2-435d-8337-ac00bd9b8220.png)
+![MicrosoftTeams-image (6)](https://user-images.githubusercontent.com/62681404/193483972-18fff5bc-a413-44e8-805a-00c00803cf78.png)

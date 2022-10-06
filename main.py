@@ -1,58 +1,56 @@
-from PyQt5 import QtWidgets, uic
 import psutil
+from PyQt5 import QtCore, QtGui, QtWidgets, uic
+from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
 
-app = QtWidgets.QApplication([])
-dlg = uic.loadUi("mainwindow.ui")
-
-
-def btn1():
-    dlg.textEdit.append(str(psutil.net_io_counters(pernic=True)))
-def btn9():
-    dlg.textEdit.clear()
-
-
-def btn2():
-    last_received = psutil.net_io_counters().bytes_recv
-    last_sent = psutil.net_io_counters().bytes_sent
-    last_total = last_received + last_sent
-    mb_new_received = last_received / 1024 / 1024
-    mb_new_sent = last_sent / 1024 / 1024
-    mb_new_total = last_total / 1024 / 1024
-    dlg.textEdit.append(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total.")
+class HomeScan(QtWidgets.QMainWindow):
+    def __init__(self):
+        super(HomeScan,self).__init__()
+        uic.loadUi('HomeScanUi.ui',self)
 
 
-def btn3():
-    dlg.textEdit.append(str(psutil.net_connections()))
-
-def btn4():
-    dlg.textEdit.append(str(psutil.net_if_stats()))
-
-def btn14():
-
-
-    dlg.textEdit.append(str(psutil.net_connections(kind="tcp")))
+        self.setFixedSize(720, 1000)
+        self.setStyleSheet("QMainWindow{background-color: darkgray;border: 1px solid black}")
+        self.setWindowFlags(Qt.FramelessWindowHint)
    
 
+        self.pushButton.clicked.connect(QtWidgets.qApp.quit)
+        self.pushButton_2.clicked.connect(self.btn4)
+        self.pushButton_3.clicked.connect(self.btn3)
+        self.oldPos = self.pos()
+        self.show()
 
-def btn8():
-    dlg.textEdit.append(str(psutil.net_if_addrs()))
-def btn5():
-    dlg.textEdit.append(str(psutil.net_connections(kind='inet')))
+        flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
+        self.setWindowFlags(flags)
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def btn3(self): 
+        self.textEdit.append(str(psutil.net_connections()))
+
+    def btn4(self):
+        self.textEdit_2.append(str(psutil.net_if_stats()))
 
 
-def btn7():
-    dlg.textEdit.append(str(psutil.net_if_addrs()))
 
 
-dlg.pushButton.clicked.connect(btn1)
-dlg.pushButton_2.clicked.connect(btn2)
-dlg.pushButton_3.clicked.connect(btn4)
-dlg.pushButton_4.clicked.connect(btn3)
-dlg.pushButton_9.clicked.connect(btn9)
-dlg.pushButton_8.clicked.connect(btn8)
-dlg.pushButton_5.clicked.connect(btn5)
-dlg.pushButton_6.clicked.connect(btn14)
-dlg.pushButton_7.clicked.connect(btn7)
+    def mousePressEvent(self, event):
+        self.oldPos = event.globalPos()
 
-dlg.show()
-app.exec()
+    def mouseMoveEvent(self, event):
+        delta = QPoint (event.globalPos() - self.oldPos)
+        self.move(self.x() + delta.x(), self.y() + delta.y())
+        self.oldPos = event.globalPos()
+
+if __name__ == '__main__':
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    
+    window = HomeScan()
+    window.show()
+    sys.exit(app.exec_())

@@ -6,207 +6,99 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>720</width>
+    <height>1000</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>HomeScan Beta</string>
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(74, 72, 68);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>50</y>
-      <width>241</width>
-      <height>61</height>
+      <x>100</x>
+      <y>60</y>
+      <width>401</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font-size:34px;</string>
+     <string notr="true">width: 300px;</string>
     </property>
     <property name="text">
-     <string>HomeScan Beta</string>
+     <string/>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>180</y>
-      <width>151</width>
-      <height>31</height>
-     </rect>
+    <property name="pixmap">
+     <pixmap>../MicrosoftTeams-image (7).png</pixmap>
     </property>
-    <property name="styleSheet">
-     <string notr="true">font-size:16px;</string>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
-    <property name="text">
-     <string>Scan Type  :</string>
+    <property name="wordWrap">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>230</y>
-      <width>141</width>
-      <height>24</height>
+      <x>590</x>
+      <y>60</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Networks History</string>
+     <string>x</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>260</y>
-      <width>141</width>
-      <height>24</height>
+      <x>40</x>
+      <y>270</y>
+      <width>541</width>
+      <height>601</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Current MB Usage</string>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>320</y>
-      <width>141</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-size:11px;</string>
-    </property>
-    <property name="text">
-     <string>Connected Network Stats</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_4">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>290</y>
-      <width>141</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Net Connections List</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>410</y>
-      <width>141</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IPv4 and IPv6</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_6">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>380</y>
-      <width>141</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TCP Only</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>440</y>
-      <width>141</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Detect VPN</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_8">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>350</y>
-      <width>141</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>NIC (Network Interface)</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>230</y>
-      <width>561</width>
-      <height>231</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>180</y>
-      <width>181</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-size:16px;</string>
-    </property>
-    <property name="text">
-     <string>Appened Results :</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>130</y>
-      <width>691</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Defend Your Network™ - Vulnerability scanner for home networks created with Python, PyQt5 &amp; psutil.</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_9">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>470</y>
-      <width>111</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Clear Console</string>
-    </property>
+    <widget class="QWidget" name="layoutWidget">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QTextEdit" name="textEdit">
+        <property name="styleSheet">
+         <string notr="true">font-size:12px;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTextEdit" name="textEdit_2"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -214,7 +106,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>720</width>
      <height>22</height>
     </rect>
    </property>
