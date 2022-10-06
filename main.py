@@ -14,7 +14,7 @@ class HomeScan(QtWidgets.QMainWindow):
         self.setStyleSheet("QMainWindow{background-color: darkgray;border: 1px solid black}")
         self.setWindowFlags(Qt.FramelessWindowHint)
    
-
+        self.pushButton_6.clicked.connect(self.showMinimized)
         self.pushButton_5.clicked.connect(QtWidgets.qApp.quit)
         self.pushButton_2.clicked.connect(self.btn3)
         self.pushButton.clicked.connect(self.btn4)
