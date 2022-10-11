@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1229</width>
+    <width>1240</width>
     <height>777</height>
    </rect>
   </property>
@@ -22,16 +22,16 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="leftMargin">
-     <number>20</number>
+     <number>16</number>
     </property>
     <property name="topMargin">
-     <number>0</number>
+     <number>16</number>
     </property>
     <property name="rightMargin">
-     <number>20</number>
+     <number>16</number>
     </property>
     <property name="bottomMargin">
-     <number>20</number>
+     <number>16</number>
     </property>
     <item>
      <widget class="QFrame" name="frame_11">
@@ -62,7 +62,7 @@ background: none;</string>
         <number>0</number>
        </property>
        <property name="topMargin">
-        <number>8</number>
+        <number>0</number>
        </property>
        <property name="rightMargin">
         <number>0</number>
@@ -70,7 +70,7 @@ background: none;</string>
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item alignment="Qt::AlignTop">
+       <item>
         <widget class="QLabel" name="label_10">
          <property name="styleSheet">
           <string notr="true">border:none;background: none;
@@ -78,7 +78,7 @@ color:lightgray;
 font-size:17px;</string>
          </property>
          <property name="text">
-          <string>HomeScan - LWC Version</string>
+          <string>HomeScan - LWC Version (unregistered)</string>
          </property>
         </widget>
        </item>
@@ -113,7 +113,7 @@ top:0;border-radius: 0;</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(225, 91, 93);
+          <string notr="true">background-color: #e15b5d;
 border: none;
 top:0;border-radius: 0;
 margin-top:0px;</string>
@@ -131,7 +131,77 @@ margin-top:0px;</string>
      </widget>
     </item>
     <item>
+     <widget class="QFrame" name="frame">
+      <property name="styleSheet">
+       <string notr="true">background:none;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="styleSheet">
+          <string notr="true">border:none;background: none;
+color:darkgray;
+font-size:14px;</string>
+         </property>
+         <property name="text">
+          <string>Remaining time for trial version : </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="timerLabel">
+         <property name="styleSheet">
+          <string notr="true">border:none;background: none;
+color:#5de15b;
+font-size:14px;</string>
+         </property>
+         <property name="text">
+          <string>60321321s</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
      <widget class="QTabWidget" name="netconnections">
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">background: darkgrey;</string>
       </property>
@@ -248,11 +318,88 @@ border: none;</string>
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab_3">
+       <property name="styleSheet">
+        <string notr="true">background: black;</string>
+       </property>
+       <attribute name="title">
+        <string>Live Graph</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">border:none;background: none;
+color:lightgray;
+font-size:17px;</string>
+          </property>
+          <property name="text">
+           <string>2D Graphic Example</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="styleSheet">
+           <string notr="true">border:none;background: none;
+color:darkgray;
+font-size:14px;</string>
+          </property>
+          <property name="text">
+           <string>Real-Time data</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="PlotWidget" name="graphicsView">
+          <property name="styleSheet">
+           <string notr="true">background-color: white;
+cursor:pointer;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>3D Graphic</string>
+       </attribute>
+       <widget class="PlotWidget" name="graphWidget">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>191</y>
+          <width>256</width>
+          <height>151</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>70</y>
+          <width>251</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>WORKING ON IT LOL</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QGraphicsView</extends>
+   <header>pyqtgraph</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
