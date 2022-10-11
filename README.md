@@ -20,6 +20,7 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 1. Enter Command Prompt (CMD)   
 2. ``` pip install PyQt5```
 3. ``` pip install psutil```
+3. ``` pip install pyqtgraph```
 4. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
 5. Run main.py
 
