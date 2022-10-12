@@ -14,6 +14,7 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 
 ### Secondary Features
 - [ ] Network Stats
+- [ ] Account create and login
 
 ## Install
 1. Enter Command Prompt (CMD)   
