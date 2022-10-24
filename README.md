@@ -11,7 +11,7 @@
 <sub>A Yoobee Colleges Project, Started 20/9/22 (SEM 4)- Rouwa Class, CS-205-Project-based-elective</sub>  
 
 ## What is HomeScan?
-#### HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
+#### HomeScan scans your home wifi network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
 
 ## Main Features  
 - [x] Port Scanner (Block and Open Ports, IP Addresses Connection types)
