@@ -25,6 +25,10 @@
 - [ ] Resizing hiding, docking, fullscreening with custom buttons?  
 - [ ] Moving window gltich
 
+## todos Router to be made into own file
+- [ ] Resizing hiding, docking, fullscreening with custom buttons?  
+- [ ] Moving window gltich
+
 ## Install
 1. Enter Command Prompt (CMD)   
 2. ``` pip install PyQt5```
