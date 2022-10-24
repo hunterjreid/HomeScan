@@ -25,9 +25,9 @@
 - [ ] Resizing hiding, docking, fullscreening with custom buttons?  
 - [ ] Moving window gltich
 
-## todos Router to be made into own file
-- [ ] Resizing hiding, docking, fullscreening with custom buttons?  
-- [ ] Moving window gltich
+## Todos next 
+- [ ] Router to be made into own file
+- [ ] new type of graph (scatter graph ?)
 
 ## Install
 1. Enter Command Prompt (CMD)   
