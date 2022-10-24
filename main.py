@@ -14,10 +14,13 @@ import socket
 import os
 import subprocess
 
+global time
+time = QtCore.QTime(0, 0, 0)
 
-class HomeScan(QtWidgets.QMainWindow):
+#main Window
+class HomeScanMain(QMainWindow):
     def __init__(self):
-        super(HomeScan,self).__init__()
+        super(HomeScanMain,self).__init__()
         uic.loadUi('mainwindow.ui',self)
         self.setFixedSize(920, 1000)
         self.setWindowFlags(Qt.FramelessWindowHint)
@@ -30,19 +33,30 @@ class HomeScan(QtWidgets.QMainWindow):
         #uptimer
         self.curr_time = QtCore.QTime(00,00,00)
         self.timer0 = QtCore.QTimer()
-        global time
-        time = QtCore.QTime(0, 0, 0)
+
         self.timer0.setInterval(1000)
         self.timer0.timeout.connect(self.startTimer)
         self.timer0.start()
+
+        self.pushButton.clicked.connect(self.goToLivePanel)
+        self.pushButton_2.clicked.connect(self.goToPorts)
+        self.pushButton_3.clicked.connect(self.goToDevices)
         
-        # Set Wifi Name
-        results = subprocess.check_output(["netsh", "wlan", "show", "network"])
-        results = results.decode("ascii")
-        results = results.replace("\r","")
-        ls = results.split("\n")
-        ls = ls[4:]
-        self.label_WifiName.setText(ls[0][9:])
+    # router
+    def goToLivePanel(self):
+        livePanel = LivePanel()
+        widget.addWidget(livePanel)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def goToPorts(self):
+        ports = Ports()
+        widget.addWidget(ports)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def goToDevices(self):
+        devices = Devices()
+        widget.addWidget(devices)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
     # used for the full screen btn (top right)
     def toggleFull(self):
@@ -57,10 +71,90 @@ class HomeScan(QtWidgets.QMainWindow):
         time = time.addSecs(1)
         self.label_TimerText.setText("Uptime: " + str(time.toString("hh:mm:ss")))
 
+class LivePanel(QMainWindow):
+    def __init__(self):
+        super(LivePanel,self).__init__()
+        uic.loadUi('live_panel.ui',self)
+        
+        #connect min full and exit tab (top right) to UI
+        self.min.clicked.connect(self.showMinimized)
+        self.full.clicked.connect(self.toggleFull)
+        self.exit.clicked.connect(QtWidgets.qApp.quit)
+        self.pushButton_14.clicked.connect(self.goBack)
+    
+
+    def goBack(self):
+        print("clicked")
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
+
+class Ports(QMainWindow):
+    def __init__(self):
+        super(Ports,self).__init__()
+        uic.loadUi('ports.ui',self)
+        
+        #connect min full and exit tab (top right) to UI
+        self.min.clicked.connect(self.showMinimized)
+        self.full.clicked.connect(self.toggleFull)
+        self.exit.clicked.connect(QtWidgets.qApp.quit)
+        self.pushButton_14.clicked.connect(self.goBack)
+    
+
+    def goBack(self):
+        print("clicked")
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
+
+class Devices(QMainWindow):
+    def __init__(self):
+        super(Devices,self).__init__()
+        uic.loadUi('devices.ui',self)
+        
+        #connect min full and exit tab (top right) to UI
+        self.min.clicked.connect(self.showMinimized)
+        self.full.clicked.connect(self.toggleFull)
+        self.exit.clicked.connect(QtWidgets.qApp.quit)
+        self.pushButton_14.clicked.connect(self.goBack)
+    
+
+    def goBack(self):
+        print("clicked")
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
+
+
 #init app !
 if __name__ == '__main__':
     import sys
-    app = QtWidgets.QApplication(sys.argv)
-    window = HomeScan()
-    window.show()
+    app = QApplication(sys.argv)
+    widget = QtWidgets.QStackedWidget()
+    window = HomeScanMain()
+    widget.setFixedSize(920, 1000)
+    widget.setWindowFlags(Qt.FramelessWindowHint)
+    widget.addWidget(window)
+    widget.show()
     sys.exit(app.exec_())
