@@ -20,6 +20,7 @@
 4. Run main.py
 
 ## Main Features  
+- [x] window router
 - [x] Port Scanner (Block and Open Ports, IP Addresses Connection types)
 - [x] Network Interfaces (View All)
 
