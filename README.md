@@ -16,7 +16,7 @@
 ## Install
 1. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
 2. Enter directory ``` cd HomeScan```
-3. ``` pip install PyQt5 psutil pyqtgraph```
+3. ``` pip install PyQt5 psutil pyqtgraph matplotlib```
 4. Run main.py
 
 ## Main Features  
