@@ -4,7 +4,6 @@
   <img width="350px" src="https://user-images.githubusercontent.com/62681404/191140983-4e4e9a96-bd8a-4ee9-a5ba-532f5b73a4c2.png" alt="HomeScan"/>
 </p>
 
-
 # HomeScan
 <sub>Created by Hunter Reid</sub>  
 <sub>Created by Catherine Daniels</sub>  
@@ -35,3 +34,12 @@
 ## Todos next 
 - [ ] Router to be made into own file
 - [ ] new type of graph (scatter graph ?)
+
+main:
+
+![MicrosoftTeams-image (9)](https://user-images.githubusercontent.com/62681404/197672432-ba6c01d1-a410-44ab-b9c9-13160bf56127.png)
+
+help screen:
+
+![MicrosoftTeams-image (10)](https://user-images.githubusercontent.com/62681404/197672451-b87bcb59-86f9-463b-9bf7-1cf4f4b60e78.png)
+
