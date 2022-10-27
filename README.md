@@ -22,9 +22,10 @@
 - [x] window router
 - [x] Port Scanner (Block and Open Ports, IP Addresses Connection types)
 - [x] Network Interfaces (View All)
+- [x] Network Stats `(UPLOAD DOWNLOAD LIFE CHARTS)`
 
 ### Secondary Features
-- [ ] Network Stats `(UPLOAD DOWNLOAD LIFE CHARTS)`
+
 - [ ] Account create and login ( webserver )
 
 ## Bugs to fix
@@ -32,14 +33,4 @@
 - [ ] Moving window gltich
 
 ## Todos next 
-- [ ] Router to be made into own file
 - [ ] new type of graph (scatter graph ?)
-
-main:
-
-![MicrosoftTeams-image (9)](https://user-images.githubusercontent.com/62681404/197672432-ba6c01d1-a410-44ab-b9c9-13160bf56127.png)
-
-help screen:
-
-![MicrosoftTeams-image (10)](https://user-images.githubusercontent.com/62681404/197672451-b87bcb59-86f9-463b-9bf7-1cf4f4b60e78.png)
-
