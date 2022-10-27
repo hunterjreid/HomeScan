@@ -16,7 +16,7 @@ import subprocess
 import webbrowser
 
 
-
+global conn
 global time
 time = QtCore.QTime(0, 0, 0)
 
@@ -72,7 +72,12 @@ class HomeScanMain(QMainWindow):
         self.x = list(range(50))  # 100 time points
         self.y = [randint(30,70) for _ in range(50)]  # 100 data points
 
+        global conn
+        conn=psutil.net_connections()
+        stats=psutil.net_if_stats()
 
+
+        self.label_13.setText("Welcome back Hunter, Total Net Connections: " + str(len(conn)) + " Network Interfaces: " + str(len(stats)))
 
         self.data_line = self.graphicsView2.plot(self.x, self.y, pen=pen)
         self.loadtable()
@@ -174,16 +179,55 @@ class LivePanel(QMainWindow):
     def __init__(self):
         super(LivePanel,self).__init__()
         uic.loadUi('router/live_panel.ui',self)
-        
+
+        self.x = list(range(100))  # 100 time points
+        self.y = [randint(200,201) for _ in range(100)]  # 100 data points'
+
+        styles = {"color": "#f00", "font-size": "20px"}
+        self.graphicsView.setLabel("left", "Connections", **styles)
+        self.graphicsView.setLabel("bottom", "Seconds", **styles)
+       
+
+        pen = pg.mkPen(color=(255, 0, 0), width=15, style=QtCore.Qt.DashLine)
+        self.data_line = self.graphicsView.plot(self.x, self.y, pen=pen, symbol='+', symbolSize=30, symbolBrush=('b'))
+
+        self.timer = QtCore.QTimer()
+        self.timer.setInterval(1000)
+        self.timer.timeout.connect(self.update_plot_data)
+        self.timer.start()
+                
         #connect min full and exit tab (top right) to UI
-        self.min.clicked.connect(self.showMinimized)
-        self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(QtWidgets.qApp.quit)
         self.pushButton_14.clicked.connect(self.goBack)
+
+    def update_plot_data(self):
+        conn_nol=psutil.net_connections()
+        self.x = self.x[1:]  # Remove the first y element.
+        self.x.append(self.x[-1] + 1)  # Add a new value 1 higher than the last.
+
+        self.y = self.y[1:]  # Remove the first
+        self.y.append((len(conn_nol)))  # Add a new random value.
+
+        self.data_line.setData(self.x, self.y)  # Update the data.
+
+        #UPDATE TEXT ASWELL
+       
+
+
+
+        self.label_6.setText("Total Net Connections Live: " + str(len(conn_nol)))
+
+
+
+
+
+
+
+  
     
 
     def goBack(self):
-        print("clicked")
+
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
@@ -206,7 +250,7 @@ class Help(QMainWindow):
     
 
     def goBack(self):
-        print("clicked")
+
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
@@ -228,10 +272,12 @@ class Ports(QMainWindow):
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(QtWidgets.qApp.quit)
         self.pushButton_14.clicked.connect(self.goBack)
+        global conn
+        self.textEdit.append(str(conn))
     
 
     def goBack(self):
-        print("clicked")
+   
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
@@ -257,7 +303,7 @@ class Devices(QMainWindow):
     
 
     def goBack(self):
-        print("clicked")
+   
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
