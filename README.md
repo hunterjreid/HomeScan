@@ -13,9 +13,10 @@
 #### HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
 
 ## Install
+<i>Usage may differ</i>
 1. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
 2. Enter directory ``` cd HomeScan```
-3. ``` pip install PyQt5 psutil pyqtgraph matplotlib```
+3. Install pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib```
 4. Run main.py
 
 ## Main Features  
