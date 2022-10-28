@@ -4,6 +4,8 @@
   <img width="350px" src="https://user-images.githubusercontent.com/62681404/191140983-4e4e9a96-bd8a-4ee9-a5ba-532f5b73a4c2.png" alt="HomeScan"/>
 </p>
 
+
+
 # HomeScan
 <sub>Created by Hunter Reid</sub>  
 <sub>Created by Catherine Daniels</sub>  
@@ -25,6 +27,10 @@
 - [x] Network Interfaces (View All)
 - [x] Network Stats `(UPLOAD DOWNLOAD LIFE CHARTS)`
 
+
+![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)
+
+
 ### Secondary Features
 
 - [ ] Account create and login ( webserver )
@@ -35,3 +41,7 @@
 
 ## Todos next 
 - [ ] new type of graph (scatter graph ?)
+
+
+
+
