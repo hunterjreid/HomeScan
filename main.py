@@ -1,20 +1,20 @@
-import psutil
-from PyQt5 import QtCore, QtWidgets, uic
-from PyQt5.QtCore import Qt, QPoint
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
-import pyqtgraph as pg
-import numpy as np
-from pyqtgraph import PlotWidget, plot
-import sys  # We need sys so that we can pass argv to QApplication
-from random import randint
-from pyqtgraph import PlotWidget, plot
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-import socket
 import os
+import socket
 import subprocess
+import sys  # We need sys so that we can pass argv to QApplication
 import webbrowser
+from random import randint
 
+import numpy as np
+import psutil
+import pyqtgraph as pg
+from matplotlib.backends.backend_qt5agg import \
+    FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+from PyQt5 import QtCore, QtWidgets, uic
+from PyQt5.QtCore import QPoint, Qt
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow
+from pyqtgraph import PlotWidget, plot
 
 global conn
 global time
@@ -243,6 +243,7 @@ class Help(QMainWindow):
     def __init__(self):
         super(Help,self).__init__()
         uic.loadUi('router/help.ui',self)
+
         
         #connect min full and exit tab (top right) to UI
 

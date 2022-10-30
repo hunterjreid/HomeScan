@@ -8,15 +8,16 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+from typing_extensions import Self
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+    QPalette, QPixmap, QRadialGradient, QTransform,)
 from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QPushButton,
-    QSizePolicy, QTextEdit, QVBoxLayout, QWidget)
+    QSizePolicy, QTextEdit, QVBoxLayout, QWidget, QScrollArea)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -51,6 +52,8 @@ class Ui_MainWindow(object):
         self.pushButton.setStyleSheet(u"BACKGROUND-COLOR: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0.00568182 rgba(227, 198, 43, 255), stop:1 rgba(191, 32, 32, 255));\n"
 "font-size:24px;\n"
 "color:white;")
+
+
 
         self.verticalLayout.addWidget(self.pushButton)
 
