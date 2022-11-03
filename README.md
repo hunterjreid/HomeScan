@@ -14,6 +14,35 @@
 ## What is HomeScan?
 #### HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
 
+### Secondary Features
+
+- [ ] Account create and login ( webserver )
+- [ ] Create specific scan (see code below)
+```
+Enter the IP address: 127.0.0.1
+Enter the Starting Number: 1
+Enter the Last Number: 10
+
+127.0.0.1 is live
+127.0.0.2 is live
+127.0.0.3 is live
+127.0.0.4 is live
+127.0.0.5 is live
+127.0.0.6 is live
+127.0.0.7 is live
+127.0.0.8 is live
+127.0.0.9 is live
+127.0.0.10 is live
+Scanning completed in: 0:00:00.230025
+```
+
+## Bugs to fix
+- [ ] Resizing hiding, docking, fullscreening with custom buttons?  
+- [ ] Moving window gltich
+
+## Todos next 
+- [ ] new type of graph (scatter graph ?)
+
 ## Install
 <i>Usage case may differ</i>
 1. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
@@ -30,17 +59,6 @@
 
 ![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)
 
-
-### Secondary Features
-
-- [ ] Account create and login ( webserver )
-
-## Bugs to fix
-- [ ] Resizing hiding, docking, fullscreening with custom buttons?  
-- [ ] Moving window gltich
-
-## Todos next 
-- [ ] new type of graph (scatter graph ?)
 
 
 

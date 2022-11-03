@@ -1,20 +1,21 @@
-import os
-import socket
-import subprocess
-import sys  # We need sys so that we can pass argv to QApplication
-import webbrowser
-from random import randint
-
-import numpy as np
 import psutil
-import pyqtgraph as pg
-from matplotlib.backends.backend_qt5agg import \
-    FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
 from PyQt5 import QtCore, QtWidgets, uic
-from PyQt5.QtCore import QPoint, Qt
-from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow
+from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+import pyqtgraph as pg
+import numpy as np
 from pyqtgraph import PlotWidget, plot
+import sys  # We need sys so that we can pass argv to QApplication
+from random import randint
+from pyqtgraph import PlotWidget, plot
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import socket
+import os
+import subprocess
+import webbrowser
+from datetime import datetime
+
 
 global conn
 global time
@@ -32,34 +33,27 @@ class HomeScanMain(QMainWindow):
         self.min.clicked.connect(self.showMinimized)
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(QtWidgets.qApp.quit)
-
-        #uptimer
-        self.curr_time = QtCore.QTime(00,00,00)
-        self.timer0 = QtCore.QTimer()
-
-        self.timer0.setInterval(1000)
-        self.timer0.timeout.connect(self.startTimer)
-        self.timer0.start()
-
         self.pushButton.clicked.connect(self.goToLivePanel)
         self.pushButton_2.clicked.connect(self.goToPorts)
         self.pushButton_3.clicked.connect(self.goToDevices)
         self.pushButton_12.clicked.connect(self.open)
+        self.pushButton_16.clicked.connect(self.advanced_module)
         self.pushButton_13.clicked.connect(self.goToHelp)
+
+        #graphs
         
         self.graphicsView.setBackground('black')
-        # self.graphicsView.setTitle("Real-Time network graph", color="lightgray", size="16pt")
         self.graphicsView.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Value 1</span>")
         self.graphicsView.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">Value 2</span>")
-
-        self.graphicsView2.setBackground('black')
-        # self.graphicsView.setTitle("Real-Time network graph", color="lightgray", size="16pt")
-        self.graphicsView2.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Value 3</span>")
-        self.graphicsView2.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">Value 4</span>")
 
         pen = pg.mkPen(color=(227, 198, 43), width=1, style=QtCore.Qt.DashLine)
         self.graphicsView.setBackground('black')
         self.graphicsView.plot([1,2,3,4,5,6,7,8,9,10], [30,32,34,32,33,31,29,32,35,45], pen=pen)
+
+        self.graphicsView2.setBackground('black')
+
+        self.graphicsView2.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Value 3</span>")
+        self.graphicsView2.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">Value 4</span>")
 
 
         pen = pg.mkPen(color=(191, 32, 32), width=1, style=QtCore.Qt.DashLine)
@@ -77,7 +71,7 @@ class HomeScanMain(QMainWindow):
         stats=psutil.net_if_stats()
 
 
-        self.label_13.setText("Welcome back Hunter, Total Net Connections: " + str(len(conn)) + " Network Interfaces: " + str(len(stats)))
+        self.label_13.setText("Welcome back, Total Net Connections: " + str(len(conn)) + " Network Interfaces: " + str(len(stats)))
 
         self.data_line = self.graphicsView2.plot(self.x, self.y, pen=pen)
         self.loadtable()
@@ -147,6 +141,11 @@ class HomeScanMain(QMainWindow):
         widget.addWidget(livePanel)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+    def advanced_module(self):
+        Advancedscreen = AdvancedScreen()
+        widget.addWidget(Advancedscreen)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
     def goToPorts(self):
         ports = Ports()
         widget.addWidget(ports)
@@ -168,12 +167,6 @@ class HomeScanMain(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
-
-    #Start timer and update UI
-    def startTimer(self):
-        global time
-        time = time.addSecs(1)
-        self.label_TimerText.setText("Uptime: " + str(time.toString("hh:mm:ss")))
 
 class LivePanel(QMainWindow):
     def __init__(self):
@@ -238,7 +231,6 @@ class LivePanel(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
-
 class Help(QMainWindow):
     def __init__(self):
         super(Help,self).__init__()
@@ -262,7 +254,6 @@ class Help(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
-
 class Ports(QMainWindow):
     def __init__(self):
         super(Ports,self).__init__()
@@ -289,7 +280,42 @@ class Ports(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
+class AdvancedScreen(QMainWindow):
+    def __init__(self):
+        super(AdvancedScreen,self).__init__()
+        uic.loadUi('router/advanced_scan_module.ui',self)
+        
+        #connect min full and exit tab (top right) to UI
+        self.min.clicked.connect(self.showMinimized)
+        self.full.clicked.connect(self.toggleFull)
+        self.exit.clicked.connect(QtWidgets.qApp.quit)
+        self.pushButton_14.clicked.connect(self.goBack)
+        global conn
+        print(len(sys.argv))
+        hostname=socket.gethostname()   
+        IPAddr=socket.gethostbyname(hostname)   
+        #target = socket.gethostbyname(sys.argv[1])
+        self.textEdit.append(str("Hostname : " + str(hostname)))
+        self.textEdit.append(str("Scanning IP : " + str(IPAddr)))
+        self.textEdit.append(str("Scan Started : " + str(datetime.now())))
 
+
+
+  
+            
+
+    def goBack(self):
+   
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
 class Devices(QMainWindow):
     def __init__(self):
         super(Devices,self).__init__()
@@ -315,7 +341,6 @@ class Devices(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
-
 
 #init app !
 if __name__ == '__main__':
