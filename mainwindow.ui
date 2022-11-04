@@ -405,7 +405,7 @@ color:rgb(255, 255, 255);
 font-size:17px;</string>
                </property>
                <property name="text">
-                <string>Super Scan</string>
+                <string>Scan</string>
                </property>
               </widget>
              </item>

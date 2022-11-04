@@ -39,6 +39,7 @@ class HomeScanMain(QMainWindow):
         self.pushButton_12.clicked.connect(self.open)
         self.pushButton_16.clicked.connect(self.advanced_module)
         self.pushButton_13.clicked.connect(self.goToHelp)
+        self.pushButton_7.clicked.connect(self.gotoTrafficHistory)
 
         #graphs
         
@@ -136,6 +137,11 @@ class HomeScanMain(QMainWindow):
 
 
     # router
+    def gotoTrafficHistory(self):
+        trafficHistory = TrafficHistory()
+        widget.addWidget(trafficHistory)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
     def goToLivePanel(self):
         livePanel = LivePanel()
         widget.addWidget(livePanel)
@@ -254,6 +260,31 @@ class Help(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
+
+class TrafficHistory(QMainWindow):
+    def __init__(self):
+        super(TrafficHistory,self).__init__()
+        uic.loadUi('router/traffic_history.ui',self)
+
+        
+        #connect min full and exit tab (top right) to UI
+
+        self.pushButton.clicked.connect(self.goBack)
+    
+
+    def goBack(self):
+
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
+
 class Ports(QMainWindow):
     def __init__(self):
         super(Ports,self).__init__()
@@ -372,6 +403,16 @@ class Devices(QMainWindow):
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(QtWidgets.qApp.quit)
         self.pushButton_14.clicked.connect(self.goBack)
+
+
+        last_received = psutil.net_io_counters().bytes_recv
+        last_sent = psutil.net_io_counters().bytes_sent
+        last_total = last_received + last_sent
+        mb_new_received = last_received / 1024 / 1024
+        mb_new_sent = last_sent / 1024 / 1024
+        mb_new_total = last_total / 1024 / 1024
+        self.lineEdit.setText(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total.")
+
         
     
 
