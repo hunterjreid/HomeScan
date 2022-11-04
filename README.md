@@ -20,7 +20,10 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 
 ## Secondary Features Coming soon!
 - [ ] Account create and login ( webserver )
-- [ ] Create specific scan (see code below)
+- [ ] Add this see below
+```1385.92 MB received, 79.68 MB sent, 1465.60 MB total.
+1385.92 MB received, 79.68 MB sent, 1465.60 MB total.
+```
 - [ ] Normal Scan feature
 - [ ] History router connected
 - [ ] new type of graph (scatter graph ?)
