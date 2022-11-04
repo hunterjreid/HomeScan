@@ -22,8 +22,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>718</width>
-      <height>398</height>
+      <width>771</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -223,78 +223,6 @@ margin-top:0px;</string>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QFrame" name="logo_menu">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>78</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));</string>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="maximumSize">
-           <size>
-            <width>331</width>
-            <height>61</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background:none;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>assets/logo.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_7">
-       <property name="styleSheet">
-        <string notr="true">color: white;
-border: 20px;
-top:0;
-border: none;
-background: none;
-font-size: 19px;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>assets/qt.png</pixmap>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QFrame" name="frame">
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_10"/>
-      </widget>
-     </item>
      <item alignment="Qt::AlignBottom">
       <widget class="QFrame" name="footer">
        <property name="styleSheet">
@@ -356,8 +284,8 @@ border:none;</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>437</y>
+      <x>20</x>
+      <y>97</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -372,8 +300,8 @@ border:none;</string>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>470</y>
+      <x>20</x>
+      <y>130</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -389,8 +317,8 @@ border: 1px solid black;</string>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>470</y>
+      <x>180</x>
+      <y>130</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -406,8 +334,8 @@ border: 1px solid black;</string>
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>470</y>
+      <x>350</x>
+      <y>130</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -423,8 +351,8 @@ border: 1px solid black;</string>
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>470</y>
+      <x>530</x>
+      <y>130</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -440,8 +368,8 @@ border: 1px solid black;</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>430</y>
+      <x>180</x>
+      <y>90</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -456,8 +384,8 @@ border: 1px solid black;</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>430</y>
+      <x>350</x>
+      <y>90</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -472,8 +400,8 @@ border: 1px solid black;</string>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>420</y>
+      <x>520</x>
+      <y>80</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -489,7 +417,7 @@ border: 1px solid black;</string>
     <property name="geometry">
      <rect>
       <x>600</x>
-      <y>550</y>
+      <y>200</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -505,9 +433,9 @@ border: 1px solid black;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>610</y>
+      <y>245</y>
       <width>700</width>
-      <height>226</height>
+      <height>561</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -527,21 +455,39 @@ border: 1px solid black;</string>
 color: black;
 padding: 20px;</string>
     </property>
+    <property name="frameShape">
+     <enum>QFrame::HLine</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="documentTitle">
+     <string>Test</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;title&gt;Test&lt;/title&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;Advanced Scan Module: &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;Advanced Scan Module: &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_14">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>870</y>
+      <x>20</x>
+      <y>890</y>
       <width>718</width>
       <height>21</height>
      </rect>
@@ -558,6 +504,25 @@ border:none;</string>
     <property name="icon">
      <iconset>
       <normaloff>../assets/back.png</normaloff>../assets/back.png</iconset>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>200</y>
+      <width>441</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="textVisible">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>

@@ -297,7 +297,53 @@ class AdvancedScreen(QMainWindow):
         #target = socket.gethostbyname(sys.argv[1])
         self.textEdit.append(str("Hostname : " + str(hostname)))
         self.textEdit.append(str("Scanning IP : " + str(IPAddr)))
-        self.textEdit.append(str("Scan Started : " + str(datetime.now())))
+        self.textEdit.append(str("Scan Init : " + str(datetime.now())))
+
+        self.pushButton.clicked.connect(self.addTxt)
+
+    
+    def addTxt(self):
+        global clicked
+
+        target = self.lineEdit.text()
+        s_port = int(self.lineEdit_2.text())
+        e_port = int(self.lineEdit_3.text())
+        ms = int(self.lineEdit_4.text())
+
+        self.progressBar.setMinimum(s_port)
+        self.progressBar.setMaximum(e_port)
+        self.progressBar.setValue(s_port)
+
+        self.textEdit.append(str("-" * 45))
+        self.textEdit.append(str("Scanning Target: " + target))
+        self.textEdit.append(str("Scanning Ports: " + self.lineEdit_2.text() + " - " + self.lineEdit_3.text()))
+        self.textEdit.append(str("Scanning started at: " + str(datetime.now())))
+        self.textEdit.append(str("-" * 45))
+        try:
+            for port in range(s_port, (e_port+1)):
+                print(self.progressBar.setValue(self.progressBar.value() + 1))
+                # self.horizontalSlider.setValue(self, 1)
+                s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                socket.setdefaulttimeout(ms/1000)
+                #print(str(s.connect_ex((target, port))))
+                res = s.connect_ex((target, port))
+                #self.textEdit.append(str(s.connect_ex((target, port))))
+            
+                if res == 0:
+                    print("Port " + str(port) + " is OPEN")
+                    self.textEdit.append(str("Port " + str(port) + " is OPEN✅"))
+                else:
+                    print("Port " + str(port) + " is close")
+                    self.textEdit.append(str("Port " + str(port) + " is closed❌"))
+                # 
+                # if result==0:
+                #     self.textEdit.append(str("Port " + str(port) + " is open"))
+                # else:
+                #     self.textEdit.append(str("Port " + str(port) + " is Closed"))
+                self.textEdit.repaint()
+                s.close()
+        except:
+            print("Something else went wrong")
 
 
 
