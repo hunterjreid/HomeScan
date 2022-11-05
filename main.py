@@ -412,6 +412,8 @@ class ConnList(QMainWindow):
         self.pushButton_14.clicked.connect(self.goBack)
         self.listWidget.itemClicked.connect(self.Clicked)
         self.pushButton_15.clicked.connect(self.open)
+
+
    
         global conn
         self.selected_port = 10
@@ -437,8 +439,6 @@ class ConnList(QMainWindow):
                 self.listWidget.item(row).setBackground(QColor(150,145,251,22))
             row=row+1
 
-
-        
     def open(self):
         webbrowser.open('https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search='+str(self.lineEdit.text()))  
 

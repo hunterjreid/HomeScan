@@ -23,8 +23,9 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 - [x] advanced scan module
 - [ ] Normal Scan feature - *Started*
 
-# Urgent todo:
-- [ ] connection mainwindows graphs 
+# Settings page:
+![image](https://user-images.githubusercontent.com/62681404/200146722-0f7725e7-1745-4c3d-9681-509fb90e6e1d.png)
+
 
 ## Secondary Features Coming soon!
 
