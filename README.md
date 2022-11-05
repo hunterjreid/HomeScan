@@ -21,14 +21,19 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 - [x] Network Interfaces (View All)
 - [x] Network Stats `(UPLOAD DOWNLOAD LIFE CHARTS)`
 - [x] advanced scan module
+- [ ] Normal Scan feature - *Started*
+
+# Urgent todo:
+- [ ] connection mainwindows graphs 
 
 ## Secondary Features Coming soon!
-- [ ] Normal Scan feature
+
 - [ ] Account create and login ( webserver )
 - [ ] History router connected
 - [ ] new type of graph (scatter graph ?)
 
 ## Bugs to fix
+- [ ] advanced scan module - click will crash app. Add click exemption while scanning
 - [ ] Moving window gltich resizing? - window moving,  Resizing hiding, docking, fullscreening with custom buttons?  
 
 # Install
@@ -39,4 +44,3 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 4. Run main.py
 
 ![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)
-![Untitled-2](https://user-images.githubusercontent.com/62681404/199856784-81575e7f-9a8f-44e4-9add-6804bc56f9fc.png)

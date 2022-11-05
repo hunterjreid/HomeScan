@@ -15,7 +15,7 @@ import os
 import subprocess
 import webbrowser
 from datetime import datetime
-
+from PyQt5.QtGui import QPainter, QColor, QPen
 
 global conn
 global time
@@ -40,6 +40,8 @@ class HomeScanMain(QMainWindow):
         self.pushButton_16.clicked.connect(self.advanced_module)
         self.pushButton_13.clicked.connect(self.goToHelp)
         self.pushButton_7.clicked.connect(self.gotoTrafficHistory)
+        self.pushButton_9.clicked.connect(self.goToSettings)
+        self.pushButton_10.clicked.connect(self.goToScan)
 
         #graphs
         
@@ -99,10 +101,20 @@ class HomeScanMain(QMainWindow):
             self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(person[6])))
             self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(person[2])))
 
-            
 
+            if str(person[5]) == "NONE":
+                self.tableWidget.item(row, 0).setBackground(QColor(33,34,31))
+            elif str(person[5]) == "CLOSE_WAIT":
+                self.tableWidget.item(row, 0).setBackground(QColor(255,255,102))
+            elif str(person[5]) == "ESTABLISHED":
+                self.tableWidget.item(row, 0).setBackground(QColor(76,154,1))
+            elif str(person[5]) == "LISTEN":
+                self.tableWidget.item(row, 0).setBackground(QColor(0,254,251))
+            elif str(person[5]) == "SYN_SENT":
+                self.tableWidget.item(row, 0).setBackground(QColor(255,4,111))
+            elif str(person[5]) == "FIN_WAIT2":
+                self.tableWidget.item(row, 0).setBackground(QColor(150,145,251))
      
-
             # self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(person[row][1])))
             # self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(person[row][5])))
             # self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(person[row][3])))
@@ -125,7 +137,11 @@ class HomeScanMain(QMainWindow):
             self.tableWidget_2.setItem(row, 3, QtWidgets.QTableWidgetItem(str(people[key][3])))
             self.tableWidget_2.setItem(row, 4, QtWidgets.QTableWidgetItem(str(people[key][1])))
 
-    
+
+            if people[key][0] == False:
+                self.tableWidget_2.item(row, 1).setBackground(QColor(100,4,1))
+            else:
+                self.tableWidget_2.item(row, 1).setBackground(QColor(1,100,1))
 
             row=row+1
 
@@ -152,6 +168,12 @@ class HomeScanMain(QMainWindow):
         widget.addWidget(Advancedscreen)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+    
+    def goToSettings(self):
+        settings = Settings()
+        widget.addWidget(settings)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
     def goToPorts(self):
         ports = Ports()
         widget.addWidget(ports)
@@ -160,6 +182,12 @@ class HomeScanMain(QMainWindow):
     def goToDevices(self):
         devices = Devices()
         widget.addWidget(devices)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    
+    def goToScan(self):
+        scan = Scan()
+        widget.addWidget(scan)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     def goToHelp(self):
@@ -237,6 +265,8 @@ class LivePanel(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
+
+
 class Help(QMainWindow):
     def __init__(self):
         super(Help,self).__init__()
@@ -284,6 +314,56 @@ class TrafficHistory(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
+
+class Settings(QMainWindow):
+    def __init__(self):
+        super(Settings,self).__init__()
+        uic.loadUi('router/settings.ui',self)
+
+        
+        #connect min full and exit tab (top right) to UI
+
+        self.pushButton_14.clicked.connect(self.goBack)
+    
+
+    def goBack(self):
+
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
+
+
+class Scan(QMainWindow):
+    def __init__(self):
+        super(Scan,self).__init__()
+        uic.loadUi('router/scan.ui',self)
+
+        
+        #connect min full and exit tab (top right) to UI
+
+        self.pushButton_4.clicked.connect(self.goBack)
+    
+
+    def goBack(self):
+
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
+
 
 class Ports(QMainWindow):
     def __init__(self):

@@ -905,11 +905,6 @@ margin:0px;</string>
              </column>
              <column>
               <property name="text">
-               <string>New Column</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
                <string>IP</string>
               </property>
              </column>
