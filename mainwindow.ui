@@ -866,7 +866,7 @@ color:white;</string>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_9">
+            <widget class="QFrame" name="frame_5">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -874,13 +874,67 @@ color:white;</string>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
+              <string notr="true">margin:0px;
+padding:0px;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_16">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
 color:rgb(255, 255, 255);
-font-size:17px;</string>
-             </property>
-             <property name="text">
-              <string>List of connections ( Double click to open )</string>
-             </property>
+font-size:13px;
+background:none;margin:0px;
+padding:0px;</string>
+                </property>
+                <property name="text">
+                 <string>List of connections (Learn more )</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_17">
+                <property name="styleSheet">
+                 <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+padding: 20px;
+
+color:white;
+margin-left:10px;
+padding:10px;</string>
+                </property>
+                <property name="text">
+                 <string>View Extended</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
            <item>
@@ -897,6 +951,15 @@ padding:0px;
 background: black;
 color:grey;
 margin:0px;</string>
+             </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
+             <property name="horizontalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>false</bool>
              </property>
              <column>
               <property name="text">
@@ -915,7 +978,7 @@ margin:0px;</string>
              </column>
              <column>
               <property name="text">
-               <string>Type</string>
+               <string>PID</string>
               </property>
              </column>
             </widget>
@@ -997,9 +1060,10 @@ border:none;</string>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
+              <string notr="true">background-color: none;
 color:rgb(255, 255, 255);
-font-size:17px;</string>
+font-size:17px;
+</string>
              </property>
              <property name="text">
               <string>Network Interfaces List</string>
@@ -1021,6 +1085,12 @@ background: black;
 color:grey;
 margin:0px;</string>
              </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
+             <property name="horizontalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
              <column>
               <property name="text">
                <string>Name</string>
@@ -1039,11 +1109,6 @@ margin:0px;</string>
              <column>
               <property name="text">
                <string>MTU</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Dueplex</string>
               </property>
              </column>
             </widget>

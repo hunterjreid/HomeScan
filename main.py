@@ -16,6 +16,9 @@ import subprocess
 import webbrowser
 from datetime import datetime
 from PyQt5.QtGui import QPainter, QColor, QPen
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
 
 global conn
 global time
@@ -42,41 +45,70 @@ class HomeScanMain(QMainWindow):
         self.pushButton_7.clicked.connect(self.gotoTrafficHistory)
         self.pushButton_9.clicked.connect(self.goToSettings)
         self.pushButton_10.clicked.connect(self.goToScan)
+        self.pushButton_17.clicked.connect(self.goToConnList)
 
         #graphs
-        
-        self.graphicsView.setBackground('black')
-        self.graphicsView.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Value 1</span>")
-        self.graphicsView.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">Value 2</span>")
-
-        pen = pg.mkPen(color=(227, 198, 43), width=1, style=QtCore.Qt.DashLine)
-        self.graphicsView.setBackground('black')
-        self.graphicsView.plot([1,2,3,4,5,6,7,8,9,10], [30,32,34,32,33,31,29,32,35,45], pen=pen)
-
-        self.graphicsView2.setBackground('black')
-
-        self.graphicsView2.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Value 3</span>")
-        self.graphicsView2.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">Value 4</span>")
-
-
-        pen = pg.mkPen(color=(191, 32, 32), width=1, style=QtCore.Qt.DashLine)
-
-
-        self.x = list(range(100))  # 100 time points
-        self.y = [randint(0,100) for _ in range(100)]  # 100 data points
-
-        self.graphicsView2.setBackground('black')
-        self.x = list(range(50))  # 100 time points
-        self.y = [randint(30,70) for _ in range(50)]  # 100 data points
-
         global conn
         conn=psutil.net_connections()
+        self.graphicsView.setBackground('black')
+        self.graphicsView.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Speed</span>")
+        self.graphicsView.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">Name</span>")
+
+        pen = pg.mkPen(color=(191, 32, 32), width=1, style=QtCore.Qt.DashLine)
+        self.graphicsView.setBackground('black')
+
+        row = 0
+        port_x = []
+        PID_y = []
+        people=psutil.net_connections()
+        for person in people:
+            port_x.append(person[6])  
+            PID_y.append(people[row][3][1])
+            row=row+1
+
+
+                
+
+
+        
+        
+        
+
+        self.graphicsView2.plot(port_x, PID_y, pen=pen, symbol='x', symbolSize=4, symbolBrush=('red'))
+
+        self.graphicsView2.setBackground('black')
+
+        self.graphicsView2.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Port #</span>")
+        self.graphicsView2.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">PID</span>")
+
+        pen = pg.mkPen(color=(227, 198, 43), width=1, style=QtCore.Qt.DashLine)
+
+        row = 0
+        self.x = []
+        self.y = []
         stats=psutil.net_if_stats()
+
+        
+        for key in stats:
+            self.x.append(stats[key][3])  
+            self.y.append(stats[key][2])
+            row=row+1
+
+
+    
+
+
+
+        self.graphicsView2.setBackground('black')
+
+        
+        
+        
 
 
         self.label_13.setText("Welcome back, Total Net Connections: " + str(len(conn)) + " Network Interfaces: " + str(len(stats)))
 
-        self.data_line = self.graphicsView2.plot(self.x, self.y, pen=pen)
+        self.data_line = self.graphicsView.plot(self.x, self.y, pen=pen, symbol='x', symbolSize=18, symbolBrush=('orangered'))
         self.loadtable()
         self.loadtable2()
 
@@ -126,7 +158,6 @@ class HomeScanMain(QMainWindow):
     def loadtable2(self):
         people=psutil.net_if_stats()
 
-
         row = 0
         self.tableWidget_2.setRowCount(len(people))
 
@@ -135,7 +166,7 @@ class HomeScanMain(QMainWindow):
             self.tableWidget_2.setItem(row, 1, QtWidgets.QTableWidgetItem(str(people[key][0])))
             self.tableWidget_2.setItem(row, 2, QtWidgets.QTableWidgetItem(str(people[key][2])))
             self.tableWidget_2.setItem(row, 3, QtWidgets.QTableWidgetItem(str(people[key][3])))
-            self.tableWidget_2.setItem(row, 4, QtWidgets.QTableWidgetItem(str(people[key][1])))
+
 
 
             if people[key][0] == False:
@@ -184,6 +215,10 @@ class HomeScanMain(QMainWindow):
         widget.addWidget(devices)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+    def goToConnList(self):
+        connList = ConnList()
+        widget.addWidget(connList)
+        widget.setCurrentIndex(widget.currentIndex()+1)
     
     def goToScan(self):
         scan = Scan()
@@ -363,6 +398,72 @@ class Scan(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
+
+
+class ConnList(QMainWindow):
+    def __init__(self):
+        super(ConnList,self).__init__()
+        uic.loadUi('router/conn_list.ui',self)
+        
+        #connect min full and exit tab (top right) to UI
+        self.min.clicked.connect(self.showMinimized)
+        self.full.clicked.connect(self.toggleFull)
+        self.exit.clicked.connect(QtWidgets.qApp.quit)
+        self.pushButton_14.clicked.connect(self.goBack)
+        self.listWidget.itemClicked.connect(self.Clicked)
+        self.pushButton_15.clicked.connect(self.open)
+   
+        global conn
+        self.selected_port = 10
+        #self.textEdit.append(str(conn))
+        row = 0
+        # self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(people[row][3][0])))
+        # self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(people[row][3][1])))
+
+        for person in conn:
+            self.listWidget.addItem(str(conn[row][3][0]) + ":" + str(conn[row][3][1]) + " | " + str(person[5]))
+
+            if str(person[5]) == "NONE":
+                self.listWidget.item(row).setBackground(QColor(113,54,51,44))
+            elif str(person[5]) == "CLOSE_WAIT":
+                self.listWidget.item(row).setBackground(QColor(255,255,102,22))
+            elif str(person[5]) == "ESTABLISHED":
+                self.listWidget.item(row).setBackground(QColor(76,154,1,22))
+            elif str(person[5]) == "LISTEN":
+                self.listWidget.item(row).setBackground(QColor(0,254,251,22))
+            elif str(person[5]) == "SYN_SENT":
+                self.listWidget.item(row).setBackground(QColor(255,4,111,22))
+            elif str(person[5]) == "FIN_WAIT2":
+                self.listWidget.item(row).setBackground(QColor(150,145,251,22))
+            row=row+1
+
+
+        
+    def open(self):
+        webbrowser.open('https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search='+str(self.lineEdit.text()))  
+
+
+    def Clicked(self,item):
+        index = self.listWidget.currentRow()
+        self.lineEdit.setText(str(conn[index][3][1]))
+        # self.selected_port = conn[item.in][3][1]
+        self.textEdit.append(str( "You clicked: "+item.text() + " Port :" + str(conn[index][3][1])))
+     
+    
+
+    def goBack(self):
+   
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
+
 
 
 class Ports(QMainWindow):
