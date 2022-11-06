@@ -2,7 +2,7 @@
      
 <p align="center"><br>
   <img width="350px" style="margin-bottom:20px;" src="https://user-images.githubusercontent.com/62681404/191140983-4e4e9a96-bd8a-4ee9-a5ba-532f5b73a4c2.png" alt="HomeScan"/><br>
-  <img src="https://user-images.githubusercontent.com/62681404/199938369-7729a1a6-6aa5-45ce-8584-fcb24c93df1f.png">
+  <br><img src="https://user-images.githubusercontent.com/62681404/199938369-7729a1a6-6aa5-45ce-8584-fcb24c93df1f.png"><br>
 
 </p>
 
