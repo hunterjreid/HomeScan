@@ -11,7 +11,7 @@ from pyqtgraph import PlotWidget, plot
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import socket
-import os
+import os, ipaddress
 import subprocess
 import webbrowser
 from datetime import datetime
@@ -47,6 +47,7 @@ class HomeScanMain(QMainWindow):
         self.pushButton_10.clicked.connect(self.goToScan)
         self.pushButton_17.clicked.connect(self.goToConnList)
         self.pushButton_8.clicked.connect(self.goToOverview)
+        self.pushButton_5.clicked.connect(self.goToAlerts)
 
 
 
@@ -211,6 +212,11 @@ class HomeScanMain(QMainWindow):
     def goToPorts(self):
         ports = Ports()
         widget.addWidget(ports)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def goToAlerts(self):
+        alerts = Alerts()
+        widget.addWidget(alerts)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     def goToDevices(self):
@@ -448,6 +454,8 @@ class ConnList(QMainWindow):
         self.listWidget.itemClicked.connect(self.Clicked)
         self.pushButton_15.clicked.connect(self.open)
 
+        self.pushButton.clicked.connect(self.scanIP)
+
 
    
         global conn
@@ -477,6 +485,16 @@ class ConnList(QMainWindow):
     def open(self):
         webbrowser.open('https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search='+str(self.lineEdit.text()))  
 
+    def scanIP(self):
+        try: 
+            ipaddress.ip_address(self.lineEdit_2.text())
+
+            self.label_8.setText('IP Valid')
+        except: 
+           
+            self.label_8.setText('IP is not valid, NOT IPv4 or IPv6 address')
+        
+
 
     def Clicked(self,item):
         index = self.listWidget.currentRow()
@@ -499,6 +517,39 @@ class ConnList(QMainWindow):
             else:
                 self.showFullScreen()
 
+
+class Alerts(QMainWindow):
+    def __init__(self):
+        super(Alerts,self).__init__()
+        uic.loadUi('router/alerts.ui',self)
+        
+        #connect min full and exit tab (top right) to UI
+        self.min.clicked.connect(self.showMinimized)
+        self.full.clicked.connect(self.toggleFull)
+        self.exit.clicked.connect(QtWidgets.qApp.quit)
+        self.pushButton_14.clicked.connect(self.goBack)
+
+
+        devices = []
+        for device in os.popen('arp -a'):
+            devices.append(device)
+            self.listWidget.addItem(str(device))
+
+
+    
+
+    def goBack(self):
+   
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
 
 
 class Ports(QMainWindow):
@@ -533,6 +584,8 @@ class Ports(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
+
+
 class AdvancedScreen(QMainWindow):
     def __init__(self):
         super(AdvancedScreen,self).__init__()

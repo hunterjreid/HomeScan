@@ -279,7 +279,7 @@ font-size: 19px;</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>20</y>
+         <y>140</y>
          <width>351</width>
          <height>111</height>
         </rect>
@@ -298,9 +298,9 @@ border:none;</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>110</y>
+         <y>230</y>
          <width>701</width>
-         <height>491</height>
+         <height>371</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -321,9 +321,9 @@ border: 1.4px dashed orange;</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>680</y>
+         <y>720</y>
          <width>700</width>
-         <height>201</height>
+         <height>161</height>
         </rect>
        </property>
        <property name="minimumSize">
@@ -426,9 +426,9 @@ border:none;</string>
       <widget class="QLineEdit" name="lineEdit_2">
        <property name="geometry">
         <rect>
-         <x>300</x>
+         <x>230</x>
          <y>60</y>
-         <width>431</width>
+         <width>261</width>
          <height>41</height>
         </rect>
        </property>
@@ -439,6 +439,79 @@ margin:2px;</string>
        </property>
        <property name="text">
         <string>ewq</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>60</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <property name="text">
+        <string>CHECK IF IP</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>70</y>
+         <width>181</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+font-size:25px;
+background:none;
+border:none;</string>
+       </property>
+       <property name="text">
+        <string>IP_VALIDATOR</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>140</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+font-size:15px;
+background:none;
+border:none;</string>
+       </property>
+       <property name="text">
+        <string>not</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>670</y>
+         <width>421</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+font-size:15px;
+background:none;
+border:none;</string>
+       </property>
+       <property name="text">
+        <string>After clicking on this search button scroll down to service name</string>
        </property>
       </widget>
      </widget>
