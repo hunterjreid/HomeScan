@@ -326,6 +326,36 @@ class Overview(QMainWindow):
         
 
         self.pushButton.clicked.connect(self.goBack)
+
+        global conn
+        conn=psutil.net_connections()
+        self.graphicsView.setBackground('black')
+        self.graphicsView.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Speed</span>")
+        self.graphicsView.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">Name</span>")
+
+        pen = pg.mkPen(color=(191, 32, 32), width=1, style=QtCore.Qt.DashLine)
+        self.graphicsView.setBackground('black')
+
+        row = 0
+        port_x = []
+        PID_y = []
+        people=psutil.net_connections()
+        for person in people:
+            port_x.append(person[6])  
+            PID_y.append(people[row][3][1])
+            row=row+1
+
+
+                
+
+
+        
+        
+        
+
+        self.graphicsView.plot(port_x, PID_y, pen=pen, symbol='x', symbolSize=4, symbolBrush=('red'))
+        self.graphicsView_2.plot(PID_y, port_x, pen=pen, symbol='+', symbolSize=2, symbolBrush=('orange'))
+        self.graphicsView_3.plot(port_x, port_x, pen=pen, symbol='+', symbolSize=7, symbolBrush=('blue'))
     
 
     def goBack(self):
