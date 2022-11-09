@@ -20,6 +20,9 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import os.path
+import easygui
+
+
 
 global conn
 global time
@@ -30,13 +33,14 @@ class HomeScanMain(QMainWindow):
     def __init__(self):
         super(HomeScanMain,self).__init__()
         uic.loadUi('mainwindow.ui',self)
-        self.setFixedSize(920, 1000)
+        
         self.setWindowFlags(Qt.FramelessWindowHint)
+    
         
         #connect min full and exit tab (top right) to UI
         self.min.clicked.connect(self.showMinimized)
         self.full.clicked.connect(self.toggleFull)
-        self.exit.clicked.connect(QtWidgets.qApp.quit)
+        self.exit.clicked.connect(self.quit)
         self.pushButton.clicked.connect(self.goToLivePanel)
         self.pushButton_2.clicked.connect(self.goToPorts)
         self.pushButton_3.clicked.connect(self.goToDevices)
@@ -117,7 +121,21 @@ class HomeScanMain(QMainWindow):
         self.loadtable()
         self.loadtable2()
 
-     
+    def quit(self):
+        
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Are you sure you want to exit HomeScan?")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Yes:
+            QtWidgets.qApp.quit()
+
+    
 
     def open(self):
         webbrowser.open('https://github.com/hunterjreid/HomeScan')  
@@ -719,7 +737,7 @@ class Devices(QMainWindow):
         mb_new_sent = last_sent / 1024 / 1024
         mb_new_total = last_total / 1024 / 1024
         self.lineEdit.setText(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total.")
-
+        
 
     def export(self):
         now = datetime.now()
@@ -732,6 +750,26 @@ class Devices(QMainWindow):
         toFile = self.lineEdit.text()
         file1.write(toFile)
         file1.close()
+
+      
+
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Thank you for using HomeScan.\n\nYour exports has been saved under Devices-" + str(current_time) + ".log \n\nDo you think there is something wrong with your exports? or have you found a bug? Email support@homescan.com to open a support ticket! Show the github some aswell\nhttps://github.com/hunterjreid/HomeScan")
+        msgBox.setWindowTitle("Export")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
+
+
+        # msg.setInformativeText("This is additional information")
+        # msg.setWindowTitle("MessageBox demo")
+        # msg.setDetailedText("The details are as follows:")
+        #msg.setStyleSheet("QMessageBox { background-color: #333333; }")
+
 
     def goBack(self):
    
@@ -752,7 +790,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     widget = QtWidgets.QStackedWidget()
     window = HomeScanMain()
-    widget.setFixedSize(920, 1000)
+    widget.setFixedSize(670, 700)
     widget.setWindowFlags(Qt.FramelessWindowHint)
     widget.addWidget(window)
     widget.show()

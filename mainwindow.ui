@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>913</width>
-    <height>1141</height>
+    <height>574</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -824,11 +824,11 @@ font-size: 19px;</string>
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>50</height>
+               <height>20</height>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">font-size:24px;
+              <string notr="true">color:white;font-size:14px;
 color:white;</string>
              </property>
              <property name="text">
@@ -915,7 +915,7 @@ background:none;margin:0px;
 padding:0px;</string>
                 </property>
                 <property name="text">
-                 <string>List of connections (Learn more )</string>
+                 <string>List of connections</string>
                 </property>
                </widget>
               </item>
@@ -1011,11 +1011,11 @@ border:none;</string>
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>50</height>
+               <height>20</height>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">color:white;font-size:24px;</string>
+              <string notr="true">color:white;font-size:14px;</string>
              </property>
              <property name="text">
               <string>Network Interfaces </string>
@@ -1286,57 +1286,6 @@ top:0;
                      </layout>
                     </item>
                    </layout>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Maximum</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_4">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>37</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>200</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
-color:rgb(255, 255, 255);
-font-size:17px;
-border:none;</string>
-                    </property>
-                    <property name="text">
-                     <string>Export</string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>assets/export.png</normaloff>assets/export.png</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>37</width>
-                      <height>37</height>
-                     </size>
-                    </property>
-                   </widget>
                   </item>
                  </layout>
                 </item>
