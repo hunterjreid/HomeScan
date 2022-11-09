@@ -336,7 +336,7 @@ border:none;</string>
             <x>20</x>
             <y>80</y>
             <width>771</width>
-            <height>751</height>
+            <height>271</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -363,6 +363,22 @@ border:none;</string>
           </property>
           <property name="text">
            <string> List of the devices on your local network</string>
+          </property>
+         </widget>
+         <widget class="QListWidget" name="listWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>370</y>
+            <width>771</width>
+            <height>271</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+color:rgb(255, 255, 255);
+font-size:13px;
+border:2px dashed red;</string>
           </property>
          </widget>
         </widget>

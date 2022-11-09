@@ -19,6 +19,7 @@ from PyQt5.QtGui import QPainter, QColor, QPen
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
+import os.path
 
 global conn
 global time
@@ -706,6 +707,7 @@ class Devices(QMainWindow):
         #connect min full and exit tab (top right) to UI
         self.min.clicked.connect(self.showMinimized)
         self.full.clicked.connect(self.toggleFull)
+        self.pushButton_4.clicked.connect(self.export)
         self.exit.clicked.connect(QtWidgets.qApp.quit)
         self.pushButton_14.clicked.connect(self.goBack)
 
@@ -718,8 +720,18 @@ class Devices(QMainWindow):
         mb_new_total = last_total / 1024 / 1024
         self.lineEdit.setText(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total.")
 
-        
-    
+
+    def export(self):
+        now = datetime.now()
+
+        current_time = now.strftime("%m-%d-%Y--%H-%M-%S")
+
+        name_of_file = "Devices-" + str(current_time)
+        completeName = 'exports/'+ name_of_file + ".log"
+        file1 = open(completeName , "w")
+        toFile = self.lineEdit.text()
+        file1.write(toFile)
+        file1.close()
 
     def goBack(self):
    

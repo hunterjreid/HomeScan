@@ -551,7 +551,7 @@ top:0;
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+                     <string notr="true">background-color:rgb(0, 130, 0);
 color:rgb(255, 255, 255);
 font-size:17px;
 border:none;</string>
