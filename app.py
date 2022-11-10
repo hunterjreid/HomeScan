@@ -40,7 +40,7 @@ class HomeScanMain(QMainWindow):
     
         
         #connect min full and exit tab (top right) to UI
-        self.min.clicked.connect(self.showMinimized)
+        self.minn.clicked.connect(widget.showMinimized)
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(self.quit)
         self.pushButton.clicked.connect(self.goToLivePanel)
@@ -123,6 +123,10 @@ class HomeScanMain(QMainWindow):
         self.data_line = self.graphicsView.plot(self.x, self.y, pen=pen, symbol='x', symbolSize=18, symbolBrush=('orangered'))
         self.loadtable()
         self.loadtable2()
+
+
+  
+
 
 
 
@@ -295,10 +299,10 @@ class HomeScanMain(QMainWindow):
 
     # used for the full screen btn (top right)
     def toggleFull(self):
-            if self.windowState() & QtCore.Qt.WindowFullScreen:
-                self.showNormal()
+            if widget.windowState() & QtCore.Qt.WindowFullScreen:
+                widget.showNormal()
             else:
-                self.showFullScreen()
+                widget.showFullScreen()
 
 class LivePanel(QMainWindow):
     def __init__(self):
@@ -726,7 +730,7 @@ class AdvancedScreen(QMainWindow):
             msgBox = QMessageBox()
             msgBox.setIcon(QMessageBox.Warning)
             msgBox.setText("ERROR: Something else went wrong, No IPv4 or IPv6 Found or bad connection, Faliure.")
-            msgBox.setWindowTitle("Warning")
+            msgBox.setWindowTitle("HomeScan")
             msgBox.setStandardButtons(QMessageBox.Close)
             msgBox.setWindowIcon(QIcon("assets/icon.ico"))
 
@@ -753,7 +757,7 @@ class AdvancedScreen(QMainWindow):
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)
         msgBox.setText("Thank you for using HomeScan.\n\nYour exports has been saved under ScanModule-" + str(current_time) + ".log \n\nDo you think there is something wrong with your exports? or have you found a bug? Email support@homescan.com to open a support ticket! Show the github some aswell\nhttps://github.com/hunterjreid/HomeScan")
-        msgBox.setWindowTitle("Export")
+        msgBox.setWindowTitle("HomeScan")
         msgBox.setStandardButtons(QMessageBox.Ok)
         msgBox.setWindowIcon(QIcon("assets/icon.ico"))
 
@@ -816,7 +820,7 @@ class Devices(QMainWindow):
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)
         msgBox.setText("Thank you for using HomeScan.\n\nYour exports has been saved under Devices-" + str(current_time) + ".log \n\nDo you think there is something wrong with your exports? or have you found a bug? Email support@homescan.com to open a support ticket! Show the github some aswell\nhttps://github.com/hunterjreid/HomeScan")
-        msgBox.setWindowTitle("Export")
+        msgBox.setWindowTitle("HomeScan")
         msgBox.setStandardButtons(QMessageBox.Ok)
         msgBox.setWindowIcon(QIcon("assets/icon.ico"))
 
@@ -844,8 +848,10 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     widget = QtWidgets.QStackedWidget()
     window = HomeScanMain()
+    widget.setWindowTitle("HomeScan Pro Edition")
     widget.setFixedSize(920, 550)
     widget.setWindowFlags(Qt.FramelessWindowHint)
     widget.addWidget(window)
+    widget.setWindowIcon(QIcon('assets/icon.ico'))
     widget.show()
     sys.exit(app.exec_())
