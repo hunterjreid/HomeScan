@@ -33,9 +33,10 @@ class HomeScanMain(QMainWindow):
     def __init__(self):
         super(HomeScanMain,self).__init__()
         uic.loadUi('mainwindow.ui',self)
-        
+        global hostname, IPAddr 
       
-    
+        hostname=socket.gethostname()   
+        IPAddr=socket.gethostbyname(hostname) 
         
         #connect min full and exit tab (top right) to UI
         self.minn.clicked.connect(self.mintab)
@@ -60,8 +61,8 @@ class HomeScanMain(QMainWindow):
         global conn
         conn=psutil.net_connections()
         self.graphicsView.setBackground('black')
-        self.graphicsView.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Speed</span>")
-        self.graphicsView.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">Name</span>")
+        self.graphicsView.setLabel('left', "<span style=\"color:darkgray;font-size:10px\">Speed</span>")
+        self.graphicsView.setLabel('bottom', "<span style=\"color:darkgray;font-size:10px\">Name</span>")
 
         pen = pg.mkPen(color=(191, 32, 32), width=1, style=QtCore.Qt.DashLine)
         self.graphicsView.setBackground('black')
@@ -87,8 +88,8 @@ class HomeScanMain(QMainWindow):
 
         self.graphicsView2.setBackground('black')
 
-        self.graphicsView2.setLabel('left', "<span style=\"color:darkgray;font-size:20px\">Port #</span>")
-        self.graphicsView2.setLabel('bottom', "<span style=\"color:darkgray;font-size:20px\">PID</span>")
+        self.graphicsView2.setLabel('left', "<span style=\"color:orange;font-size:10px\">Port #</span>")
+        self.graphicsView2.setLabel('bottom', "<span style=\"color:darkgray;font-size:10px\">PID</span>")
 
         pen = pg.mkPen(color=(227, 198, 43), width=1, style=QtCore.Qt.DashLine)
 
@@ -115,9 +116,9 @@ class HomeScanMain(QMainWindow):
         
 
 
-        self.label_13.setText("Welcome back, Total Net Connections: " + str(len(conn)) + " Network Interfaces: " + str(len(stats)))
+        self.label_13.setText("Welcome back, "+ str(IPAddr) +" Total Net Connections: " + str(len(conn)) + " Network Interfaces: " + str(len(stats)))
 
-        self.data_line = self.graphicsView.plot(self.x, self.y, pen=pen, symbol='x', symbolSize=18, symbolBrush=('orangered'))
+        self.data_line = self.graphicsView.plot(self.y, self.x, pen=pen, symbol='x', symbolSize=18, symbolBrush=('orangered'))
         self.loadtable()
         self.loadtable2()
 
@@ -720,25 +721,78 @@ class AdvancedScreen(QMainWindow):
         uic.loadUi('router/advanced_scan_module.ui',self)
         
         #connect min full and exit tab (top right) to UI
-        self.min.clicked.connect(self.showMinimized)
-        self.full.clicked.connect(self.toggleFull)
-        self.exit.clicked.connect(QtWidgets.qApp.quit)
+   
+
         self.pushButton_14.clicked.connect(self.goBack)
         self.pushButton_15.clicked.connect(self.export)
-        global conn
-        print(len(sys.argv))
-        hostname=socket.gethostname()   
-        IPAddr=socket.gethostbyname(hostname)   
+    
+        global conn, IPAddr, hostname
+
+
         #target = socket.gethostbyname(sys.argv[1])
         self.textEdit.append(str("Hostname : " + str(hostname)))
         self.textEdit.append(str("Scanning IP : " + str(IPAddr)))
         self.textEdit.append(str("Scan Init : " + str(datetime.now())))
 
         self.pushButton.clicked.connect(self.addTxt)
+ 
+        self.pushButton_2.clicked.connect(self.set_IP)
+
+    def set_IP(self):
+        global conn, IPAddr, hostname
+        self.lineEdit.setText(IPAddr)
 
     
+
+
     def addTxt(self):
         global clicked
+
+        if (self.lineEdit.text() == ''):
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("Please enter a Target")
+            msgBox.setWindowTitle("HomeScan")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+            returnValue = msgBox.exec()
+
+            if returnValue == QMessageBox.Ok:
+                return
+
+        elif (self.lineEdit_2.text() == ''):
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("Please enter a Starting port")
+            msgBox.setWindowTitle("HomeScan")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+            returnValue = msgBox.exec()
+
+            if returnValue == QMessageBox.Ok:
+                return
+        elif (self.lineEdit_3.text() == ''):
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("Please enter a End port")
+            msgBox.setWindowTitle("HomeScan")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+            returnValue = msgBox.exec()
+
+            if returnValue == QMessageBox.Ok:
+                return
+        elif (self.lineEdit_4.text() == ''):
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("Please enter a Time delay")
+            msgBox.setWindowTitle("HomeScan")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+            returnValue = msgBox.exec()
+
+            if returnValue == QMessageBox.Ok:
+                return
 
         target = self.lineEdit.text()
         s_port = int(self.lineEdit_2.text())
@@ -748,6 +802,10 @@ class AdvancedScreen(QMainWindow):
         self.progressBar.setMinimum(s_port)
         self.progressBar.setMaximum(e_port)
         self.progressBar.setValue(s_port)
+
+
+            
+
 
         self.textEdit.append(str("-" * 45))
         self.textEdit.append(str("Scanning Target: " + target))
@@ -760,7 +818,7 @@ class AdvancedScreen(QMainWindow):
                 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 socket.setdefaulttimeout(ms/1000)
                 res = s.connect_ex((target, port))
-
+                self.textEdit.repaint()
             
                 if res == 0:
                     self.textEdit.append(str("Port " + str(port) + " is OPEN✅"))

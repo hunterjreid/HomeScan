@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>924</width>
-    <height>1141</height>
+    <width>1165</width>
+    <height>814</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,19 +54,37 @@ text-align:center;</string>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="Help_par2">
-          <property name="maximumSize">
-           <size>
-            <width>864</width>
-            <height>16777215</height>
-           </size>
+         <widget class="QFrame" name="frame">
+          <property name="styleSheet">
+           <string notr="true">background:white;</string>
           </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#000000; background-color:#ffffff;&quot;&gt;Hello ! and welcome to home scan! we hope you enjoy your time. This is the help screen so we will walk you through the types of scans.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#000000; background-color:#ffffff;&quot;&gt;Port Scan&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;Scans IP Range&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#000000; background-color:#ffffff;&quot;&gt;Super fast IP Scan&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;Detects if IP is active&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#000000; background-color:#ffffff;&quot;&gt;Normal Scan&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;ARP nmap?&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#000000; background-color:#ffffff;&quot;&gt;Below each section you can export the data to save all the data at that time.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#000000; background-color:#ffffff;&quot;&gt;And where ever possiable a link will be with more information and how to read up on it.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:16px; color:#000000; background-color:#ffffff;&quot;&gt;HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in &lt;/span&gt;&lt;a href=&quot;https://www.python.org/&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:16px; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;Python&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:16px; color:#000000; background-color:#ffffff;&quot;&gt;. Using, &lt;/span&gt;&lt;a href=&quot;https://doc.qt.io/qtforpython/&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:16px; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;PyQt5&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:16px; color:#000000; background-color:#ffffff;&quot;&gt; and &lt;/span&gt;&lt;a href=&quot;https://psutil.readthedocs.io/en/latest/&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:16px; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;psutil&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:16px; color:#000000; background-color:#ffffff;&quot;&gt; designed with &lt;/span&gt;&lt;a href=&quot;https://build-system.fman.io/qt-designer-download&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:16px; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;Qt Designer&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#000000;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#000000; background-color:#ffffff;&quot;&gt;Check out the live screen to see the active connections to your computer aswell as port settings and &lt;/span&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; font-style:italic; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;DISABLE ANY PORT U WANT&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;Enjoy your stay !&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;https://github.com/hunterjreid/HomeScan&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;Show the github some love!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
           </property>
-          <property name="wordWrap">
-           <bool>true</bool>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
           </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="Help_par2">
+             <property name="maximumSize">
+              <size>
+               <width>43234</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: white;</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;Hello ! and welcome to home scan! we hope you enjoy your time. This is the help screen so we will walk you through the types of scans.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;Port Scan,&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;Scans IP Range,&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;Super fast IP Scan,&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;Detects if IP is active,&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;Normal Scan,&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;ARP nmap?&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;Below each section you can export the data to save all the data at that time.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;And where ever possiable a link will be with more information and how to read up on it. &lt;/span&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in &lt;/span&gt;&lt;a href=&quot;https://www.python.org/&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:10pt; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;Python&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;. Using, &lt;/span&gt;&lt;a href=&quot;https://doc.qt.io/qtforpython/&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:10pt; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;PyQt5&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt; and &lt;/span&gt;&lt;a href=&quot;https://psutil.readthedocs.io/en/latest/&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:10pt; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;psutil&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt; designed with &lt;/span&gt;&lt;a href=&quot;https://build-system.fman.io/qt-designer-download&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'; font-size:10pt; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;Qt Designer&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;Check out the live screen to see the active connections to your computer aswell as port settings and &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; text-decoration: underline; color:#000000; background-color:#ffffff;&quot;&gt;DISABLE ANY PORT U WANT&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;Enjoy your stay ! https://github.com/hunterjreid/HomeScan&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#000000; background-color:#ffffff;&quot;&gt;Show the github some love!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
@@ -83,7 +101,7 @@ font-size:24px;
 color:white;</string>
           </property>
           <property name="text">
-           <string>GO BACK</string>
+           <string>GO BACK YAY !!</string>
           </property>
          </widget>
         </item>
