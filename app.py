@@ -20,13 +20,11 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import os.path
-
+import time
 from functools import partial
 
 
 global conn
-global time
-time = QtCore.QTime(0, 0, 0)
 
 
 
@@ -40,7 +38,7 @@ class HomeScanMain(QMainWindow):
     
         
         #connect min full and exit tab (top right) to UI
-        self.minn.clicked.connect(widget.showMinimized)
+        self.minn.clicked.connect(self.mintab)
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(self.quit)
         self.pushButton.clicked.connect(self.goToLivePanel)
@@ -57,8 +55,7 @@ class HomeScanMain(QMainWindow):
         self.pushButton_8.clicked.connect(self.goToOverview)
         self.pushButton_5.clicked.connect(self.goToAlerts)
 
-
-
+     
         #graphs
         global conn
         conn=psutil.net_connections()
@@ -126,7 +123,57 @@ class HomeScanMain(QMainWindow):
 
 
   
+    def closeEvent(self, event):
+        if not self.isStarted:
+            self.animation.start()
+            self.isStarted = True
+            event.ignore()
+        else:   
+            QWidget.closeEvent(self, event)
 
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if widget.windowState() & QtCore.Qt.WindowFullScreen:
+                for i in range(10):
+                    i = i / 10
+                    widget.setWindowOpacity(1 - i)
+                    time.sleep(0.004)
+                
+                widget.showNormal()
+
+                for i in range(10):
+                    i = i * 10
+                    widget.setWindowOpacity(1 + i)
+                    time.sleep(0.004)
+
+                widget.setWindowOpacity(1)
+            else:
+
+                for i in range(10):
+                    i = i / 10
+                    widget.setWindowOpacity(1 - i)
+                    time.sleep(0.004)
+                
+                widget.showFullScreen()
+
+                for i in range(10):
+                    i = i * 10
+                    widget.setWindowOpacity(1 + i)
+                    time.sleep(0.004)
+
+                widget.setWindowOpacity(1)
+
+                
+
+
+    def mintab(self):
+        # for i in range(10):
+        #     i = i / 10
+        #     widget.setWindowOpacity(1 - i)
+        #     time.sleep(0.004)
+        widget.showMinimized()
+        #widget.setWindowOpacity(1)
 
 
 
@@ -134,7 +181,7 @@ class HomeScanMain(QMainWindow):
         
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)
-        msgBox.setText("E?")
+        msgBox.setText("Ello :3")
         msgBox.setWindowTitle("HomeScan")
         msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msgBox.setWindowIcon(QIcon("assets/icon.ico"))
@@ -151,7 +198,7 @@ class HomeScanMain(QMainWindow):
  
    
         msgBox.exec()
-  
+   
 
   
     def quit(self):
@@ -167,6 +214,11 @@ class HomeScanMain(QMainWindow):
         returnValue = msgBox.exec()
         print(msgBox.geometry())
         if returnValue == QMessageBox.Yes:
+            for i in range(20):
+                i = i / 20
+                widget.setWindowOpacity(1 - i)
+                time.sleep(0.05)
+
             QtWidgets.qApp.quit()
 
     
@@ -238,8 +290,6 @@ class HomeScanMain(QMainWindow):
 
 
 
-
-
     # router
     def gotoTrafficHistory(self):
         trafficHistory = TrafficHistory()
@@ -297,12 +347,7 @@ class HomeScanMain(QMainWindow):
         widget.addWidget(overview)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    # used for the full screen btn (top right)
-    def toggleFull(self):
-            if widget.windowState() & QtCore.Qt.WindowFullScreen:
-                widget.showNormal()
-            else:
-                widget.showFullScreen()
+
 
 class LivePanel(QMainWindow):
     def __init__(self):
