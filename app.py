@@ -20,13 +20,15 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import os.path
-import easygui
 
+from functools import partial
 
 
 global conn
 global time
 time = QtCore.QTime(0, 0, 0)
+
+
 
 #main Window
 class HomeScanMain(QMainWindow):
@@ -34,7 +36,7 @@ class HomeScanMain(QMainWindow):
         super(HomeScanMain,self).__init__()
         uic.loadUi('mainwindow.ui',self)
         
-        self.setWindowFlags(Qt.FramelessWindowHint)
+      
     
         
         #connect min full and exit tab (top right) to UI
@@ -51,6 +53,7 @@ class HomeScanMain(QMainWindow):
         self.pushButton_9.clicked.connect(self.goToSettings)
         self.pushButton_10.clicked.connect(self.goToScan)
         self.pushButton_17.clicked.connect(self.goToConnList)
+        self.pushButton_18.clicked.connect(self.nofity_test)
         self.pushButton_8.clicked.connect(self.goToOverview)
         self.pushButton_5.clicked.connect(self.goToAlerts)
 
@@ -121,6 +124,32 @@ class HomeScanMain(QMainWindow):
         self.loadtable()
         self.loadtable2()
 
+
+
+    def nofity_test(self):
+        
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("E?")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        # ph = self.parent().geometry().height()
+        # dw = msgBox.width()
+        # dh = msgBox.height()
+        
+        # px = int(self.parent().geometry().x())
+        # py = int(self.parent().geometry().y())
+
+        # msgBox.setGeometry((self.parent().geometry().height()/2), py+ph-dh, dw, dh )
+        # print(px, py+ph-dh, dw, dh)
+ 
+   
+        msgBox.exec()
+  
+
+  
     def quit(self):
         
         msgBox = QMessageBox()
@@ -132,6 +161,7 @@ class HomeScanMain(QMainWindow):
 
 
         returnValue = msgBox.exec()
+        print(msgBox.geometry())
         if returnValue == QMessageBox.Yes:
             QtWidgets.qApp.quit()
 
@@ -645,6 +675,7 @@ class AdvancedScreen(QMainWindow):
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(QtWidgets.qApp.quit)
         self.pushButton_14.clicked.connect(self.goBack)
+        self.pushButton_15.clicked.connect(self.export)
         global conn
         print(len(sys.argv))
         hostname=socket.gethostname()   
@@ -677,29 +708,58 @@ class AdvancedScreen(QMainWindow):
         try:
             for port in range(s_port, (e_port+1)):
                 print(self.progressBar.setValue(self.progressBar.value() + 1))
-                # self.horizontalSlider.setValue(self, 1)
                 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 socket.setdefaulttimeout(ms/1000)
-                #print(str(s.connect_ex((target, port))))
                 res = s.connect_ex((target, port))
-                #self.textEdit.append(str(s.connect_ex((target, port))))
+
             
                 if res == 0:
-                    print("Port " + str(port) + " is OPEN")
                     self.textEdit.append(str("Port " + str(port) + " is OPEN✅"))
                 else:
-                    print("Port " + str(port) + " is close")
                     self.textEdit.append(str("Port " + str(port) + " is closed❌"))
-                # 
-                # if result==0:
-                #     self.textEdit.append(str("Port " + str(port) + " is open"))
-                # else:
-                #     self.textEdit.append(str("Port " + str(port) + " is Closed"))
                 self.textEdit.repaint()
                 s.close()
         except:
-            print("Something else went wrong")
+            print("")
+            self.textEdit.append("ERROR: Something else went wrong - No IPv4 or IPv6 Found or bad connection")
+            
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("ERROR: Something else went wrong, No IPv4 or IPv6 Found or bad connection, Faliure.")
+            msgBox.setWindowTitle("Warning")
+            msgBox.setStandardButtons(QMessageBox.Close)
+            msgBox.setWindowIcon(QIcon("assets/icon.ico"))
 
+            returnValue = msgBox.exec()
+            if returnValue == QMessageBox.Close:
+                print('OK clicked')
+
+
+    
+    def export(self):
+        now = datetime.now()
+
+        current_time = now.strftime("%m-%d-%Y--%H-%M-%S")
+
+        name_of_file = "ScanModule-" + str(current_time)
+        completeName = 'exports/'+ name_of_file + ".log"
+        file1 = open(completeName , "w")
+        toFile = self.textEdit.toPlainText()
+        file1.write(toFile)
+        file1.close()
+
+      
+
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Thank you for using HomeScan.\n\nYour exports has been saved under ScanModule-" + str(current_time) + ".log \n\nDo you think there is something wrong with your exports? or have you found a bug? Email support@homescan.com to open a support ticket! Show the github some aswell\nhttps://github.com/hunterjreid/HomeScan")
+        msgBox.setWindowTitle("Export")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
 
 
   
@@ -765,12 +825,6 @@ class Devices(QMainWindow):
             print('OK clicked')
 
 
-        # msg.setInformativeText("This is additional information")
-        # msg.setWindowTitle("MessageBox demo")
-        # msg.setDetailedText("The details are as follows:")
-        #msg.setStyleSheet("QMessageBox { background-color: #333333; }")
-
-
     def goBack(self):
    
         homeScanMain = HomeScanMain()
@@ -790,7 +844,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     widget = QtWidgets.QStackedWidget()
     window = HomeScanMain()
-    widget.setFixedSize(670, 700)
+    widget.setFixedSize(920, 550)
     widget.setWindowFlags(Qt.FramelessWindowHint)
     widget.addWidget(window)
     widget.show()

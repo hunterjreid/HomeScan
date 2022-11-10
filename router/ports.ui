@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>923</width>
-    <height>1141</height>
+    <width>954</width>
+    <height>702</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -321,7 +321,7 @@ border:none;</string>
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>900</height>
+           <height>600</height>
           </size>
          </property>
          <property name="frameShape">
@@ -336,7 +336,7 @@ border:none;</string>
             <x>20</x>
             <y>80</y>
             <width>771</width>
-            <height>271</height>
+            <height>101</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -368,10 +368,10 @@ border:none;</string>
          <widget class="QListWidget" name="listWidget_2">
           <property name="geometry">
            <rect>
-            <x>20</x>
-            <y>370</y>
+            <x>30</x>
+            <y>200</y>
             <width>771</width>
-            <height>271</height>
+            <height>131</height>
            </rect>
           </property>
           <property name="styleSheet">

@@ -231,8 +231,8 @@ margin-top:0px;</string>
       <widget class="QPushButton" name="pushButton_14">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>900</y>
+         <x>580</x>
+         <y>70</y>
          <width>311</width>
          <height>71</height>
         </rect>
@@ -278,10 +278,10 @@ font-size: 19px;</string>
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>140</y>
+         <x>10</x>
+         <y>120</y>
          <width>351</width>
-         <height>111</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -297,10 +297,10 @@ border:none;</string>
       <widget class="QListWidget" name="listWidget">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>230</y>
-         <width>701</width>
-         <height>371</height>
+         <x>10</x>
+         <y>160</y>
+         <width>621</width>
+         <height>221</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -320,15 +320,15 @@ border: 1.4px dashed orange;</string>
       <widget class="QTextEdit" name="textEdit">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>720</y>
-         <width>700</width>
-         <height>161</height>
+         <x>640</x>
+         <y>160</y>
+         <width>241</width>
+         <height>211</height>
         </rect>
        </property>
        <property name="minimumSize">
         <size>
-         <width>400</width>
+         <width>200</width>
          <height>0</height>
         </size>
        </property>
@@ -356,8 +356,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>610</y>
+         <x>20</x>
+         <y>390</y>
          <width>341</width>
          <height>41</height>
         </rect>
@@ -375,8 +375,8 @@ border:none;</string>
       <widget class="QLineEdit" name="lineEdit">
        <property name="geometry">
         <rect>
-         <x>300</x>
-         <y>610</y>
+         <x>20</x>
+         <y>430</y>
          <width>211</width>
          <height>41</height>
         </rect>
@@ -397,8 +397,8 @@ font-size:20px
       <widget class="QPushButton" name="pushButton_15">
        <property name="geometry">
         <rect>
-         <x>530</x>
-         <y>610</y>
+         <x>240</x>
+         <y>430</y>
          <width>201</width>
          <height>51</height>
         </rect>
@@ -426,8 +426,8 @@ border:none;</string>
       <widget class="QLineEdit" name="lineEdit_2">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>60</y>
+         <x>200</x>
+         <y>50</y>
          <width>261</width>
          <height>41</height>
         </rect>
@@ -438,14 +438,14 @@ color: black;
 margin:2px;</string>
        </property>
        <property name="text">
-        <string>ewq</string>
+        <string/>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>510</x>
-         <y>60</y>
+         <x>480</x>
+         <y>50</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -460,8 +460,8 @@ margin:2px;</string>
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>70</y>
+         <x>10</x>
+         <y>60</y>
          <width>181</width>
          <height>21</height>
         </rect>
@@ -479,9 +479,9 @@ border:none;</string>
       <widget class="QLabel" name="label_8">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>140</y>
-         <width>351</width>
+         <x>200</x>
+         <y>100</y>
+         <width>331</width>
          <height>21</height>
         </rect>
        </property>
@@ -492,14 +492,14 @@ background:none;
 border:none;</string>
        </property>
        <property name="text">
-        <string>not</string>
+        <string>IP is not valid, NOT IPv4 or IPv6 address</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_9">
        <property name="geometry">
         <rect>
-         <x>370</x>
-         <y>670</y>
+         <x>280</x>
+         <y>400</y>
          <width>421</width>
          <height>21</height>
         </rect>

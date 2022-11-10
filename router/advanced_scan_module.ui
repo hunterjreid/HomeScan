@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>924</width>
-    <height>1141</height>
+    <width>889</width>
+    <height>582</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>900</width>
+    <height>800</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -22,7 +28,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>771</width>
+      <width>341</width>
       <height>71</height>
      </rect>
     </property>
@@ -284,8 +290,8 @@ border:none;</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>97</y>
+      <x>10</x>
+      <y>77</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -300,8 +306,8 @@ border:none;</string>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>130</y>
+      <x>10</x>
+      <y>110</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -317,8 +323,8 @@ border: 1px solid black;</string>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>130</y>
+      <x>230</x>
+      <y>110</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -334,8 +340,8 @@ border: 1px solid black;</string>
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>130</y>
+      <x>500</x>
+      <y>110</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -351,8 +357,8 @@ border: 1px solid black;</string>
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>130</y>
+      <x>710</x>
+      <y>110</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -368,8 +374,8 @@ border: 1px solid black;</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>90</y>
+      <x>230</x>
+      <y>80</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -384,8 +390,8 @@ border: 1px solid black;</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>90</y>
+      <x>500</x>
+      <y>80</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -400,7 +406,7 @@ border: 1px solid black;</string>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>710</x>
       <y>80</y>
       <width>121</width>
       <height>31</height>
@@ -416,10 +422,10 @@ border: 1px solid black;</string>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>200</y>
-      <width>75</width>
-      <height>23</height>
+      <x>780</x>
+      <y>440</y>
+      <width>81</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -432,10 +438,10 @@ border: 1px solid black;</string>
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>245</y>
-      <width>700</width>
-      <height>561</height>
+      <x>10</x>
+      <y>190</y>
+      <width>851</width>
+      <height>231</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -446,7 +452,7 @@ border: 1px solid black;</string>
     </property>
     <property name="maximumSize">
      <size>
-      <width>700</width>
+      <width>1900</width>
       <height>16777215</height>
      </size>
     </property>
@@ -486,10 +492,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="pushButton_14">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>890</y>
-      <width>718</width>
-      <height>21</height>
+      <x>590</x>
+      <y>10</y>
+      <width>271</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -509,9 +515,9 @@ border:none;</string>
    <widget class="QProgressBar" name="progressBar">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>200</y>
-      <width>441</width>
+      <x>10</x>
+      <y>440</y>
+      <width>731</width>
       <height>23</height>
      </rect>
     </property>
@@ -523,6 +529,48 @@ border:none;</string>
     </property>
     <property name="textVisible">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_15">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>490</y>
+      <width>271</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+color:rgb(255, 255, 255);
+font-size:17px;
+border:none;</string>
+    </property>
+    <property name="text">
+     <string>Export</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../assets/export.png</normaloff>../assets/export.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>160</y>
+      <width>821</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>It is recommend only to do small scans of 200 max ports at a time. Anymore could risk crashing the application it most cases iit will just take longer so preceed with caution</string>
     </property>
    </widget>
   </widget>
