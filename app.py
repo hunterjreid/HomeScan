@@ -12,7 +12,6 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import socket
 import os, ipaddress
-import subprocess
 import webbrowser
 from datetime import datetime
 from PyQt5.QtGui import QPainter, QColor, QPen
@@ -21,12 +20,6 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import os.path
 import time
-from functools import partial
-
-
-global conn
-
-
 
 #main Window
 class HomeScanMain(QMainWindow):
@@ -37,7 +30,7 @@ class HomeScanMain(QMainWindow):
       
         hostname=socket.gethostname()   
         IPAddr=socket.gethostbyname(hostname) 
-        
+
         #connect min full and exit tab (top right) to UI
         self.minn.clicked.connect(self.mintab)
         self.full.clicked.connect(self.toggleFull)
@@ -48,15 +41,15 @@ class HomeScanMain(QMainWindow):
         self.pushButton_12.clicked.connect(self.open)
         self.pushButton_16.clicked.connect(self.advanced_module)
         self.pushButton_13.clicked.connect(self.goToHelp)
-        self.pushButton_7.clicked.connect(self.gotoTrafficHistory)
+        self.pushButton_7.clicked.connect(self.goToConnList)
         self.pushButton_9.clicked.connect(self.goToSettings)
         self.pushButton_10.clicked.connect(self.goToScan)
-        self.pushButton_17.clicked.connect(self.goToConnList)
+        #self.pushButton_17.clicked.connect(self.goToConnList)
         self.pushButton_18.clicked.connect(self.nofity_test)
         self.pushButton_8.clicked.connect(self.goToOverview)
         self.pushButton_5.clicked.connect(self.goToAlerts)
+        self.pushButton_4.clicked.connect(self.goToAScan)
 
-     
         #graphs
         global conn
         conn=psutil.net_connections()
@@ -85,6 +78,7 @@ class HomeScanMain(QMainWindow):
         
 
         self.graphicsView2.plot(port_x, PID_y, pen=pen, symbol='x', symbolSize=4, symbolBrush=('red'))
+        self.graphicsView2_2.plot(port_x, PID_y, pen=pen, symbol='x', symbolSize=4, symbolBrush=('red'))
 
         self.graphicsView2.setBackground('black')
 
@@ -284,10 +278,30 @@ class HomeScanMain(QMainWindow):
             else:
                 self.tableWidget_2.item(row, 1).setBackground(QColor(1,100,1))
 
+
+                
+
             row=row+1
 
-        self.tableWidget_2.resizeRowsToContents()
-        self.tableWidget_2.resizeColumnsToContents()  
+        row = 0
+
+        self.tableWidget_3.setRowCount(len(people))
+
+        for key in people:
+            self.tableWidget_3.setItem(row, 0, QtWidgets.QTableWidgetItem(str(key)))
+            self.tableWidget_3.setItem(row, 1, QtWidgets.QTableWidgetItem(str(people[key][0])))
+            self.tableWidget_3.setItem(row, 2, QtWidgets.QTableWidgetItem(str(people[key][2])))
+            self.tableWidget_3.setItem(row, 3, QtWidgets.QTableWidgetItem(str(people[key][3])))
+
+
+
+            if people[key][0] == False:
+                self.tableWidget_3.item(row, 1).setBackground(QColor(100,4,1))
+            else:
+                self.tableWidget_3.item(row, 1).setBackground(QColor(1,100,1))
+
+        self.tableWidget_3.resizeRowsToContents()
+        self.tableWidget_3.resizeColumnsToContents()  
 
 
 
@@ -336,6 +350,11 @@ class HomeScanMain(QMainWindow):
     def goToScan(self):
         scan = Scan()
         widget.addWidget(scan)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def goToAScan(self):
+        ascan = AScan()
+        widget.addWidget(ascan)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     def goToHelp(self):
@@ -569,6 +588,30 @@ class Scan(QMainWindow):
             else:
                 self.showFullScreen()
 
+
+class AScan(QMainWindow):
+    def __init__(self):
+        super(AScan,self).__init__()
+        uic.loadUi('router/angry_scan.ui',self)
+
+        
+        #connect min full and exit tab (top right) to UI
+
+        self.pushButton_4.clicked.connect(self.goBack)
+    
+
+    def goBack(self):
+
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    # used for the full screen btn (top right)
+    def toggleFull(self):
+            if self.windowState() & QtCore.Qt.WindowFullScreen:
+                self.showNormal()
+            else:
+                self.showFullScreen()
 
 class ConnList(QMainWindow):
     def __init__(self):

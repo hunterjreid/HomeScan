@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1048</width>
-    <height>708</height>
+    <width>1202</width>
+    <height>916</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -392,6 +392,18 @@ font-size:14px;</string>
               </widget>
              </item>
              <item>
+              <widget class="QPushButton" name="pushButton_4">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 0, 0);
+color:rgb(255, 255, 255);
+font-size:14px;</string>
+               </property>
+               <property name="text">
+                <string>ANGRY SCAN</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="pushButton_10">
                <property name="minimumSize">
                 <size>
@@ -750,7 +762,7 @@ font-size: 19px;</string>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>29</height>
+           <height>56</height>
           </size>
          </property>
          <property name="frameShape">
@@ -774,13 +786,13 @@ font-size: 19px;</string>
             <property name="minimumSize">
              <size>
               <width>2</width>
-              <height>41</height>
+              <height>62</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>100</height>
+              <height>180</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -793,12 +805,18 @@ border: 1px solid grey;</string>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_15">
+            <layout class="QVBoxLayout" name="verticalLayout_12">
              <property name="spacing">
               <number>0</number>
              </property>
              <item>
               <widget class="QLabel" name="label_13">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>18</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">color: orange;
 border: 20px;
@@ -810,6 +828,28 @@ font-size: 19px;
                </property>
                <property name="text">
                 <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>39</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: lightgrey;
+border: 20px;
+top:0;
+border: none;
+background: none;
+font-size: 19px;
+</string>
+               </property>
+               <property name="text">
+                <string>Error Rate in = 2.32, Error rate out = 2.32, 1 unsecured port</string>
                </property>
               </widget>
              </item>
@@ -829,7 +869,7 @@ font-size: 19px;
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_7">
+           <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_6">
               <item>
@@ -965,6 +1005,143 @@ margin:0px;</string>
           </widget>
          </item>
          <item>
+          <widget class="QFrame" name="frame_7">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QPushButton" name="pushButton_20">
+                <property name="styleSheet">
+                 <string notr="true">background-color: orangered;
+color:rgb(255, 255, 255);
+font-size:14px;
+padding: 5px 0px;</string>
+                </property>
+                <property name="text">
+                 <string>Conn List</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_21">
+                <property name="styleSheet">
+                 <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+color:rgb(255, 255, 255);
+font-size:17px;
+border:none;</string>
+                </property>
+                <property name="text">
+                 <string>Refresh</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: none;
+color:rgb(255, 255, 255);
+font-size:17px;
+</string>
+                </property>
+                <property name="text">
+                 <string>Network Interfaces List</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_12">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:grey;</string>
+                </property>
+                <property name="text">
+                 <string>Browse your Network Interfaces on your machine.</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="PlotWidget" name="graphicsView2_2">
+              <property name="styleSheet">
+               <string notr="true">background:white;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tableWidget_3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size:10px;
+padding:0px;
+background: black;
+color:grey;
+margin:0px;</string>
+              </property>
+              <property name="verticalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+              <property name="horizontalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+              <column>
+               <property name="text">
+                <string>Name</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Active</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Speed</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>MTU</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
           <widget class="QFrame" name="frame_6">
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
@@ -972,7 +1149,7 @@ margin:0px;</string>
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_8">
+           <layout class="QVBoxLayout" name="verticalLayout_10">
             <item>
              <layout class="QVBoxLayout" name="verticalLayout">
               <item>
