@@ -14,6 +14,8 @@
 
 # mainwindow mockup
 ![ewqeqdqwdq](https://user-images.githubusercontent.com/62681404/201448716-7472e8b6-a8f4-42a4-8fa7-e38397f74f0a.png)
+# wireframe new
+![image](https://user-images.githubusercontent.com/62681404/201455029-205aeeaa-b7a8-409e-a93a-3cffe5648b36.png)
 # every other screen mockup
 ![201068583-d4e72a29-eqw4ace-bfab-75f1db0bdeac](https://user-images.githubusercontent.com/62681404/201448724-13dd9790-4a8c-41dc-ac7b-e510c13fb3dd.png)
 
