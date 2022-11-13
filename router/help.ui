@@ -54,6 +54,28 @@ text-align:center;</string>
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>300</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:white;</string>
+          </property>
+          <property name="text">
+           <string>CLICK TO GET VERISON INFORMATION IN A POPUP</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QFrame" name="frame">
           <property name="styleSheet">
            <string notr="true">background:white;</string>

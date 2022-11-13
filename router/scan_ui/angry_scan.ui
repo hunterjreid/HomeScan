@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>924</width>
-    <height>1141</height>
+    <width>962</width>
+    <height>513</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -195,7 +195,7 @@ margin-top:0px;</string>
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>../assets/x.svg</normaloff>../assets/x.svg</iconset>
+                   <normaloff>assets/x.svg</normaloff>assets/x.svg</iconset>
                  </property>
                 </widget>
                </item>
@@ -208,185 +208,6 @@ margin-top:0px;</string>
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="color_bar">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0.00568182 rgba(227, 198, 43, 255), stop:1 rgba(191, 32, 32, 255))</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="logo_menu">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>78</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <item>
-           <widget class="QLabel" name="label_2">
-            <property name="maximumSize">
-             <size>
-              <width>331</width>
-              <height>61</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background:none;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap>assets/logo.png</pixmap>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_2">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QPlainTextEdit" name="plainTextEdit">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>20</y>
-            <width>861</width>
-            <height>281</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:rgb(255, 115, 0);
-font-size: 23px;</string>
-          </property>
-          <property name="plainText">
-           <string>Device sec Show list of devices and also maybe remove device errin = The total number of errors while receiving the packets. errout = The total number of errors while sending the packets.
-dropin = The total number of incoming packets that were dropped.
-dropout = 	The total number of outgoing packets that were dropped.</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="pushButton_7">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>80</y>
-            <width>303</width>
-            <height>30</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../assets/warning.png</normaloff>../assets/warning.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>30</width>
-            <height>30</height>
-           </size>
-          </property>
-         </widget>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="styleSheet">
-             <string notr="true">color: white;
-border: 20px;
-top:0;
-border: none;
-background: none;
-font-size: 19px;</string>
-            </property>
-            <property name="text">
-             <string>CURRENT DEVICE SESSION :</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit">
-            <property name="styleSheet">
-             <string notr="true">color: black;
-border: 20px;
-top:0;
-border: none;
-background: none;
-font-size: 19px;
-padding:20px;
-margin: 20px;</string>
-            </property>
-            <property name="text">
-             <string>1024</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_14">
-         <property name="styleSheet">
-          <string notr="true">color: white;
-border: 20px;
-top:0;
-border: none;
-background: none;
-font-size: 19px;
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
-color:rgb(255, 255, 255);
-font-size:17px;
-border:none;
-margin:20px;
-padding:20px;</string>
-         </property>
-         <property name="text">
-          <string>GO BACK TO MAIN</string>
-         </property>
-        </widget>
-       </item>
-       <item alignment="Qt::AlignBottom">
         <widget class="QFrame" name="footer">
          <property name="styleSheet">
           <string notr="true">background:none;
@@ -399,6 +220,92 @@ border:none;</string>
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QFrame" name="frame">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="label_2">
+             <property name="geometry">
+              <rect>
+               <x>40</x>
+               <y>70</y>
+               <width>461</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:white;
+font-size:19px;
+background: red;</string>
+             </property>
+             <property name="text">
+              <string>ANRGY SCAN !</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pushButton">
+             <property name="geometry">
+              <rect>
+               <x>230</x>
+               <y>150</y>
+               <width>231</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:white;
+background:black;</string>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pushButton_4">
+             <property name="geometry">
+              <rect>
+               <x>570</x>
+               <y>50</y>
+               <width>200</width>
+               <height>37</height>
+              </rect>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>37</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+color:rgb(255, 255, 255);
+font-size:17px;
+border:none;</string>
+             </property>
+             <property name="text">
+              <string>Back to main page</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>assets/export.png</normaloff>assets/export.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>37</width>
+               <height>37</height>
+              </size>
+             </property>
+            </widget>
+           </widget>
+          </item>
           <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
            <widget class="QFrame" name="frame_9">
             <property name="minimumSize">
@@ -558,41 +465,6 @@ top:0;
                      </size>
                     </property>
                    </spacer>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_4">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>37</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>200</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">background-color:rgb(0, 130, 0);
-color:rgb(255, 255, 255);
-font-size:17px;
-border:none;</string>
-                    </property>
-                    <property name="text">
-                     <string>Export</string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>assets/export.png</normaloff>assets/export.png</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>37</width>
-                      <height>37</height>
-                     </size>
-                    </property>
-                   </widget>
                   </item>
                  </layout>
                 </item>

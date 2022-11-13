@@ -916,6 +916,23 @@ font-size: 19px;
                 </property>
                </widget>
               </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_6">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>assets/warning.png</normaloff>assets/warning.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
              </layout>
             </item>
             <item>
@@ -1014,34 +1031,7 @@ margin:0px;</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_11">
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_13">
-              <item>
-               <widget class="QPushButton" name="pushButton_20">
-                <property name="styleSheet">
-                 <string notr="true">background-color: orangered;
-color:rgb(255, 255, 255);
-font-size:14px;
-padding: 5px 0px;</string>
-                </property>
-                <property name="text">
-                 <string>Conn List</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_21">
-                <property name="styleSheet">
-                 <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
-color:rgb(255, 255, 255);
-font-size:17px;
-border:none;</string>
-                </property>
-                <property name="text">
-                 <string>Refresh</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <layout class="QHBoxLayout" name="horizontalLayout_13"/>
             </item>
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -1092,6 +1082,19 @@ font-size:17px;
              <widget class="PlotWidget" name="graphicsView2_2">
               <property name="styleSheet">
                <string notr="true">background:white;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_21">
+              <property name="styleSheet">
+               <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+color:rgb(255, 255, 255);
+font-size:17px;
+border:none;</string>
+              </property>
+              <property name="text">
+               <string>Refresh</string>
               </property>
              </widget>
             </item>
@@ -1204,19 +1207,6 @@ font-size:17px;
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
-              <item>
-               <widget class="QPushButton" name="pushButton_17">
-                <property name="styleSheet">
-                 <string notr="true">background-color: orangered;
-color:rgb(255, 255, 255);
-font-size:14px;
-padding: 5px 0px;</string>
-                </property>
-                <property name="text">
-                 <string>Conn List</string>
-                </property>
-               </widget>
-              </item>
               <item>
                <widget class="QPushButton" name="pushButton_19">
                 <property name="styleSheet">
