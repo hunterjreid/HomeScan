@@ -206,34 +206,6 @@ margin-top: 10px;</string>
            </widget>
           </item>
           <item alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="pushButton_7">
-            <property name="minimumSize">
-             <size>
-              <width>30</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border:none;background: none;
-color:rgb(15, 15, 15);
-font-size: 14px;margin-top: 15px;font-size: 13px;</string>
-            </property>
-            <property name="text">
-             <string>Your Connections</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>assets/history.png</normaloff>assets/history.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>29</width>
-              <height>29</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignLeft">
            <widget class="QPushButton" name="pushButton_9">
             <property name="minimumSize">
              <size>
@@ -315,17 +287,12 @@ font-size:15px;</string>
           <item>
            <widget class="QPushButton" name="pushButton_16">
             <property name="styleSheet">
-             <string notr="true">background:rgb(236, 62, 39);
-border: 1px solid black;
-color:black;font-size:17px;
+             <string notr="true">background: rgb(85, 0, 0);
+color:white;font-size:15px;
 padding:5px;</string>
             </property>
             <property name="text">
              <string>Anrgy Scan</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>assets/bull.png</normaloff>assets/bull.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -365,17 +332,12 @@ padding:5px;</string>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(151, 151, 151, 255), stop:1 rgba(200, 200, 200, 255));
-border: 1px solid white;
-color:black;font-size:17px;
+                <string notr="true">background: rgb(85, 0, 0);
+color:white;font-size:15px;
 padding:5px;</string>
                </property>
                <property name="text">
                 <string>Quick Scan</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>assets/quickscan.png</normaloff>assets/quickscan.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -388,17 +350,12 @@ padding:5px;</string>
              <item>
               <widget class="QPushButton" name="pushButton_4">
                <property name="styleSheet">
-                <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(151, 151, 151, 255), stop:1 rgba(200, 200, 200, 255));
-border: 1px solid white;
-color:black;font-size:17px;
+                <string notr="true">background: rgb(85, 0, 0);
+color:white;font-size:17px;
 padding:5px;</string>
                </property>
                <property name="text">
                 <string>Basic Scan</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>assets/quick_scan.png</normaloff>assets/quick_scan.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -417,17 +374,12 @@ padding:5px;</string>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(151, 151, 151, 255), stop:1 rgba(200, 200, 200, 255));
-border: 1px solid white;
-color:black;font-size:17px;
+                <string notr="true">background: rgb(85, 0, 0);
+color:white;font-size:17px;
 padding:5px;</string>
                </property>
                <property name="text">
                 <string>Scan</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>assets/basic_Scan.png</normaloff>assets/basic_Scan.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -695,7 +647,7 @@ margin-top:0px;</string>
            <widget class="QFrame" name="frame_2">
             <property name="maximumSize">
              <size>
-              <width>270</width>
+              <width>302</width>
               <height>16777215</height>
              </size>
             </property>
@@ -737,7 +689,7 @@ background: none;
 font-size: 19px;</string>
                  </property>
                  <property name="text">
-                  <string>Ports</string>
+                  <string>ARP</string>
                  </property>
                 </widget>
                </item>
@@ -752,7 +704,7 @@ background: none;
 font-size: 19px;</string>
                  </property>
                  <property name="text">
-                  <string>Devices</string>
+                  <string>Network Errors</string>
                  </property>
                 </widget>
                </item>

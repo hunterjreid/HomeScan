@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>920</width>
-    <height>1000</height>
+    <height>659</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,110 +18,288 @@
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(81, 81, 81, 255), stop:1 rgba(46, 46, 46, 255));</string>
   </property>
   <widget class="QWidget" name="app">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <property name="leftMargin">
-     <number>40</number>
+     <number>0</number>
     </property>
     <property name="topMargin">
-     <number>40</number>
+     <number>0</number>
     </property>
     <property name="rightMargin">
-     <number>40</number>
+     <number>0</number>
     </property>
     <property name="bottomMargin">
-     <number>40</number>
+     <number>0</number>
     </property>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="Help">
-        <property name="styleSheet">
-         <string notr="true">font-size:24px;
-color:white;
-text-align:center;</string>
-        </property>
-        <property name="text">
-         <string>Network Overview</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">BACKGROUND-COLOR: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0.00568182 rgba(227, 198, 43, 255), stop:1 rgba(191, 32, 32, 255));
-font-size:24px;
+     <widget class="QFrame" name="side_bar">
+      <property name="minimumSize">
+       <size>
+        <width>160</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>160</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0.00568182 rgba(227, 198, 43, 255), stop:1 rgba(191, 32, 32, 255));</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="header">
+         <item>
+          <layout class="QHBoxLayout" name="top">
+           <item alignment="Qt::AlignTop">
+            <widget class="QPushButton" name="pushButton">
+             <property name="styleSheet">
+              <string notr="true">font-size:20px;
+background:none;</string>
+             </property>
+             <property name="text">
+              <string> Go back</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../assets/back2.png</normaloff>../assets/back2.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>18</width>
+               <height>32</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+            <widget class="QPushButton" name="help">
+             <property name="styleSheet">
+              <string notr="true">background:none;
+padding:0px;
+margin:0px;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../assets/help3.png</normaloff>../assets/help3.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="styleSheet">
+              <string notr="true">font-size:14px;
+background:none;
 color:white;</string>
-        </property>
-        <property name="text">
-         <string>GO BACK</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="PlotWidget" name="graphicsView">
-        <property name="styleSheet">
-         <string notr="true">background:white;</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QListView" name="listView"/>
-      </item>
-     </layout>
+             </property>
+             <property name="text">
+              <string>You are in: </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="back_2">
+             <property name="styleSheet">
+              <string notr="true">font-size:17px;
+background:none;
+text-align:left;
+</string>
+             </property>
+             <property name="text">
+              <string>Overview</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../assets/wifi.png</normaloff>../assets/wifi.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="styleSheet">
+            <string notr="true">font-size:17px;
+background:none;
+
+color:black;</string>
+           </property>
+           <property name="text">
+            <string>Export overview:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QCheckBox" name="checkBox_6">
+             <property name="styleSheet">
+              <string notr="true">background:none;font-size:10px;color:rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string>Incl live panel snapshots</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_5">
+             <property name="styleSheet">
+              <string notr="true">background:none;font-size:13px;color:rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string>Include Network list</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_4">
+             <property name="styleSheet">
+              <string notr="true">background:none;font-size:13px;color:rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string>Include Port settings</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_3">
+             <property name="styleSheet">
+              <string notr="true">background:none;font-size:13px;color:rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string>Include time</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_2">
+             <property name="styleSheet">
+              <string notr="true">background:none;font-size:13px;color:rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string>Include .png</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_7">
+             <property name="styleSheet">
+              <string notr="true">background:none;font-size:13px;color:rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string>Include verison</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="export_2">
+           <property name="styleSheet">
+            <string notr="true">background: rgb(85, 0, 0);
+color:white;font-size:17px;
+padding:5px;</string>
+           </property>
+           <property name="text">
+            <string>Export</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>assets/export_2.png</normaloff>assets/export_2.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="spacing">
+       <number>0</number>
+      </property>
       <item>
-       <widget class="QLabel" name="Help_par1">
-        <property name="maximumSize">
-         <size>
-          <width>864</width>
-          <height>16777215</height>
-         </size>
+       <widget class="QFrame" name="frame">
+        <property name="styleSheet">
+         <string notr="true">background:none;background-color:rgb(12, 12, 12);</string>
         </property>
-        <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; background-color:#ffffff;&quot;&gt;Verify the Network; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; background-color:#ffffff;&quot;&gt;Configure and Turn off Sharing.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; background-color:#ffffff;&quot;&gt; Remember that hackers are very clever, so its better to surf and play smart. ... &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; background-color:#ffffff;&quot;&gt;Use a VPN. A VPN (Virtual Private Network) is the most secure option to surf on public networks. ... &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; background-color:#ffffff;&quot;&gt;Use HTTPS. ... &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; background-color:#ffffff;&quot;&gt;Keep the Firewall Enabled. ...&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; background-color:#ffffff;&quot;&gt; Use Antivirus.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
-        <property name="wordWrap">
-         <bool>true</bool>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
         </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="styleSheet">
+            <string notr="true">background:none;
+color:white;</string>
+           </property>
+           <property name="text">
+            <string>Port</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item>
-       <widget class="PlotWidget" name="graphicsView_3">
+       <widget class="PlotWidget" name="graphicsView_2">
         <property name="styleSheet">
-         <string notr="true">background:white;</string>
+         <string notr="true">padding:10px;background-color:rgb(12, 12, 12);</string>
         </property>
        </widget>
       </item>
      </layout>
-    </item>
-    <item>
-     <widget class="PlotWidget" name="graphicsView_2">
-      <property name="styleSheet">
-       <string notr="true">background:white;</string>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>

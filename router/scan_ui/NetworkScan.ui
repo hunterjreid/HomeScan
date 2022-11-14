@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>914</width>
-    <height>506</height>
+    <width>961</width>
+    <height>505</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -56,7 +56,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
+      <layout class="QVBoxLayout" name="verticalLayout_9">
        <item>
         <layout class="QVBoxLayout" name="header">
          <item>
@@ -161,7 +161,7 @@ text-align:left;
         </spacer>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="exports">
+        <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
           <widget class="QLabel" name="label_2">
            <property name="styleSheet">
@@ -178,12 +178,32 @@ color:black;</string>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QCheckBox" name="checkBox">
+            <widget class="QCheckBox" name="checkBox_3">
              <property name="styleSheet">
               <string notr="true">background:none;font-size:13px;color:rgb(207, 207, 207);</string>
              </property>
              <property name="text">
               <string>Include time</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_2">
+             <property name="styleSheet">
+              <string notr="true">background:none;font-size:13px;color:rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string>Include Port Search</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox">
+             <property name="styleSheet">
+              <string notr="true">background:none;font-size:13px;color:rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string>Include History</string>
              </property>
             </widget>
            </item>
@@ -227,7 +247,7 @@ padding:5px;</string>
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>400</height>
+           <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -242,25 +262,331 @@ padding:5px;</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item alignment="Qt::AlignTop">
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
            <widget class="QLabel" name="label_3">
             <property name="styleSheet">
              <string notr="true">color:orange;
 font-size:22px;</string>
             </property>
             <property name="text">
-             <string>Run Scan</string>
+             <string>Run Network Scan</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignTop">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="styleSheet">
+               <string notr="true">background:white;
+border: 1px solid black;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
+border: 1px solid grey;
+color:white;
+padding:10px;
+border-radius:2px;</string>
+              </property>
+              <property name="text">
+               <string>Search about  IP</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../assets/search.ico</normaloff>../../assets/search.ico</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_3">
+              <property name="styleSheet">
+               <string notr="true">background:white;
+border: 1px solid black;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
+border: 1px solid grey;
+color:white;
+padding:10px;
+border-radius:2px;</string>
+              </property>
+              <property name="text">
+               <string>Find IP Origin</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_4">
+              <property name="styleSheet">
+               <string notr="true">background:white;
+border: 1px solid black;
+background-color: rgb(203, 0, 0);
+border: 1px solid grey;
+color:white;
+padding:10px;
+border-radius:2px;</string>
+              </property>
+              <property name="text">
+               <string>Block Port</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../assets/bull.png</normaloff>../../assets/bull.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>23</width>
+                <height>23</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_10">
+            <property name="styleSheet">
+             <string notr="true">color:grey;</string>
+            </property>
+            <property name="text">
+             <string>Scan Init : 2022-11-15 11:41:07.954143</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetNoConstraint</enum>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="styleSheet">
+                 <string notr="true">color:white;
+font-size:15px;
+background:none;
+border:none;</string>
+                </property>
+                <property name="text">
+                 <string>Results</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QListWidget" name="listWidget">
+                <property name="styleSheet">
+                 <string notr="true">color:white;
+font-size:20px;
+</string>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:white;
+font-size:15px;
+background:none;
+border:none;</string>
+                </property>
+                <property name="text">
+                 <string>Action History</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTextEdit" name="textEdit">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:white;
+font-size:9px;
+</string>
+                </property>
+                <property name="html">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:9px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="QPushButton" name="pushButton">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: black;
+color:white;font-size:17px;
+padding:5px;
+border: 1px solid grey;</string>
+            </property>
+            <property name="text">
+             <string>Run Scan</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../assets/export.png</normaloff>../../assets/export.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>33</width>
+              <height>33</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="label_7">
             <property name="styleSheet">
              <string notr="true">color:grey;</string>
             </property>
             <property name="text">
              <string>Here you can run the angry scan test. (PORT SCANNER GOES HERE) -- UPDATE NO ITS THE Your connections tab and delete your connections from mainwindow</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="styleSheet">
+               <string notr="true">color:grey;
+font-size:25px;
+background:none;
+border:none;</string>
+              </property>
+              <property name="text">
+               <string>Port Protocol Search</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_9">
+              <property name="styleSheet">
+               <string notr="true">color:white;
+font-size:15px;
+background:none;
+border:none;</string>
+              </property>
+              <property name="text">
+               <string>After clicking on this search button scroll down to service name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLineEdit" name="lineEdit">
+              <property name="styleSheet">
+               <string notr="true">background:white;
+border: 1px solid black;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
+border: 1px solid grey;
+color:white;
+padding:10px;
+border-radius:2px;
+
+
+font-size:20px
+</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="placeholderText">
+               <string>443</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_15">
+              <property name="styleSheet">
+               <string notr="true">background:white;
+border: 1px solid black;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
+border: 1px solid grey;
+color:white;
+padding:10px;
+border-radius:2px;</string>
+              </property>
+              <property name="text">
+               <string>Search Port Meaning</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../assets/search.ico</normaloff>../../assets/search.ico</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>23</width>
+                <height>23</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="styleSheet">
+             <string notr="true">color:white;
+font-size:15px;
+background:none;
+border:none;</string>
+            </property>
+            <property name="text">
+             <string>Ports can be used for other features too. Stay alert. Click here to learn more.</string>
             </property>
            </widget>
           </item>
