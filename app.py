@@ -308,7 +308,8 @@ class HomeScanMain(QMainWindow):
         widget.addWidget(Advancedscreen)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    
+
+
     def goToSettings(self):
         settings = Settings()
         widget.addWidget(settings)
@@ -540,6 +541,40 @@ class Settings(QMainWindow):
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+
+class Alerts(QMainWindow):
+    def __init__(self):
+        super(Alerts,self).__init__()
+        uic.loadUi('router/alert.ui',self)
+
+        
+
+        self.back.clicked.connect(self.goBack)
+        self.help.clicked.connect(self.goHelp)
+
+        
+    def goHelp(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Help Iinformation about this screen goes here you will get alerts about this that happen live.")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
+
+
+  
+    
+
+    def goBack(self):
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+
 class Help(QMainWindow):
     def __init__(self):
         super(Help,self).__init__()
@@ -565,55 +600,75 @@ class Help(QMainWindow):
 
 
 #SCAN ---------------------------------------
+
 class Scan(QMainWindow):
     def __init__(self):
         super(Scan,self).__init__()
-        uic.loadUi('router/scan_ui/scan.ui',self)
+        uic.loadUi('router/scan_ui/NetworkScan.ui',self)
 
         
-        #connect min full and exit tab (top right) to UI
 
-        self.pushButton_4.clicked.connect(self.goBack)
+        self.back.clicked.connect(self.goBack)
+        self.help.clicked.connect(self.goHelp)
+
+        
+    def goHelp(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Help Iinformation about this screen goes here")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
+
+
+  
     
 
     def goBack(self):
-
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    # used for the full screen btn (top right)
-    def toggleFull(self):
-            if self.windowState() & QtCore.Qt.WindowFullScreen:
-                self.showNormal()
-            else:
-                self.showFullScreen()
+
 #SCAN
 class Qscan(QMainWindow):
     def __init__(self):
         super(Qscan,self).__init__()
-        uic.loadUi('router/scan_ui/quick_scan.ui',self)
+        uic.loadUi('router/scan_ui/Quick.ui',self)
 
         
-        #connect min full and exit tab (top right) to UI
 
-        self.pushButton_4.clicked.connect(self.goBack)
+        self.back.clicked.connect(self.goBack)
+        self.help.clicked.connect(self.goHelp)
+
+        
+    def goHelp(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Help Iinformation about this screen goes here")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
+
+
+  
     
 
     def goBack(self):
-
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    # used for the full screen btn (top right)
-    def toggleFull(self):
-            if self.windowState() & QtCore.Qt.WindowFullScreen:
-                self.showNormal()
-            else:
-                self.showFullScreen()
 #SCAN
-class AdvancedScreen(QMainWindow):
+class AdvancedScreen2(QMainWindow):
     def __init__(self):
         super(AdvancedScreen,self).__init__()
         uic.loadUi('router/scan_ui/advanced_scan_module.ui',self)
@@ -624,21 +679,61 @@ class AdvancedScreen(QMainWindow):
         self.pushButton_14.clicked.connect(self.goBack)
         self.pushButton_15.clicked.connect(self.export)
     
+#SCAN
+
+
+class AdvancedScreen(QMainWindow):
+    def __init__(self):
+        super(AdvancedScreen,self).__init__()
+        uic.loadUi('router/scan_ui/Angry_scan.ui',self)
+
+        
+        #connect min full and exit tab (top right) to UI
         global conn, IPAddr, hostname
 
 
         #target = socket.gethostbyname(sys.argv[1])
         self.textEdit.append(str("Hostname : " + str(hostname)))
-        self.textEdit.append(str("Scanning IP : " + str(IPAddr)))
+        self.textEdit.append(str("Home IP : " + str(IPAddr)))
         self.textEdit.append(str("Scan Init : " + str(datetime.now())))
 
-        self.pushButton.clicked.connect(self.addTxt)
+        self.pushButton_4.clicked.connect(self.addTxt)
  
-        self.pushButton_2.clicked.connect(self.set_IP)
+        self.pushButton_3.clicked.connect(self.set_IP)
+        self.pushButton.clicked.connect(self.clear_fields)
+
+        self.back.clicked.connect(self.goBack)
+        self.help.clicked.connect(self.goHelp)
+
+        
+    def goHelp(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Help Iinformation about this screen goes here")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
+
+
+  
+    
+ 
+    def goBack(self):
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+
+
+
 
     def set_IP(self):
         global conn, IPAddr, hostname
-        self.lineEdit.setText(IPAddr)
+        self.lineEdit_5.setText(IPAddr)
 
     
 
@@ -646,7 +741,7 @@ class AdvancedScreen(QMainWindow):
     def addTxt(self):
         global clicked
 
-        if (self.lineEdit.text() == ''):
+        if (self.lineEdit_5.text() == ''):
             msgBox = QMessageBox()
             msgBox.setIcon(QMessageBox.Warning)
             msgBox.setText("Please enter a Target")
@@ -658,18 +753,33 @@ class AdvancedScreen(QMainWindow):
             if returnValue == QMessageBox.Ok:
                 return
 
-        elif (self.lineEdit_2.text() == ''):
+        elif (self.lineEdit_6.text() == ''):
             msgBox = QMessageBox()
             msgBox.setIcon(QMessageBox.Warning)
             msgBox.setText("Please enter a Starting port")
             msgBox.setWindowTitle("HomeScan")
-            msgBox.setStandardButtons(QMessageBox.Ok)
+            msgBox.setStandardButtons(QMessageBox.Yes)
+            msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+            returnValue = msgBox.exec()
+            if returnValue == QMessageBox.Ok:
+                return
+
+        
+        
+        elif (int(self.lineEdit_7.text()) - int(self.lineEdit_6.text()) > 200):
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("You are questing to scan more than 200+ ports\n\nAre you sure you want to do this? \n\nIt may crash the application or take along time to complete use low ms")
+            msgBox.setWindowTitle("HomeScan")
+            msgBox.setStandardButtons(QMessageBox.Ok  | QMessageBox.Abort)
             msgBox.setWindowIcon(QIcon("assets/icon.ico"))
             returnValue = msgBox.exec()
 
-            if returnValue == QMessageBox.Ok:
+
+            if returnValue == QMessageBox.Abort:
                 return
-        elif (self.lineEdit_3.text() == ''):
+         
+        elif (self.lineEdit_7.text() == ''):
             msgBox = QMessageBox()
             msgBox.setIcon(QMessageBox.Warning)
             msgBox.setText("Please enter a End port")
@@ -680,7 +790,7 @@ class AdvancedScreen(QMainWindow):
 
             if returnValue == QMessageBox.Ok:
                 return
-        elif (self.lineEdit_4.text() == ''):
+        elif (self.lineEdit_8.text() == ''):
             msgBox = QMessageBox()
             msgBox.setIcon(QMessageBox.Warning)
             msgBox.setText("Please enter a Time delay")
@@ -692,14 +802,14 @@ class AdvancedScreen(QMainWindow):
             if returnValue == QMessageBox.Ok:
                 return
 
-        target = self.lineEdit.text()
-        s_port = int(self.lineEdit_2.text())
-        e_port = int(self.lineEdit_3.text())
-        ms = int(self.lineEdit_4.text())
+        target = self.lineEdit_5.text()
+        s_port = int(self.lineEdit_6.text())
+        e_port = int(self.lineEdit_7.text())
+        ms = int(self.lineEdit_8.text())
 
-        self.progressBar.setMinimum(s_port)
-        self.progressBar.setMaximum(e_port)
-        self.progressBar.setValue(s_port)
+        self.progressBar_2.setMinimum(s_port)
+        self.progressBar_2.setMaximum(e_port)
+        self.progressBar_2.setValue(s_port)
 
 
             
@@ -707,12 +817,12 @@ class AdvancedScreen(QMainWindow):
 
         self.textEdit.append(str("-" * 45))
         self.textEdit.append(str("Scanning Target: " + target))
-        self.textEdit.append(str("Scanning Ports: " + self.lineEdit_2.text() + " - " + self.lineEdit_3.text()))
+        self.textEdit.append(str("Scanning Ports: " + self.lineEdit_6.text() + " - " + self.lineEdit_7.text()))
         self.textEdit.append(str("Scanning started at: " + str(datetime.now())))
         self.textEdit.append(str("-" * 45))
         try:
             for port in range(s_port, (e_port+1)):
-                print(self.progressBar.setValue(self.progressBar.value() + 1))
+                print(self.progressBar_2.setValue(self.progressBar_2.value() + 1))
                 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 socket.setdefaulttimeout(ms/1000)
                 res = s.connect_ex((target, port))
@@ -739,6 +849,31 @@ class AdvancedScreen(QMainWindow):
             if returnValue == QMessageBox.Close:
                 print('OK clicked')
 
+    def clear_fields(self):
+        global clicked
+
+        if (self.lineEdit_5.text() == '' and self.lineEdit_6.text() == '' and self.lineEdit_7.text() == '' and self.lineEdit_8.text() == ''):
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("Nothing to clear")
+            msgBox.setWindowTitle("HomeScan")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+            returnValue = msgBox.exec()
+
+            if returnValue == QMessageBox.Ok:
+                return
+
+     
+
+        self.lineEdit_5.setText('')
+        self.lineEdit_6.setText('')
+        self.lineEdit_7.setText('')
+        self.lineEdit_8.setText('')
+
+
+            
+
 
     
     def export(self):
@@ -746,7 +881,7 @@ class AdvancedScreen(QMainWindow):
 
         current_time = now.strftime("%m-%d-%Y--%H-%M-%S")
 
-        name_of_file = "ScanModule-" + str(current_time)
+        name_of_file = "AngryScan-" + str(current_time)
         completeName = 'exports/'+ name_of_file + ".log"
         file1 = open(completeName , "w")
         toFile = self.textEdit.toPlainText()
@@ -782,30 +917,44 @@ class AdvancedScreen(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
-#SCAN
+
+
 class AScan(QMainWindow):
     def __init__(self):
         super(AScan,self).__init__()
-        uic.loadUi('router/scan_ui/angry_scan.ui',self)
+        uic.loadUi('router/scan_ui/BasicScan.ui',self)
 
         
         #connect min full and exit tab (top right) to UI
+        
 
-        self.pushButton_4.clicked.connect(self.goBack)
+        self.back.clicked.connect(self.goBack)
+        self.help.clicked.connect(self.goHelp)
+
+        
+    def goHelp(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Help Iinformation about this screen goes here")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
+
+
+  
     
 
     def goBack(self):
-
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    # used for the full screen btn (top right)
-    def toggleFull(self):
-            if self.windowState() & QtCore.Qt.WindowFullScreen:
-                self.showNormal()
-            else:
-                self.showFullScreen()
+
+
 #SCAN END -------------------------------Scan END
 
 
@@ -890,39 +1039,6 @@ class ConnList(QMainWindow):
             else:
                 self.showFullScreen()
 
-
-class Alerts(QMainWindow):
-    def __init__(self):
-        super(Alerts,self).__init__()
-        uic.loadUi('router/alerts.ui',self)
-        
-        #connect min full and exit tab (top right) to UI
-        self.min.clicked.connect(self.showMinimized)
-        self.full.clicked.connect(self.toggleFull)
-        self.exit.clicked.connect(QtWidgets.qApp.quit)
-        self.pushButton_14.clicked.connect(self.goBack)
-
-
-        devices = []
-        for device in os.popen('arp -a'):
-            devices.append(device)
-            self.listWidget.addItem(str(device))
-
-
-    
-
-    def goBack(self):
-   
-        homeScanMain = HomeScanMain()
-        widget.addWidget(homeScanMain)
-        widget.setCurrentIndex(widget.currentIndex()+1)
-
-    # used for the full screen btn (top right)
-    def toggleFull(self):
-            if self.windowState() & QtCore.Qt.WindowFullScreen:
-                self.showNormal()
-            else:
-                self.showFullScreen()
 
 
 class Ports(QMainWindow):
@@ -1039,5 +1155,8 @@ if __name__ == '__main__':
     QApplication.setFont(font, "QLabel")
     QApplication.setFont(font, "QCheckBox")
     QApplication.setFont(font, "QPushButton")
+    QApplication.setFont(font, "QTextEdit")
+    QApplication.setFont(font, "QListWidget")
+    QApplication.setFont(font, "QLineEdit")
 
     sys.exit(app.exec_())

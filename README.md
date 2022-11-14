@@ -24,6 +24,7 @@
 HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
 
 ## WORKING ON CURRENTLY
+- [ ] re-add all sidebar thigns
 - [ ] 2/4 Scans working.
 - [ ] Devices Err in Err out Live chart.
 - [ ] Live panel to main window basic view, Advanced panel more advanced

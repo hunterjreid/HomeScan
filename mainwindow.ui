@@ -81,7 +81,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 102, 41)</string>
+          <string notr="true">background-color:rgb(236, 62, 39);</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -91,59 +91,51 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_10">
           <item>
-           <widget class="QSplitter" name="splitter">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 102, 41)</string>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <widget class="QWidget" name="layoutWidget">
-             <layout class="QVBoxLayout" name="verticalLayout_3">
-              <item>
-               <widget class="QLabel" name="label_TimerText">
-                <property name="styleSheet">
-                 <string notr="true">border:none;background: none;
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_TimerText">
+              <property name="styleSheet">
+               <string notr="true">border:none;background: none;
 color:rgb(255, 255, 255);
 font-size:17px;</string>
-                </property>
-                <property name="text">
-                 <string>Uptime: 00:00:00</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_WifiName">
-                <property name="styleSheet">
-                 <string notr="true">border:none;background: none;
+              </property>
+              <property name="text">
+               <string>Your IP</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_WifiName">
+              <property name="styleSheet">
+               <string notr="true">border:none;background: none;
 color:rgb(255, 255, 255);
 font-size:14px;</string>
-                </property>
-                <property name="text">
-                 <string>My Connected Network</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-            <widget class="QPushButton" name="pushButton_5">
-             <property name="styleSheet">
-              <string notr="true">background:none;</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>assets/nofity.png</normaloff>assets/nofity.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>22</width>
-               <height>27</height>
-              </size>
-             </property>
-            </widget>
+              </property>
+              <property name="text">
+               <string>Connected</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="QPushButton" name="pushButton_5">
+            <property name="styleSheet">
+             <string notr="true">background:none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>assets/nofity.png</normaloff>assets/nofity.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>22</width>
+              <height>27</height>
+             </size>
+            </property>
            </widget>
           </item>
          </layout>
@@ -151,8 +143,14 @@ font-size:14px;</string>
        </item>
        <item>
         <widget class="QFrame" name="bot">
+         <property name="minimumSize">
+          <size>
+           <width>160</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="styleSheet">
-          <string notr="true">border:none;background: none;</string>
+          <string notr="true">border:none;background: rgb(186, 186, 186);</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -189,12 +187,11 @@ font-size:15px;</string>
             <property name="styleSheet">
              <string notr="true">border:none;background: none;
 color:rgb(15, 15, 15);
-font-size: 19px;
-
+font-size: 13px;
 margin-top: 10px;</string>
             </property>
             <property name="text">
-             <string>Network Oveview</string>
+             <string>Network Overview</string>
             </property>
             <property name="icon">
              <iconset>
@@ -219,10 +216,10 @@ margin-top: 10px;</string>
             <property name="styleSheet">
              <string notr="true">border:none;background: none;
 color:rgb(15, 15, 15);
-font-size: 19px;margin-top: 15px;</string>
+font-size: 14px;margin-top: 15px;font-size: 13px;</string>
             </property>
             <property name="text">
-             <string>Traffic History</string>
+             <string>Your Connections</string>
             </property>
             <property name="icon">
              <iconset>
@@ -251,7 +248,7 @@ font-size: 19px;margin-top: 15px;</string>
              <string notr="true">border:none;background: none;
 color:rgb(15, 15, 15);
 font-size: 19px;
-margin-top: 15px;</string>
+margin-top: 15px;font-size: 13px;</string>
             </property>
             <property name="text">
              <string>Settings</string>
@@ -274,7 +271,7 @@ margin-top: 15px;</string>
              <string notr="true">border:none;background: none;
 color:rgb(15, 15, 15);
 font-size: 17px;
-margin-top: 15px;</string>
+margin-top: 15px;font-size: 13px;</string>
             </property>
             <property name="text">
              <string>Help</string>
@@ -318,13 +315,23 @@ font-size:15px;</string>
           <item>
            <widget class="QPushButton" name="pushButton_16">
             <property name="styleSheet">
-             <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
-color:rgb(255, 255, 255);
-font-size:14px;
-padding: 5px 0px;</string>
+             <string notr="true">background:rgb(236, 62, 39);
+border: 1px solid black;
+color:black;font-size:17px;
+padding:5px;</string>
             </property>
             <property name="text">
-             <string>advanced scan module</string>
+             <string>Anrgy Scan</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>assets/bull.png</normaloff>assets/bull.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -358,24 +365,46 @@ padding: 5px 0px;</string>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(54, 54, 54, 255), stop:1 rgba(44, 48, 50, 255));
-color:rgb(255, 255, 255);
-font-size:14px;</string>
+                <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(151, 151, 151, 255), stop:1 rgba(200, 200, 200, 255));
+border: 1px solid white;
+color:black;font-size:17px;
+padding:5px;</string>
                </property>
                <property name="text">
                 <string>Quick Scan</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>assets/quickscan.png</normaloff>assets/quickscan.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_4">
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 0, 0);
-color:rgb(255, 255, 255);
-font-size:14px;</string>
+                <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(151, 151, 151, 255), stop:1 rgba(200, 200, 200, 255));
+border: 1px solid white;
+color:black;font-size:17px;
+padding:5px;</string>
                </property>
                <property name="text">
-                <string>ANGRY SCAN</string>
+                <string>Basic Scan</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>assets/quick_scan.png</normaloff>assets/quick_scan.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -383,17 +412,28 @@ font-size:14px;</string>
               <widget class="QPushButton" name="pushButton_10">
                <property name="minimumSize">
                 <size>
-                 <width>22</width>
-                 <height>44</height>
+                 <width>0</width>
+                 <height>0</height>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
-color:rgb(255, 255, 255);
-font-size:17px;</string>
+                <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(151, 151, 151, 255), stop:1 rgba(200, 200, 200, 255));
+border: 1px solid white;
+color:black;font-size:17px;
+padding:5px;</string>
                </property>
                <property name="text">
                 <string>Scan</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>assets/basic_Scan.png</normaloff>assets/basic_Scan.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -633,8 +673,8 @@ margin-top:0px;</string>
            <widget class="QLabel" name="label_2">
             <property name="maximumSize">
              <size>
-              <width>331</width>
-              <height>61</height>
+              <width>219</width>
+              <height>40</height>
              </size>
             </property>
             <property name="styleSheet">
