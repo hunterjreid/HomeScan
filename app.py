@@ -41,7 +41,7 @@ class HomeScanMain(QMainWindow):
         self.pushButton.clicked.connect(self.goToLivePanel)
         self.pushButton_2.clicked.connect(self.goToPorts)
         self.pushButton_3.clicked.connect(self.goToDevices)
-        self.pushButton_12.clicked.connect(self.open)
+
         self.pushButton_16.clicked.connect(self.advanced_module)
         self.pushButton_13.clicked.connect(self.goToHelp)
         self.pushButton_7.clicked.connect(self.goToConnList)
@@ -132,14 +132,14 @@ class HomeScanMain(QMainWindow):
                 for i in range(10):
                     i = i / 10
                     widget.setWindowOpacity(1 - i)
-                    time.sleep(0.004)
+                    time.sleep(0.024)
                 
                 widget.showNormal()
 
                 for i in range(10):
                     i = i * 10
                     widget.setWindowOpacity(1 + i)
-                    time.sleep(0.004)
+                    time.sleep(0.014)
 
                 widget.setWindowOpacity(1)
             else:
@@ -147,14 +147,14 @@ class HomeScanMain(QMainWindow):
                 for i in range(10):
                     i = i / 10
                     widget.setWindowOpacity(1 - i)
-                    time.sleep(0.004)
+                    time.sleep(0.024)
                 
                 widget.showFullScreen()
 
                 for i in range(10):
                     i = i * 10
                     widget.setWindowOpacity(1 + i)
-                    time.sleep(0.004)
+                    time.sleep(0.014)
 
                 widget.setWindowOpacity(1)
     # [] btn
@@ -209,8 +209,6 @@ class HomeScanMain(QMainWindow):
         msgBox.exec()
        
 
-    def open(self):
-        webbrowser.open('https://github.com/hunterjreid/HomeScan')  
 
     def loadtable(self):
         people=psutil.net_connections()
@@ -485,30 +483,6 @@ class Overview(QMainWindow):
                 self.showFullScreen()
 
 
-class Help(QMainWindow):
-    def __init__(self):
-        super(Help,self).__init__()
-        uic.loadUi('router/help.ui',self)
-
-        
-        #connect min full and exit tab (top right) to UI
-        
-
-        self.pushButton.clicked.connect(self.goBack)
-    
-
-    def goBack(self):
-
-        homeScanMain = HomeScanMain()
-        widget.addWidget(homeScanMain)
-        widget.setCurrentIndex(widget.currentIndex()+1)
-
-    # used for the full screen btn (top right)
-    def toggleFull(self):
-            if self.windowState() & QtCore.Qt.WindowFullScreen:
-                self.showNormal()
-            else:
-                self.showFullScreen()
 
 class TrafficHistory(QMainWindow):
     def __init__(self):
@@ -540,23 +514,55 @@ class Settings(QMainWindow):
         uic.loadUi('router/settings.ui',self)
 
         
-        #connect min full and exit tab (top right) to UI
 
-        self.pushButton_14.clicked.connect(self.goBack)
+        self.back.clicked.connect(self.goBack)
+        self.help.clicked.connect(self.goHelp)
+
+        
+    def goHelp(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Help Iinformation about this screen goes here")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
+
+
+  
     
 
     def goBack(self):
-
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    # used for the full screen btn (top right)
-    def toggleFull(self):
-            if self.windowState() & QtCore.Qt.WindowFullScreen:
-                self.showNormal()
-            else:
-                self.showFullScreen()
+class Help(QMainWindow):
+    def __init__(self):
+        super(Help,self).__init__()
+        uic.loadUi('router/help_ui.ui',self)
+
+        
+
+        self.back.clicked.connect(self.goBack)
+        self.export_2.clicked.connect(self.goHelp)
+
+        
+    def goHelp(self):
+        webbrowser.open('https://github.com/hunterjreid/HomeScan')  
+
+
+  
+    
+
+    def goBack(self):
+        homeScanMain = HomeScanMain()
+        widget.addWidget(homeScanMain)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
 
 #SCAN ---------------------------------------
 class Scan(QMainWindow):
@@ -1031,6 +1037,7 @@ if __name__ == '__main__':
     font = QFont("Gilroy")
     widget.window().setFont(font)
     QApplication.setFont(font, "QLabel")
+    QApplication.setFont(font, "QCheckBox")
     QApplication.setFont(font, "QPushButton")
 
     sys.exit(app.exec_())
