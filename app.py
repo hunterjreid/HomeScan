@@ -47,7 +47,6 @@ class HomeScanMain(QMainWindow):
 
         self.pushButton_9.clicked.connect(self.goToSettings)
         self.pushButton_10.clicked.connect(self.goToScan)
-        self.pushButton_18.clicked.connect(self.nofity_test)
         self.pushButton_8.clicked.connect(self.goToOverview)
         self.pushButton_5.clicked.connect(self.goToAlerts)
         self.pushButton_4.clicked.connect(self.goToAScan)
@@ -56,38 +55,22 @@ class HomeScanMain(QMainWindow):
        #graphs
         global conn
         conn=psutil.net_connections()
-        self.graphicsView.setBackground('black')
-        self.graphicsView.setLabel('left', "<span style=\"color:darkgray;font-size:10px\">Speed</span>")
-        self.graphicsView.setLabel('bottom', "<span style=\"color:darkgray;font-size:10px\">Name</span>")
-
-        pen = pg.mkPen(color=(191, 32, 32), width=1, style=QtCore.Qt.DashLine)
-        self.graphicsView.setBackground('black')
-
-        row = 0
-        port_x = []
-        PID_y = []
-        people=psutil.net_connections()
-        for person in people:
-            port_x.append(person[6])  
-            PID_y.append(people[row][3][1])
-            row=row+1
 
 
-                
 
         
-        
-        
+        pen = pg.mkPen(color=(227, 198, 43), width=4, style=QtCore.Qt.DashLine)
+        pen2 = pg.mkPen(color=(191, 32, 32), width=5, style=QtCore.Qt.DashLine)
 
-        self.graphicsView2.plot(port_x, PID_y, pen=pen, symbol='x', symbolSize=4, symbolBrush=('red'))
-        self.graphicsView2_2.plot(port_x, PID_y, pen=pen, symbol='x', symbolSize=4, symbolBrush=('red'))
 
-        self.graphicsView2.setBackground('black')
 
-        self.graphicsView2.setLabel('left', "<span style=\"color:orange;font-size:10px\">Port #</span>")
-        self.graphicsView2.setLabel('bottom', "<span style=\"color:darkgray;font-size:10px\">PID</span>")
 
-        pen = pg.mkPen(color=(227, 198, 43), width=1, style=QtCore.Qt.DashLine)
+        self.graphicsView2.setBackground(QColor(12, 12, 12))
+        self.graphicsView.setBackground(QColor(12, 12, 12))
+        # self.graphicsView2.setLabel('left', "<span style=\"color:orange;font-size:10px\">Port #</span>")
+        # self.graphicsView2.setLabel('bottom', "<span style=\"color:darkgray;font-size:10px\">PID</span>")
+
+
 
         row = 0
         self.x = []
@@ -104,16 +87,68 @@ class HomeScanMain(QMainWindow):
 
 
 
-        self.graphicsView2.setBackground('black')
+     
+        
+        
 
-        
-        
-        
-        self.label_13.setText("Welcome back, "+ str(IPAddr) +" Total Net Connections: " + str(len(conn)) + " Network Interfaces: " + str(len(stats)))
 
-        self.data_line = self.graphicsView.plot(self.y, self.x, pen=pen, symbol='x', symbolSize=18, symbolBrush=('orangered'))
+
         self.loadtable()
         self.loadtable2()
+
+        self.x3 = list(range(100))  # 100 time points
+        self.y3 = [randint(0,0) for _ in range(100)]  # 100 data points'
+
+ 
+        self.y5 = [randint(0,0) for _ in range(100)]  # 100 data points'
+
+        # styles = {"color": "#f00", "font-size": "20px"}
+        # self.graphicsView.setLabel("left", "Connections", **styles)
+        # self.graphicsView.setLabel("bottom", "Seconds", **styles)
+        
+
+ 
+        self.data_line = self.graphicsView.plot(self.x3, self.y3, pen=pen)
+        self.data_line_2 = self.graphicsView2.plot(self.x3, self.y5, pen=pen2)
+
+        
+
+        self.timer4 = QtCore.QTimer()
+        self.timer4.setInterval(50)
+        self.timer4.timeout.connect(self.update_plot_data)
+        self.timer4.start()
+                
+
+    def update_plot_data(self):
+        conn_nol=psutil.net_connections()
+        self.x3 = self.x3[1:]  # Remove the first y element.
+        self.x3.append(self.x3[-1] + 1)  # Add a new value 1 higher than the last.
+
+        self.y3 = self.y3[1:]  # Remove the first
+        self.y3.append((len(conn_nol)))  # Add a new random value.
+        self.graphicsView.setRange(yRange=[int(len(conn_nol)-5),int(len(conn_nol)+5)])
+
+
+        print(round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2))
+        theval = round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2)
+
+        self.y5 = self.y5[1:]  # Remove the first
+        self.graphicsView2.setRange(yRange=[(theval-0.1),(theval+0.1)])
+        self.y5.append(theval)  # Add a new random value.
+
+        self.data_line.setData(self.x3, self.y3)  # Update the data.
+        self.data_line_2.setData(self.x3, self.y5)
+        #UPDATE TEXT ASWELL
+
+
+
+
+        self.label_7.setText("Net Conns Live: " + str(len(conn_nol)))
+        self.label_9.setText("Total transfer: " + str(theval))
+
+
+
+
 
 
   
@@ -274,23 +309,7 @@ class HomeScanMain(QMainWindow):
 
         row = 0
 
-        self.tableWidget_3.setRowCount(len(people))
 
-        for key in people:
-            self.tableWidget_3.setItem(row, 0, QtWidgets.QTableWidgetItem(str(key)))
-            self.tableWidget_3.setItem(row, 1, QtWidgets.QTableWidgetItem(str(people[key][0])))
-            self.tableWidget_3.setItem(row, 2, QtWidgets.QTableWidgetItem(str(people[key][2])))
-            self.tableWidget_3.setItem(row, 3, QtWidgets.QTableWidgetItem(str(people[key][3])))
-
-
-
-            if people[key][0] == False:
-                self.tableWidget_3.item(row, 1).setBackground(QColor(100,4,1))
-            else:
-                self.tableWidget_3.item(row, 1).setBackground(QColor(1,100,1))
-
-        self.tableWidget_3.resizeRowsToContents()
-        self.tableWidget_3.resizeColumnsToContents()  
 
     # router
     def gotoTrafficHistory(self):
@@ -369,22 +388,27 @@ class LivePanel(QMainWindow):
     def __init__(self):
         super(LivePanel,self).__init__()
         uic.loadUi('router/live_panel.ui',self)
+        global _last_net_io_meta
+        _last_net_io_meta = 0
+        self.x = list(range(300))  # 100 time points
+        self.y = [randint(0,0) for _ in range(300)]  # 100 data points'
 
-        self.x = list(range(100))  # 100 time points
-        self.y = [randint(200,201) for _ in range(100)]  # 100 data points'
+        # styles = {"color": "#f00", "font-size": "20px"}
+        # self.graphicsView.setLabel("left", "Connections", **styles)
+        # self.graphicsView.setLabel("bottom", "Seconds", **styles)
+        self.y3z =  [randint(0,0) for _ in range(300)]
 
-        styles = {"color": "#f00", "font-size": "20px"}
-        self.graphicsView.setLabel("left", "Connections", **styles)
-        self.graphicsView.setLabel("bottom", "Seconds", **styles)
-       
+        pen = pg.mkPen(color=(255,4,111), width=4, style=QtCore.Qt.DashLine)
+        self.data_line = self.graphicsView.plot(self.x, self.y, pen=pen, symbol='+', symbolSize=30, symbolBrush=('orange'))
+        self.data_line3 = self.graphicsView.plot(self.x, self.y3z, pen=pen, symbol='x', symbolSize=10, symbolBrush=('blue'))
 
-        pen = pg.mkPen(color=(255, 0, 0), width=15, style=QtCore.Qt.DashLine)
-        self.data_line = self.graphicsView.plot(self.x, self.y, pen=pen, symbol='+', symbolSize=30, symbolBrush=('b'))
+        
 
         self.timer = QtCore.QTimer()
-        self.timer.setInterval(1000)
+        self.timer.setInterval(10)
         self.timer.timeout.connect(self.update_plot_data)
         self.timer.start()
+    
                 
         #connect min full and exit tab (top right) to UI
         self.exit.clicked.connect(QtWidgets.qApp.quit)
@@ -395,14 +419,22 @@ class LivePanel(QMainWindow):
         self.x = self.x[1:]  # Remove the first y element.
         self.x.append(self.x[-1] + 1)  # Add a new value 1 higher than the last.
 
+        
+
+
         self.y = self.y[1:]  # Remove the first
         self.y.append((len(conn_nol)))  # Add a new random value.
 
-        self.data_line.setData(self.x, self.y)  # Update the data.
 
+        self.y3z = self.y3z[1:] 
+        self.y3z.append(psutil.net_io_counters().bytes_sent)
+        self.graphicsView.setRange(yRange=[int(len(conn_nol)-20),int(len(conn_nol)+20)])
+
+        self.data_line.setData(self.x, self.y)  # Update the data.
+        self.data_line3.setData(self.x, self.y3z)
         #UPDATE TEXT ASWELL
        
-
+        #print(self.net_io_usage)
 
 
         self.label_6.setText("Total Net Connections Live: " + str(len(conn_nol)))
@@ -412,7 +444,30 @@ class LivePanel(QMainWindow):
 
 
 
+    def net_io_usage():
+        global _last_net_io_meta
 
+        net_counters = psutil.net_io_counters()
+        tst = time.time()
+
+        send_bytes =  psutil.net_io_counters().bytes_sent
+        recv_bytes = net_counters.bytes_recv
+        if _last_net_io_meta is None:
+            _last_net_io_meta = (send_bytes, recv_bytes, tst)
+            return None
+
+        last_send_bytes, last_recv_bytes, last_time = _last_net_io_meta
+        delta_time = tst - last_time
+        recv_speed = (recv_bytes - last_recv_bytes) / delta_time
+        send_speed = (send_bytes - last_send_bytes) / delta_time
+
+        _last_net_io_meta = (send_bytes, recv_bytes, tst)
+
+        print(recv_speed, send_speed)
+        return recv_speed, send_speed 
+
+
+    
   
     
 
@@ -1096,6 +1151,7 @@ if __name__ == '__main__':
     window = HomeScanMain()
     widget.setWindowTitle("HomeScan Pro Edition")
     widget.setFixedSize(920, 550)
+    #widget.setFixedSize(920, 900)
     widget.setWindowFlags(Qt.FramelessWindowHint)
     widget.addWidget(window)
     widget.setWindowIcon(QIcon('assets/icon.ico'))
@@ -1110,5 +1166,7 @@ if __name__ == '__main__':
     QApplication.setFont(font, "QTextEdit")
     QApplication.setFont(font, "QListWidget")
     QApplication.setFont(font, "QLineEdit")
-    QApplication.setFont(font, "PlotWidget")
+    QApplication.setFont(font, "QPlotWidget")
+    QApplication.setFont(font, "QTableWidget")
+    QApplication.setFont(font, "QGraphicsWidget")
     sys.exit(app.exec_())

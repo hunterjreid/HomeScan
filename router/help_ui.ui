@@ -63,6 +63,12 @@
           <layout class="QHBoxLayout" name="top">
            <item alignment="Qt::AlignTop">
             <widget class="QPushButton" name="back">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>65</height>
+              </size>
+             </property>
              <property name="styleSheet">
               <string notr="true">font-size:20px;
 background:none;</string>
@@ -89,7 +95,7 @@ background:none;</string>
            <item>
             <widget class="QLabel" name="label">
              <property name="styleSheet">
-              <string notr="true">font-size:14px;
+              <string notr="true">font-size:15px;
 background:none;
 color:white;</string>
              </property>

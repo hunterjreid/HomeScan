@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>920</width>
-    <height>659</height>
+    <width>911</width>
+    <height>661</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,6 +64,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
           <layout class="QHBoxLayout" name="top">
            <item alignment="Qt::AlignTop">
             <widget class="QPushButton" name="pushButton">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
              <property name="styleSheet">
               <string notr="true">font-size:20px;
 background:none;</string>
@@ -262,44 +268,96 @@ padding:5px;</string>
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <property name="spacing">
-       <number>0</number>
+     <widget class="QFrame" name="frame">
+      <property name="styleSheet">
+       <string notr="true">background:none;background-color:rgb(12, 12, 12);</string>
       </property>
-      <item>
-       <widget class="QFrame" name="frame">
-        <property name="styleSheet">
-         <string notr="true">background:none;background-color:rgb(12, 12, 12);</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="styleSheet">
-            <string notr="true">background:none;
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+        <widget class="QLabel" name="label_3">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background:none;
 color:white;</string>
-           </property>
-           <property name="text">
-            <string>Port</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="PlotWidget" name="graphicsView_2">
-        <property name="styleSheet">
-         <string notr="true">padding:10px;background-color:rgb(12, 12, 12);</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+         </property>
+         <property name="text">
+          <string>Port</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="PlotWidget" name="graphicsView_2">
+      <property name="styleSheet">
+       <string notr="true">padding:10px;background-color:rgb(12, 12, 12);</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_2">
+      <property name="styleSheet">
+       <string notr="true">background:none;background-color:rgb(12, 12, 12);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="styleSheet">
+          <string notr="true">background:none;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../assets/warning.png</normaloff>../assets/warning.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>22</width>
+           <height>22</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>

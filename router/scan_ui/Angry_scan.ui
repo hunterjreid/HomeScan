@@ -69,6 +69,12 @@
           <layout class="QHBoxLayout" name="top">
            <item alignment="Qt::AlignTop">
             <widget class="QPushButton" name="back">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>65</height>
+              </size>
+             </property>
              <property name="styleSheet">
               <string notr="true">font-size:20px;
 background:none;</string>
