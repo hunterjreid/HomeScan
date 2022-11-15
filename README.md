@@ -12,43 +12,29 @@
 <sub>Created and designed by Hunter Reid / Created and designed by Catherine Daniels</sub>  
 <sub>A Yoobee Colleges Project, Started 20/9/22 (SEM 4)- Rouwa Class, CS-205-Project-based-elective</sub>  
 
-# mainwindow mockup
-![ewqeqdqwdq](https://user-images.githubusercontent.com/62681404/201448716-7472e8b6-a8f4-42a4-8fa7-e38397f74f0a.png)
-# wireframe new
-![image](https://user-images.githubusercontent.com/62681404/201455029-205aeeaa-b7a8-409e-a93a-3cffe5648b36.png)
-# every other screen mockup
-![201068583-d4e72a29-eqw4ace-bfab-75f1db0bdeac](https://user-images.githubusercontent.com/62681404/201448724-13dd9790-4a8c-41dc-ac7b-e510c13fb3dd.png)
-
+![image](https://user-images.githubusercontent.com/62681404/201854857-f9f5aaea-e033-4cdb-bb9b-246ff1b2df6e.png)
 
 ## What is HomeScan?
 HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
 
-## WORKING ON CURRENTLY
-- [ ] re-add all sidebar thigns
-- [ ] 2/4 Scans working.
-- [ ] Devices Err in Err out Live chart.
-- [ ] Live panel to main window basic view, Advanced panel more advanced
-- [x] exporting files to folder with good naming!
-- [ ] History
-- [ ] ANGRY SCAN? Intense scanner
-- [ ] Normal Scan feature - *Started*
-- [ ] QUICK SCAN PORT - *IP SCANNER AND CHECK IF ONLINE* - *Started*
-
-## Bugs to fix & Secondary Features Coming soon!
-- [ ] advanced scan module - click will crash app. Add click exemption while scanning
-- [ ] Moving window gltich resizing? - window moving,  Resizing hiding, docking, fullscreening with custom buttons?  
-- [ ] Account create and login ( webserver )
+## Todo List.
+- [ ] All top bar routes to be styled (black theme?)
+- [ ] Live panel must pause other scripts to revent lag
+- [ ] Fully implement the last two scans.
+- [ ] Fix the two listwidgets on main screen
+### Todos but less important.
+- [ ] Link settings
+- [ ] Majority exports working
+- [ ] Majority Help Icons displaying helpful text
+- [ ] *I MAYBE WILL DO THIS* Account create and login to webserver 
 
 # Install
 <i>Usage case may differ</i>
 1. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
 2. Enter directory ``` cd HomeScan```
-3. Install pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib```
-4. Run main.py
+3. Install the pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib socket```
+4. Run app.py
 
 ![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)
 # Screenshots:
 ![MicrosoftTeams-image (15)](https://user-images.githubusercontent.com/62681404/201068694-0a2f57b6-b7e7-4cac-b412-23dd6fdd0349.png)
-
-# Settings page i like:
-![image](https://user-images.githubusercontent.com/62681404/200146722-0f7725e7-1745-4c3d-9681-509fb90e6e1d.png)
