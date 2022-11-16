@@ -633,7 +633,7 @@ class Help(QMainWindow):
         super(Help,self).__init__()
         uic.loadUi('router/help_ui.ui',self)
 
-        
+        self.plainTextEdit.setReadOnly(True)
 
         self.back.clicked.connect(self.goBack)
         self.export_2.clicked.connect(self.goHelp)
@@ -742,7 +742,7 @@ class Qscan(QMainWindow):
 
         self.back.clicked.connect(self.goBack)
         self.help.clicked.connect(self.goHelp)
-        
+               
     
     def quickscan(self):
        
@@ -783,6 +783,7 @@ class Qscan(QMainWindow):
             except:
                 self.textEdit.append(str("        ✅      ")+ str("          Open Port Nunber:           ") + str( port))
                 self.textEdit.repaint()
+                self.textEdit.setReadOnly(True)
 
         
     def goHelp(self):
@@ -1215,4 +1216,5 @@ if __name__ == '__main__':
     QApplication.setFont(font, "QPlotWidget")
     QApplication.setFont(font, "QTableWidget")
     QApplication.setFont(font, "QGraphicsWidget")
+    QApplication.setFont(font,"QPlainTextEdit")
     sys.exit(app.exec_())
