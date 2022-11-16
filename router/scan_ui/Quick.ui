@@ -309,6 +309,19 @@ font-size:22px;</string>
            </layout>
           </item>
           <item>
+           <widget class="QLabel" name="label_8">
+            <property name="styleSheet">
+             <string notr="true">color: grey;</string>
+            </property>
+            <property name="text">
+             <string>&lt;i&gt;This quick scanner will scan 65,000 ports on your computer this may take up to 8 seconds to show&lt;i/&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QTextEdit" name="textEdit">
             <property name="styleSheet">
              <string notr="true">color: grey;</string>

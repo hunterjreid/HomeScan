@@ -1085,8 +1085,9 @@ class Ports(QMainWindow):
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(QtWidgets.qApp.quit)
         self.pushButton_14.clicked.connect(self.goBack)
+        self.pushButton_22.clicked.connect(self.arpscan)
 
-
+    def arpscan(self):
         devices = []
         for device in os.popen('arp -a'):
             devices.append(device)
