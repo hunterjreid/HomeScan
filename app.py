@@ -754,18 +754,22 @@ class Qscan(QMainWindow):
         self.progressBar.setMaximum(65535)
         self.progressBar.setValue(0)
         
-        #Shows if there is an internet connection
+        #Shows if there is an internet connection indirectly by checking the sockets rather than a URL
         if ip == "127.0.0.1":
-        
+            #If the IP is 12.0.0.1 there is no internet connection
             self.label_5.setText("No Current Internet Connection")
         else:
             self.label_5.setText("Connected to the internet")\
         
+        # The range comes from how many ports there are in TCP & UDP = 65535 and how many we are looking at
         for port in range(65535):
             try:
-                serv = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+                sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
-
+                """"The arguments passed to socket() are constants used to specify the address family 
+                and socket type. AF_INET is the Internet address family for IPv4. SOCK_STREAM is the socket type
+                for TCP, the protocol that will be used to transport messages in the network."""
+                
 
 
                 self.progressBar.setValue(self.progressBar.value() + 1)
@@ -773,12 +777,14 @@ class Qscan(QMainWindow):
 
 
                 
-                serv.bind((ip,port))
+                sock.bind((ip,port))
+                """The .bind() method is used to associate the socket with a specific network interface and port number: 
+                In this case our IP address """
             except:
                 self.textEdit.append(str("        ✅      ")+ str("          Open Port Nunber:           ") + str( port))
                 self.textEdit.repaint()
 
-        print("ok")
+        
     def goHelp(self):
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)
