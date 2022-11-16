@@ -1,25 +1,28 @@
-import psutil
-from PyQt5 import QtCore, QtWidgets, uic
-from PyQt5.QtCore import Qt, QPoint
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
-import pyqtgraph as pg
-import numpy as np
-from pyqtgraph import PlotWidget, plot
-import sys  # We need sys so that we can pass argv to QApplication
-from random import randint
-from pyqtgraph import PlotWidget, plot
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import ipaddress
+import os
+import os.path
 import socket
-import os, ipaddress
+import sys  # We need sys so that we can pass argv to QApplication
+import time
 import webbrowser
 from datetime import datetime
-from PyQt5.QtGui import QPainter, QColor, QPen, QFont, QFontDatabase
-from PyQt5.QtGui import *
+from random import randint
+
+import numpy as np
+import psutil
+import pyqtgraph as pg
+from matplotlib.backends.backend_qt5agg import \
+    FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+from PyQt5 import QtCore, QtWidgets, uic
 from PyQt5.QtCore import *
+from PyQt5.QtCore import QPoint, Qt
+from PyQt5.QtGui import *
+from PyQt5.QtGui import QColor, QFont, QFontDatabase, QPainter, QPen
 from PyQt5.QtWidgets import *
-import os.path
-import time
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow
+from pyqtgraph import PlotWidget, plot
+
 
 #main Window
 class HomeScanMain(QMainWindow):
@@ -733,13 +736,37 @@ class Qscan(QMainWindow):
     def __init__(self):
         super(Qscan,self).__init__()
         uic.loadUi('router/scan_ui/Quick.ui',self)
-
+    
+    #connect min full and exit tab (top right) to UI
+        global conn, IPAddr, hostname
         
+        self.QuickScan_Btn.clicked.connect(self.quickscan)
 
         self.back.clicked.connect(self.goBack)
         self.help.clicked.connect(self.goHelp)
-
         
+    
+    def quickscan(self):
+       
+        #Gets the host IP address
+        ip = socket.gethostbyname(socket.gethostname())
+        self.label_6.setText(ip)
+        
+        #Shows if there is an internet connection
+        if ip == "127.0.0.1":
+        
+            self.label_5.setText("No Current Internet Connection")
+        else:
+            self.label_5.setText("Connected to the internet")\
+        
+        for port in range(65535):
+            try:
+                serv = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+                serv.bind((ip,port))
+            except:
+                self.textEdit.append(str("        ✅      ")+ str("          Open Port Nunber:           ") + str( port))
+
+        print("ok")
     def goHelp(self):
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)

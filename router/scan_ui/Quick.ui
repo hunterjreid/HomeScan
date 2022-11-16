@@ -249,7 +249,7 @@ padding:5px;</string>
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item alignment="Qt::AlignTop">
+          <item>
            <widget class="QLabel" name="label_3">
             <property name="styleSheet">
              <string notr="true">color:orange;
@@ -260,13 +260,70 @@ font-size:22px;</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_7">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_7">
+              <property name="styleSheet">
+               <string notr="true">color:grey;</string>
+              </property>
+              <property name="text">
+               <string>Ip Address: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="styleSheet">
+               <string notr="true">color:grey;</string>
+              </property>
+              <property name="text">
+               <string>0.0.0.0</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="styleSheet">
+               <string notr="true">color:grey;</string>
+              </property>
+              <property name="text">
+               <string>Internet Connection: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="styleSheet">
+               <string notr="true">color:grey;</string>
+              </property>
+              <property name="text">
+               <string>Waiting for connection</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="textEdit">
             <property name="styleSheet">
-             <string notr="true">color:grey;</string>
+             <string notr="true">color: grey;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="QuickScan_Btn">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(90, 255, 78);
+color: rgb(255, 255, 255);
+height: 40px</string>
             </property>
             <property name="text">
-             <string>Here you can run the angry scan test. (PORT SCANNER GOES HERE) Add circle timer here</string>
+             <string>Scan</string>
             </property>
            </widget>
           </item>
