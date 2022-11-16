@@ -40,7 +40,7 @@ class HomeScanMain(QMainWindow):
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(self.quit)
         self.pushButton.clicked.connect(self.goToLivePanel)
-        self.pushButton_2.clicked.connect(self.goToPorts)
+        self.pushButton_2.clicked.connect(self.goToArp_scan)
         self.pushButton_3.clicked.connect(self.goToDevices)
 
         self.pushButton_16.clicked.connect(self.advanced_module)
@@ -130,12 +130,12 @@ class HomeScanMain(QMainWindow):
         self.graphicsView.setRange(yRange=[int(len(conn_nol)-5),int(len(conn_nol)+5)])
 
 
-        print(round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2))
-        theval = round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2)
+
+        theval = round(round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2) + round(psutil.net_io_counters().bytes_recv / 1024.0 / 1024, 2), 2)
 
         self.y5 = self.y5[1:]  # Remove the first
-        self.graphicsView2.setRange(yRange=[(theval-0.1),(theval+0.1)])
-        self.y5.append(theval)  # Add a new random value.
+        self.graphicsView2.setRange(yRange=[(theval-1),(theval+1)])
+        self.y5.append(round(theval, 2))  # Add a new random value.
 
         self.data_line.setData(self.x3, self.y3)  # Update the data.
         self.data_line_2.setData(self.x3, self.y5)
@@ -145,7 +145,7 @@ class HomeScanMain(QMainWindow):
 
 
         self.label_7.setText("Net Conns Live: " + str(len(conn_nol)))
-        self.label_9.setText("Total transfer: " + str(theval))
+        self.label_9.setText("Total transfer: " + str(theval) + " MBs")
 
 
 
@@ -341,9 +341,9 @@ class HomeScanMain(QMainWindow):
         widget.addWidget(qscan)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    def goToPorts(self):
-        ports = Ports()
-        widget.addWidget(ports)
+    def goToArp_scan(self):
+        arp_scan = ARP()
+        widget.addWidget(arp_scan)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     def goToAlerts(self):
@@ -388,57 +388,103 @@ class HomeScanMain(QMainWindow):
 class LivePanel(QMainWindow):
     def __init__(self):
         super(LivePanel,self).__init__()
-        uic.loadUi('router/live_panel.ui',self)
+        uic.loadUi('router/top_bar/live.ui',self)
         global _last_net_io_meta
         _last_net_io_meta = 0
-        self.x = list(range(300))  # 100 time points
-        self.y = [randint(0,0) for _ in range(300)]  # 100 data points'
+        self.x = list(range(150))  # 100 time points
+        self.y1 = [randint(0,0) for _ in range(150)]  # 100 data points'
 
         # styles = {"color": "#f00", "font-size": "20px"}
         # self.graphicsView.setLabel("left", "Connections", **styles)
         # self.graphicsView.setLabel("bottom", "Seconds", **styles)
-        self.y3z =  [randint(0,0) for _ in range(300)]
+        self.y3z =  [randint(0,0) for _ in range(150)]
+
+        self.y3zerrin =  [randint(0,0) for _ in range(150)]
+        self.y3zerrout =  [randint(0,0) for _ in range(150)]
 
         pen = pg.mkPen(color=(255,4,111), width=4, style=QtCore.Qt.DashLine)
-        self.data_line = self.graphicsView.plot(self.x, self.y, pen=pen, symbol='+', symbolSize=30, symbolBrush=('orange'))
-        self.data_line3 = self.graphicsView.plot(self.x, self.y3z, pen=pen, symbol='x', symbolSize=10, symbolBrush=('blue'))
+        pen_2 = pg.mkPen(color=(255,191,0), width=4, style=QtCore.Qt.DashLine)
+        pen_3 = pg.mkPen(color=(251,206,177), width=4, style=QtCore.Qt.DashLine)
+        pen_4 = pg.mkPen(color=(111,4,111), width=4, style=QtCore.Qt.DashLine)
+        self.graphicsView_2.addLegend()
 
-        
+        self.data_line3 = self.graphicsView_2.plot(self.x,  self.y3z, name="MB sent", pen=pen)
+        self.data_line1 = self.graphicsView_2.plot(self.x, self.y1, name="MB recv", pen=pen_2)
+        self.data_line4 = self.graphicsView_2.plot(self.x,  self.y3zerrin, name="Error in", pen=pen_3)
+        self.data_line5 = self.graphicsView_2.plot(self.x, self.y3zerrout, name="Error out", pen=pen_4)   
+        self.graphicsView_2.showGrid(x=True, y=True)
 
         self.timer = QtCore.QTimer()
-        self.timer.setInterval(10)
+        self.timer.setInterval(200)
         self.timer.timeout.connect(self.update_plot_data)
         self.timer.start()
-    
-                
+
+        self.graphicsView_2.setBackground(QColor(12, 12, 12))
+
         #connect min full and exit tab (top right) to UI
-        self.exit.clicked.connect(QtWidgets.qApp.quit)
-        self.pushButton_14.clicked.connect(self.goBack)
+
+        self.pushButton.clicked.connect(self.goBack)
+
+        theval24 = round(psutil.net_io_counters().bytes_recv / 1024.0 / 1024, 2)
+        theval34 = round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2)
+        theval44 = round(psutil.net_io_counters().errin / 1024.0 / 1024, 2)
+        theval54 = round(psutil.net_io_counters().errout / 1024.0 / 1024, 2)
+
+        self.diff_1 = theval24
+        self.diff_2 = theval34
+        self.diff_3 = theval44
+        self.diff_4 = theval54
 
     def update_plot_data(self):
-        conn_nol=psutil.net_connections()
+
         self.x = self.x[1:]  # Remove the first y element.
         self.x.append(self.x[-1] + 1)  # Add a new value 1 higher than the last.
 
-        
+        theval2 = round(psutil.net_io_counters().bytes_recv / 1024.0 / 1024, 2)
+        theval3 = round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2)
+        theval4 = round(psutil.net_io_counters().errin / 1024.0 / 1024, 2)
+        theval5 = round(psutil.net_io_counters().errout / 1024.0 / 1024, 2)
 
 
-        self.y = self.y[1:]  # Remove the first
-        self.y.append((len(conn_nol)))  # Add a new random value.
+
+
+
+        self.y1 = self.y1[1:]  # Remove the first
+        self.y1.append(theval2 - self.diff_1)
+        #self.graphicsView_2.setRange(yRange=[int(psutil.net_io_counters().bytes_recv-20),int(psutil.net_io_counters().bytes_recv+20)])
 
 
         self.y3z = self.y3z[1:] 
-        self.y3z.append(psutil.net_io_counters().bytes_sent)
-        self.graphicsView.setRange(yRange=[int(len(conn_nol)-20),int(len(conn_nol)+20)])
+        self.y3z.append(theval3 - self.diff_2)
 
-        self.data_line.setData(self.x, self.y)  # Update the data.
+
+        self.y3zerrin = self.y3zerrin[1:] 
+        self.y3zerrin.append(theval4 - self.diff_3)
+
+        self.y3zerrout = self.y3zerrout[1:] 
+        self.y3zerrout.append(theval5 - self.diff_4)
+
+
+        #self.graphicsView_2.setRange(yRange=[-0.10, 0.5])
+
+
+
+
         self.data_line3.setData(self.x, self.y3z)
+        self.data_line1.setData(self.x, self.y1)
+        self.data_line4.setData(self.x, self.y3zerrin)
+        self.data_line5.setData(self.x, self.y3zerrout)
+
+        self.diff_1 = theval2
+        self.diff_2 = theval3
+        self.diff_3 = theval4
+        self.diff_4 = theval5
         #UPDATE TEXT ASWELL
        
         #print(self.net_io_usage)
 
 
-        self.label_6.setText("Total Net Connections Live: " + str(len(conn_nol)))
+        #self.label_6.setText("Total Net Connections Live: " + str(len(conn_nol)))
 
 
 
@@ -1094,18 +1140,15 @@ class AScan(QMainWindow):
 
 
 
-
-class Ports(QMainWindow):
+class ARP(QMainWindow):
     def __init__(self):
-        super(Ports,self).__init__()
-        uic.loadUi('router/ports.ui',self)
-        
-        #connect min full and exit tab (top right) to UI
-        self.min.clicked.connect(self.showMinimized)
-        self.full.clicked.connect(self.toggleFull)
-        self.exit.clicked.connect(QtWidgets.qApp.quit)
-        self.pushButton_14.clicked.connect(self.goBack)
+        super(ARP,self).__init__()
+        uic.loadUi('router/top_bar/arp.ui',self)
 
+        
+
+        self.back.clicked.connect(self.goBack)
+        self.help.clicked.connect(self.goHelp)
 
         devices = []
         for device in os.popen('arp -a'):
@@ -1113,34 +1156,47 @@ class Ports(QMainWindow):
             self.listWidget.addItem(str(device))
 
 
+
+        
+    def goHelp(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Help Iinformation about this screen goes here")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
+
+
+  
     
 
     def goBack(self):
-   
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    # used for the full screen btn (top right)
-    def toggleFull(self):
-            if self.windowState() & QtCore.Qt.WindowFullScreen:
-                self.showNormal()
-            else:
-                self.showFullScreen()
+
 
 
 
 class Devices(QMainWindow):
     def __init__(self):
         super(Devices,self).__init__()
-        uic.loadUi('router/devices.ui',self)
+        uic.loadUi('router/top_bar/error.ui',self)
+
+        
+
+        self.back.clicked.connect(self.goBack)
+        self.help.clicked.connect(self.goHelp)
+
         
         #connect min full and exit tab (top right) to UI
-        self.min.clicked.connect(self.showMinimized)
-        self.full.clicked.connect(self.toggleFull)
-        self.pushButton_4.clicked.connect(self.export)
-        self.exit.clicked.connect(QtWidgets.qApp.quit)
-        self.pushButton_14.clicked.connect(self.goBack)
+
+        self.export_2.clicked.connect(self.export)
 
 
         last_received = psutil.net_io_counters().bytes_recv
@@ -1149,7 +1205,7 @@ class Devices(QMainWindow):
         mb_new_received = last_received / 1024 / 1024
         mb_new_sent = last_sent / 1024 / 1024
         mb_new_total = last_total / 1024 / 1024
-        self.lineEdit.setText(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total.")
+        self.listWidget.addItem(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total.")
         
 
     def export(self):
@@ -1189,6 +1245,18 @@ class Devices(QMainWindow):
                 self.showNormal()
             else:
                 self.showFullScreen()
+
+    def goHelp(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Help Iinformation about this screen goes here")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Ok:
+            print('OK clicked')
 
 #init app !
 if __name__ == '__main__':

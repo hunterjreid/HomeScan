@@ -17,16 +17,15 @@
 ## What is HomeScan?
 HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
 
-## Todo List.
-- [ ] All top bar routes to be styled (black theme?)
-- [ ] Live panel must pause other scripts to revent lag
-- [ ] Fully implement the last two scans.
-- [ ] Fix the two listwidgets on main screen
-### Todos but less important.
+# final todos
+- [ ] finish Basic Scan
+- [ ] finish Network Errors
+- [ ] hook up all the export buttons
+- [ ] clean mainwindow remove white bars / Fix the two listwidgets on main screen
 - [ ] Link settings
-- [ ] Majority exports working
 - [ ] Majority Help Icons displaying helpful text
-- [ ] *I MAYBE WILL DO THIS* Account create and login to webserver 
+- [ ] white intro screen 2s
+
 
 # Install
 <i>Usage case may differ</i>
