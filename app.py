@@ -1,27 +1,25 @@
-import ipaddress
-import os
-import os.path
+import psutil
+from PyQt5 import QtCore, QtWidgets, uic
+from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+import pyqtgraph as pg
+import numpy as np
+from pyqtgraph import PlotWidget, plot
+import sys
+from random import randint
+from pyqtgraph import PlotWidget, plot
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import socket
-import sys  # We need sys so that we can pass argv to QApplication
-import time
+import os, ipaddress
 import webbrowser
 from datetime import datetime
-from random import randint
-
-import numpy as np
-import psutil
-import pyqtgraph as pg
-from matplotlib.backends.backend_qt5agg import \
-    FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-from PyQt5 import QtCore, QtWidgets, uic
-from PyQt5.QtCore import *
-from PyQt5.QtCore import QPoint, Qt
+from PyQt5.QtGui import QPainter, QColor, QPen, QFont, QFontDatabase
 from PyQt5.QtGui import *
-from PyQt5.QtGui import QColor, QFont, QFontDatabase, QPainter, QPen
+from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow
-from pyqtgraph import PlotWidget, plot
+import os.path
+import time
 
 
 #main Window
@@ -751,6 +749,10 @@ class Qscan(QMainWindow):
         #Gets the host IP address
         ip = socket.gethostbyname(socket.gethostname())
         self.label_6.setText(ip)
+
+        self.progressBar.setMinimum(0)
+        self.progressBar.setMaximum(65535)
+        self.progressBar.setValue(0)
         
         #Shows if there is an internet connection
         if ip == "127.0.0.1":
@@ -762,9 +764,19 @@ class Qscan(QMainWindow):
         for port in range(65535):
             try:
                 serv = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+
+
+
+                self.progressBar.setValue(self.progressBar.value() + 1)
+               
+
+
+                
                 serv.bind((ip,port))
             except:
                 self.textEdit.append(str("        ✅      ")+ str("          Open Port Nunber:           ") + str( port))
+                self.textEdit.repaint()
 
         print("ok")
     def goHelp(self):
@@ -934,6 +946,7 @@ class AdvancedScreen(QMainWindow):
         try:
             for port in range(s_port, (e_port+1)):
                 print(self.progressBar_2.setValue(self.progressBar_2.value() + 1))
+                
                 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 socket.setdefaulttimeout(ms/1000)
                 res = s.connect_ex((target, port))
@@ -1085,9 +1098,8 @@ class Ports(QMainWindow):
         self.full.clicked.connect(self.toggleFull)
         self.exit.clicked.connect(QtWidgets.qApp.quit)
         self.pushButton_14.clicked.connect(self.goBack)
-        self.pushButton_22.clicked.connect(self.arpscan)
 
-    def arpscan(self):
+
         devices = []
         for device in os.popen('arp -a'):
             devices.append(device)

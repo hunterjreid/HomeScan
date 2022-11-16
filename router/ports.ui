@@ -44,7 +44,10 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -57,7 +60,7 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item row="0" column="0">
+       <item>
         <widget class="QFrame" name="name_and_tabs">
          <property name="enabled">
           <bool>true</bool>
@@ -204,7 +207,116 @@ margin-top:0px;</string>
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item>
+        <widget class="QFrame" name="color_bar">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0.00568182 rgba(227, 198, 43, 255), stop:1 rgba(191, 32, 32, 255))</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="logo_menu">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>78</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="maximumSize">
+             <size>
+              <width>331</width>
+              <height>61</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background:none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>assets/logo.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_2">
+            <property name="maximumSize">
+             <size>
+              <width>270</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: none;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_14">
+         <property name="styleSheet">
+          <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+color:rgb(255, 255, 255);
+font-size:17px;
+border:none;</string>
+         </property>
+         <property name="text">
+          <string>GO BACK TO MAIN</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../assets/back.png</normaloff>../assets/back.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QFrame" name="frame_4">
          <property name="minimumSize">
           <size>
@@ -221,10 +333,10 @@ margin-top:0px;</string>
          <widget class="QListWidget" name="listWidget">
           <property name="geometry">
            <rect>
-            <x>80</x>
-            <y>140</y>
+            <x>20</x>
+            <y>80</y>
             <width>771</width>
-            <height>331</height>
+            <height>101</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -234,101 +346,40 @@ font-size:13px;
 border:none;</string>
           </property>
          </widget>
-         <widget class="QFrame" name="color_bar">
+         <widget class="QLabel" name="label_4">
           <property name="geometry">
            <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>954</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0.00568182 rgba(227, 198, 43, 255), stop:1 rgba(191, 32, 32, 255))</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_2">
-          <property name="geometry">
-           <rect>
-            <x>-5</x>
-            <y>40</y>
-            <width>961</width>
-            <height>21</height>
+            <x>20</x>
+            <y>20</y>
+            <width>521</width>
+            <height>51</height>
            </rect>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
 color:rgb(255, 255, 255);
 font-size:17px;
-border:none;
-height: 40px;</string>
+border:none;</string>
           </property>
           <property name="text">
-           <string>To see a list of devices on your network click run a device scan</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <string> List of the devices on your local network</string>
           </property>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QListWidget" name="listWidget_2">
           <property name="geometry">
            <rect>
-            <x>1</x>
-            <y>68</y>
-            <width>951</width>
-            <height>42</height>
+            <x>30</x>
+            <y>200</y>
+            <width>771</width>
+            <height>131</height>
            </rect>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QPushButton" name="pushButton_14">
-             <property name="styleSheet">
-              <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
+          <property name="styleSheet">
+           <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(37, 37, 37, 255), stop:1 rgba(19, 19, 19, 255));
 color:rgb(255, 255, 255);
-font-size:17px;
-border:none;
-height: 40px;</string>
-             </property>
-             <property name="text">
-              <string>GO BACK TO MAIN</string>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../assets/back.png</normaloff>../assets/back.png</iconset>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_22">
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(55, 202, 85);
-color: white;
-height:40px;</string>
-             </property>
-             <property name="text">
-              <string>Run Device Scan</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+font-size:13px;
+border:2px dashed red;</string>
+          </property>
          </widget>
         </widget>
        </item>

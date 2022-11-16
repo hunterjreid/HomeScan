@@ -309,19 +309,6 @@ font-size:22px;</string>
            </layout>
           </item>
           <item>
-           <widget class="QLabel" name="label_8">
-            <property name="styleSheet">
-             <string notr="true">color: grey;</string>
-            </property>
-            <property name="text">
-             <string>&lt;i&gt;This quick scanner will scan 65,000 ports on your computer this may take up to 8 seconds to show&lt;i/&gt;</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QTextEdit" name="textEdit">
             <property name="styleSheet">
              <string notr="true">color: grey;</string>
@@ -329,16 +316,49 @@ font-size:22px;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="QuickScan_Btn">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(90, 255, 78);
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QProgressBar" name="progressBar">
+              <property name="styleSheet">
+               <string notr="true">background:grey;</string>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="QuickScan_Btn">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>115</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(90, 150, 78);
 color: rgb(255, 255, 255);
 height: 40px</string>
-            </property>
-            <property name="text">
-             <string>Scan</string>
-            </property>
-           </widget>
+              </property>
+              <property name="text">
+               <string>Scan</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../assets/search.ico</normaloff>../../assets/search.ico</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
