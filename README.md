@@ -24,5 +24,6 @@ HomeScan helps scans your home network for misconfigured or infected devices. Vu
 ![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)
 # download .exe file (not recommeneded)
 <i>.exe only: May get detected by anti virus, recommened running app.py only. Some features require /sudo so the program will detected by anti virus.</i>
+
+![MicrosoftTeams-image (15)](https://user-images.githubusercontent.com/62681404/201068694-0a2f57b6-b7e7-4cac-b412-23dd6fdd0349.png)  
 ![image](https://user-images.githubusercontent.com/62681404/202579245-638761b8-3ae7-476c-a15a-cb2c8c307447.png)  
-![MicrosoftTeams-image (15)](https://user-images.githubusercontent.com/62681404/201068694-0a2f57b6-b7e7-4cac-b412-23dd6fdd0349.png)
