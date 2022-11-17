@@ -274,17 +274,18 @@ class HomeScanMain(QMainWindow):
 
 
             if str(person[5]) == "NONE":
-                self.tableWidget.item(row, 2).setBackground(QColor(33,34,31))
+                self.tableWidget.item(row, 2).setForeground(QColor(255,255,255))
+        
             elif str(person[5]) == "CLOSE_WAIT":
                 self.tableWidget.item(row, 2).setBackground(QColor(255,255,102))
                 self.tableWidget.item(row, 2).setForeground(QColor(0,0,0))
             elif str(person[5]) == "ESTABLISHED":
-                self.tableWidget.item(row, 2).setBackground(QColor(76,154,1))
+                self.tableWidget.item(row, 2).setBackground(QColor(255,215,0))
             elif str(person[5]) == "LISTEN":
-                self.tableWidget.item(row, 2).setBackground(QColor(0,254,255))
-                self.tableWidget.item(row, 2).setForeground(QColor(0,0,0))
+                self.tableWidget.item(row, 2).setBackground(QColor(255,99,71))
+
             elif str(person[5]) == "SYN_SENT":
-                self.tableWidget.item(row, 2).setBackground(QColor(255,4,111))
+                self.tableWidget.item(row, 2).setBackground(QColor(255,127,80))
             elif str(person[5]) == "FIN_WAIT2":
                 self.tableWidget.item(row, 2).setBackground(QColor(150,145,251))
 

@@ -815,6 +815,21 @@ margin:10px;</string>
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_19">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>20</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>20</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_13">
             <item>
@@ -864,7 +879,7 @@ margin:10px;</string>
                    <string notr="true">color:grey;background:none;margin:0px;</string>
                   </property>
                   <property name="text">
-                   <string>Peak Chart</string>
+                   <string>Live Chart</string>
                   </property>
                  </widget>
                 </item>
@@ -992,7 +1007,7 @@ margin:10px;</string>
 padding:0;</string>
                   </property>
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string>List</string>
                   </property>
                  </widget>
                 </item>
@@ -1088,17 +1103,17 @@ margin:0px;</string>
               </attribute>
               <column>
                <property name="text">
+                <string>IP</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
                 <string>PID</string>
                </property>
               </column>
               <column>
                <property name="text">
                 <string>Status</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>IP</string>
                </property>
               </column>
               <column>
@@ -1159,7 +1174,7 @@ margin:0px;</string>
                    <string notr="true">color:grey;background:none;margin:0px;margin-top:-10px;</string>
                   </property>
                   <property name="text">
-                   <string>Units are in MBs</string>
+                   <string>Live Chart</string>
                   </property>
                  </widget>
                 </item>
@@ -1283,7 +1298,7 @@ margin:0px;</string>
                    <string notr="true">color:grey;background:none;margin:0px;</string>
                   </property>
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string>List</string>
                   </property>
                  </widget>
                 </item>

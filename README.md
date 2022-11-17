@@ -12,7 +12,7 @@
 <sub>Created and designed by Hunter Reid / Created and designed by Catherine Daniels</sub>  
 <sub>A Yoobee Colleges Project, Started 20/9/22 (SEM 4)- Rouwa Class, CS-205-Project-based-elective</sub>  
 
-![image](https://user-images.githubusercontent.com/62681404/202352512-cc9209c8-64e7-4c51-8a4e-3225d7324978.png)
+![image](https://user-images.githubusercontent.com/62681404/201854857-f9f5aaea-e033-4cdb-bb9b-246ff1b2df6e.png)
 
 ## What is HomeScan?
 HomeScan scans your home network for misconfigured or infected devices. Vulnerability scanner for home networks built in [Python](https://www.python.org/). Using, [PyQt5](https://doc.qt.io/qtforpython/) and [psutil](https://psutil.readthedocs.io/en/latest/) designed with [Qt Designer](https://build-system.fman.io/qt-designer-download) 
