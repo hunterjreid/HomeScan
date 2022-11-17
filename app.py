@@ -20,6 +20,10 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import os.path
 import time
+import ctypes
+
+
+
 
 
 #main Window
@@ -251,9 +255,8 @@ class HomeScanMain(QMainWindow):
 
         row = 0
         self.tableWidget.setRowCount(len(people))
-        header_style = "::section {""background-color: black; color: white; }"
-        self.tableWidget.horizontalHeader().setStyleSheet(header_style)
-        self.tableWidget.verticalHeader().setStyleSheet(header_style)
+        
+
 
         for person in people:
             
@@ -290,10 +293,6 @@ class HomeScanMain(QMainWindow):
 
         row = 0
         self.tableWidget_2.setRowCount(len(people))
-        header_style = "::section {""background-color: black; color: white; }"
-        self.tableWidget_2.horizontalHeader().setStyleSheet(header_style)
-        self.tableWidget_2.verticalHeader().setStyleSheet(header_style)
-        
 
         for key in people:
             self.tableWidget_2.setItem(row, 0, QtWidgets.QTableWidgetItem(str(key)))
@@ -684,7 +683,7 @@ class Help(QMainWindow):
         super(Help,self).__init__()
         uic.loadUi('router/help_ui.ui',self)
 
-        self.plainTextEdit.setReadOnly(True)
+        
 
         self.back.clicked.connect(self.goBack)
         self.export_2.clicked.connect(self.goHelp)
@@ -793,7 +792,7 @@ class Qscan(QMainWindow):
 
         self.back.clicked.connect(self.goBack)
         self.help.clicked.connect(self.goHelp)
-               
+        
     
     def quickscan(self):
        
@@ -834,7 +833,6 @@ class Qscan(QMainWindow):
             except:
                 self.textEdit.append(str("        ✅      ")+ str("          Open Port Nunber:           ") + str( port))
                 self.textEdit.repaint()
-                self.textEdit.setReadOnly(True)
 
         
     def goHelp(self):
@@ -1266,16 +1264,30 @@ class Devices(QMainWindow):
 #init app !
 if __name__ == '__main__':
     import sys
+
+    
+
+
     app = QApplication(sys.argv)
     widget = QtWidgets.QStackedWidget()
     window = HomeScanMain()
     widget.setWindowTitle("HomeScan Pro Edition")
-    widget.setFixedSize(920, 550)
-    #widget.setFixedSize(920, 900)
+
+    
+    user32 = ctypes.windll.user32
+    screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+
+    if (user32.GetSystemMetrics(1) < 1281):
+        widget.setFixedSize(920, 550)
+    else:
+        widget.setFixedSize(920, 900)
+    
+
     widget.setWindowFlags(Qt.FramelessWindowHint)
     widget.addWidget(window)
     widget.setWindowIcon(QIcon('assets/icon.ico'))
     widget.show()
+
 
     QFontDatabase.addApplicationFont("assets/Gilroy.ttf")
     font = QFont("Gilroy")
@@ -1289,5 +1301,4 @@ if __name__ == '__main__':
     QApplication.setFont(font, "QPlotWidget")
     QApplication.setFont(font, "QTableWidget")
     QApplication.setFont(font, "QGraphicsWidget")
-    QApplication.setFont(font,"QPlainTextEdit")
     sys.exit(app.exec_())
