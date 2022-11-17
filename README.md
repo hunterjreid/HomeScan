@@ -22,7 +22,9 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 - [x] clean mainwindow remove white bars / Fix the two listwidgets on main screen
 - [x] finish Network Errors
 - [x] Link settings
-- [x] finish Basic Scan
+
+
+- [ ] finish Basic Scan
 - [ ] Majority Help Icons displaying helpful text
 - [ ] white intro screen 2s
 
@@ -31,8 +33,9 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 <i>Usage case may differ</i>
 1. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
 2. Enter directory ``` cd HomeScan```
-3. Install the pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib socket```
-4. Run app.py
+3. Install the pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib socket speedtest-cli```
+4. If you have *speedtest* please uninstall ```pip install speedtest-cli``` 
+5. Run app.py
 
 ![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)
 # Screenshots:

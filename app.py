@@ -104,7 +104,7 @@ class HomeScanMain(QMainWindow):
 
 
 
-
+    
      
         
         
@@ -114,11 +114,11 @@ class HomeScanMain(QMainWindow):
         self.loadtable()
         self.loadtable2()
 
-        self.x3 = list(range(100))  # 100 time points
-        self.y3 = [randint(0,0) for _ in range(100)]  # 100 data points'
+        self.x3 = list(range(50))  # 100 time points
+        self.y3 = [randint(0,0) for _ in range(50)]  # 100 data points'
 
  
-        self.y5 = [randint(0,0) for _ in range(100)]  # 100 data points'
+        self.y5 = [randint(0,0) for _ in range(50)]  # 100 data points'
 
         # styles = {"color": "#f00", "font-size": "20px"}
         # self.graphicsView.setLabel("left", "Connections", **styles)

@@ -920,26 +920,6 @@ margin:10px;</string>
                    <property name="spacing">
                     <number>0</number>
                    </property>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_21">
-                     <property name="styleSheet">
-                      <string notr="true">background:none;margin:0px;</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>assets/refresh.ico</normaloff>assets/refresh.ico</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>19</width>
-                       <height>19</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
                    <item alignment="Qt::AlignRight">
                     <widget class="QPushButton" name="pushButton_23">
                      <property name="styleSheet">
@@ -950,7 +930,7 @@ margin:10px;</string>
                      </property>
                      <property name="icon">
                       <iconset>
-                       <normaloff>assets/code.png</normaloff>assets/code.png</iconset>
+                       <normaloff>assets/red.png</normaloff>assets/red.png</iconset>
                      </property>
                      <property name="iconSize">
                       <size>
@@ -1019,26 +999,6 @@ padding:0;</string>
                  <enum>QLayout::SetMaximumSize</enum>
                 </property>
                 <item alignment="Qt::AlignRight">
-                 <widget class="QPushButton" name="pushButton_17">
-                  <property name="styleSheet">
-                   <string notr="true">background:none;margin:0px;</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset>
-                    <normaloff>assets/warning.png</normaloff>assets/warning.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>19</width>
-                    <height>19</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item alignment="Qt::AlignRight">
                  <widget class="QPushButton" name="pushButton_25">
                   <property name="styleSheet">
                    <string notr="true">background:none;margin:0px;</string>
@@ -1048,7 +1008,7 @@ padding:0;</string>
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>assets/red.png</normaloff>assets/red.png</iconset>
+                    <normaloff>assets/warning.png</normaloff>assets/warning.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1212,26 +1172,6 @@ margin:0px;</string>
                  </property>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_11">
-                   <item>
-                    <widget class="QPushButton" name="pushButton_12">
-                     <property name="styleSheet">
-                      <string notr="true">background:none;margin:0px;</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>assets/refresh.ico</normaloff>assets/refresh.ico</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>19</width>
-                       <height>19</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
                    <item alignment="Qt::AlignRight">
                     <widget class="QPushButton" name="pushButton_19">
                      <property name="styleSheet">
@@ -1307,26 +1247,6 @@ margin:0px;</string>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_16">
                 <item alignment="Qt::AlignRight">
-                 <widget class="QPushButton" name="pushButton_15">
-                  <property name="styleSheet">
-                   <string notr="true">background:none;margin:0px;</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset>
-                    <normaloff>assets/warning.png</normaloff>assets/warning.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>19</width>
-                    <height>19</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item alignment="Qt::AlignRight">
                  <widget class="QPushButton" name="pushButton_24">
                   <property name="styleSheet">
                    <string notr="true">background:none;margin:0px;</string>
@@ -1336,7 +1256,7 @@ margin:0px;</string>
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>assets/red.png</normaloff>assets/red.png</iconset>
+                    <normaloff>assets/refresh.ico</normaloff>assets/refresh.ico</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
