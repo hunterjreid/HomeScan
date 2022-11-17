@@ -496,7 +496,7 @@ border: 1px solid grey;</string>
              <string notr="true">color:grey;</string>
             </property>
             <property name="text">
-             <string>Here you can run the angry scan test. (PORT SCANNER GOES HERE) -- UPDATE NO ITS THE Your connections tab and delete your connections from mainwindow</string>
+             <string>Search port meaning :</string>
             </property>
            </widget>
           </item>

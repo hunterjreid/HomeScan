@@ -69,6 +69,7 @@ class HomeScanMain(QMainWindow):
         self.pushButton_5.clicked.connect(self.goToAlerts)
         self.pushButton_4.clicked.connect(self.goToAScan)
         self.pushButton_11.clicked.connect(self.goToQscan)
+        self.pushButton_19.clicked.connect(self.goHashhtag)
    
        #graphs
         global conn
@@ -104,7 +105,7 @@ class HomeScanMain(QMainWindow):
 
 
 
-    
+
      
         
         
@@ -219,6 +220,24 @@ class HomeScanMain(QMainWindow):
         #     time.sleep(0.004)
         widget.showMinimized()
     # x btn
+
+    def goHashhtag(self):
+        
+        last_received = psutil.net_io_counters().bytes_recv
+        last_sent = psutil.net_io_counters().bytes_sent
+
+
+        last_total = last_received + last_sent
+        mb_new_received = last_received / 1024 / 1024
+        mb_new_sent = last_sent / 1024 / 1024
+
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent")
+        msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
     def quit(self):
         global warnMessageOnExit
         if (warnMessageOnExit == False):
@@ -1309,7 +1328,6 @@ class AScan(QMainWindow):
 
         dot = ip.rfind(".")
         ip = ip[0:dot +1]
-        op = platform.system()
 
         operatorsys = platform.system()
 

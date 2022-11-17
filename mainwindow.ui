@@ -879,7 +879,7 @@ margin:10px;</string>
                    <string notr="true">color:grey;background:none;margin:0px;</string>
                   </property>
                   <property name="text">
-                   <string>Live Chart</string>
+                   <string>Real-Time Live Chart</string>
                   </property>
                  </widget>
                 </item>
@@ -987,7 +987,7 @@ margin:10px;</string>
 padding:0;</string>
                   </property>
                   <property name="text">
-                   <string>List</string>
+                   <string>Connection List</string>
                   </property>
                  </widget>
                 </item>
@@ -1134,7 +1134,7 @@ margin:0px;</string>
                    <string notr="true">color:grey;background:none;margin:0px;margin-top:-10px;</string>
                   </property>
                   <property name="text">
-                   <string>Live Chart</string>
+                   <string>Real-Time Live Chart</string>
                   </property>
                  </widget>
                 </item>
@@ -1238,7 +1238,7 @@ margin:0px;</string>
                    <string notr="true">color:grey;background:none;margin:0px;</string>
                   </property>
                   <property name="text">
-                   <string>List</string>
+                   <string>Network Interfaces Devices List</string>
                   </property>
                  </widget>
                 </item>
