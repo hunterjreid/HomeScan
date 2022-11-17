@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>678</width>
-    <height>401</height>
+    <width>690</width>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1023,6 +1023,26 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="label_11">
+                <property name="styleSheet">
+                 <string notr="true">color:white;font-size:18px;background:none;margin:0px;</string>
+                </property>
+                <property name="text">
+                 <string>Connections IP/Port Status &amp; ID</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_13">
+                <property name="styleSheet">
+                 <string notr="true">color:grey;</string>
+                </property>
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QTableWidget" name="tableWidget">
                 <property name="maximumSize">
                  <size>
@@ -1034,7 +1054,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
                  <string notr="true">font-size:10px;
 padding:0px;
 background: black;
-color:grey;
+color:lightgrey;
 margin:0px;</string>
                 </property>
                 <property name="verticalScrollBarPolicy">
@@ -1046,6 +1066,9 @@ margin:0px;</string>
                 <property name="alternatingRowColors">
                  <bool>false</bool>
                 </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
                 <column>
                  <property name="text">
                   <string>Status</string>
@@ -1258,6 +1281,26 @@ margin:0px;</string>
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="label_12">
+                <property name="styleSheet">
+                 <string notr="true">color:white;font-size:18px;background:none;margin:0px;</string>
+                </property>
+                <property name="text">
+                 <string>Network Interface &amp; Devices</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="styleSheet">
+                 <string notr="true">color:grey;</string>
+                </property>
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QTableWidget" name="tableWidget_2">
                 <property name="maximumSize">
                  <size>
@@ -1269,7 +1312,7 @@ margin:0px;</string>
                  <string notr="true">font-size:10px;
 padding:0px;
 background: black;
-color:grey;
+color:lightgrey;
 margin:0px;</string>
                 </property>
                 <property name="verticalScrollBarPolicy">
@@ -1278,6 +1321,9 @@ margin:0px;</string>
                 <property name="horizontalScrollBarPolicy">
                  <enum>Qt::ScrollBarAlwaysOff</enum>
                 </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
                 <column>
                  <property name="text">
                   <string>Name</string>
