@@ -1061,8 +1061,11 @@ margin:0px;</string>
               <property name="alternatingRowColors">
                <bool>false</bool>
               </property>
-              <attribute name="horizontalHeaderVisible">
+              <property name="cornerButtonEnabled">
                <bool>false</bool>
+              </property>
+              <attribute name="horizontalHeaderVisible">
+               <bool>true</bool>
               </attribute>
               <attribute name="horizontalHeaderHighlightSections">
                <bool>false</bool>
@@ -1330,7 +1333,7 @@ margin:0px;</string>
                <enum>Qt::ScrollBarAlwaysOff</enum>
               </property>
               <attribute name="horizontalHeaderVisible">
-               <bool>false</bool>
+               <bool>true</bool>
               </attribute>
               <column>
                <property name="text">

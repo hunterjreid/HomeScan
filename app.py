@@ -256,8 +256,10 @@ class HomeScanMain(QMainWindow):
         row = 0
         self.tableWidget.setRowCount(len(people))
         
-        header_style = "::section {""background-color: black; color: white; }"
+        header_style = "::section {""background-color: #0C0C0C; color: lightgrey; }"
         self.tableWidget.verticalHeader().setStyleSheet(header_style)
+        self.tableWidget.horizontalHeader().setStyleSheet(header_style)
+        
 
         for person in people:
             
@@ -294,9 +296,11 @@ class HomeScanMain(QMainWindow):
 
         row = 0
         self.tableWidget_2.setRowCount(len(people))
-        header_style = "::section {""background-color: black; color: white; }"
+        header_style = "::section {""background-color: #0C0C0C; color: lightgrey; }"
         self.tableWidget_2.verticalHeader().setStyleSheet(header_style)
-
+        self.tableWidget_2.horizontalHeader().setStyleSheet(header_style)
+        app.setStyleSheet(' QTableWidget QTableCornerButton::section {background-color: #0C0C0C; }')
+        
         for key in people:
             self.tableWidget_2.setItem(row, 0, QtWidgets.QTableWidgetItem(str(key)))
             self.tableWidget_2.setItem(row, 1, QtWidgets.QTableWidgetItem(str(people[key][0])))
