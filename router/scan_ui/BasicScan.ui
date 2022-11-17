@@ -248,128 +248,29 @@ padding:5px;</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label_3">
-          <property name="geometry">
-           <rect>
-            <x>9</x>
-            <y>9</y>
-            <width>148</width>
-            <height>27</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:orange;
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item alignment="Qt::AlignTop">
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">color:orange;
 font-size:22px;</string>
-          </property>
-          <property name="text">
-           <string>Run Basic Scan</string>
-          </property>
-         </widget>
-         <widget class="QWidget" name="">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>50</y>
-            <width>721</width>
-            <height>121</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gridLayout">
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_10">
-             <property name="styleSheet">
-              <string notr="true">color:grey;</string>
-             </property>
-             <property name="text">
-              <string>Download Speed</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLabel" name="label_11">
-             <property name="styleSheet">
-              <string notr="true">color:grey;</string>
-             </property>
-             <property name="text">
-              <string>Upload Speed</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QLabel" name="label_9">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="label_6">
-             <property name="styleSheet">
-              <string notr="true">color: grey;</string>
-             </property>
-             <property name="text">
-              <string>Internet Connection</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_5">
-             <property name="styleSheet">
-              <string notr="true">color: grey;</string>
-             </property>
-             <property name="text">
-              <string>Device Name:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="label_8">
-             <property name="styleSheet">
-              <string notr="true">color:grey;</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="styleSheet">
-              <string notr="true">color: grey;</string>
-             </property>
-             <property name="text">
-              <string>IP Address: </string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_7">
-             <property name="styleSheet">
-              <string notr="true">color:grey;</string>
-             </property>
-             <property name="text">
-              <string>0.0.0.0</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_12">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
+            </property>
+            <property name="text">
+             <string>Run Basic Scan</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignTop">
+           <widget class="QLabel" name="label_7">
+            <property name="styleSheet">
+             <string notr="true">color:grey;</string>
+            </property>
+            <property name="text">
+             <string>IP CHECKER AND SOMEELSE GOES HERE</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>

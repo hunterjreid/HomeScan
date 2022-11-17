@@ -302,19 +302,6 @@ color:white;</string>
       <property name="styleSheet">
        <string notr="true">padding:10px;background-color:rgb(12, 12, 12);</string>
       </property>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>650</y>
-         <width>47</width>
-         <height>13</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
      </widget>
     </item>
     <item>
