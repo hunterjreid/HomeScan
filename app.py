@@ -1190,10 +1190,10 @@ class AScan(QMainWindow):
         for i in range(1, 5):
             host = ip + str(i)
             if operatorsys == "Windows":
-                ping = "ping -n 1  "
+                ping = "ping -n 1 -w 1 "
                 response = os.system(ping + host + ">nul")
             else:
-                ping = "ping -c 1 "
+                ping = "ping -c 1 -w 1 "
                 response = os.system(ping + host + ">/dev/null")
 
             if response == 0:
