@@ -816,8 +816,8 @@ class Qscan(QMainWindow):
             #If the IP is 12.0.0.1 there is no internet connection
             self.label_5.setText("No Current Internet Connection")
         else:
-            self.label_5.setText("Connected to the internet")\
-        
+            self.label_5.setText("Connected to the internet")
+           
         # The range comes from how many ports there are in TCP & UDP = 65535 and how many we are looking at
         for port in range(65535):
             try:
@@ -831,16 +831,17 @@ class Qscan(QMainWindow):
 
                 self.progressBar.setValue(self.progressBar.value() + 1)
                
-
+                
 
                 
                 sock.bind((ip,port))
                 """The .bind() method is used to associate the socket with a specific network interface and port number: 
                 In this case our IP address """
             except:
+                
                 self.textEdit.append(str("        ✅      ")+ str("          Open Port Nunber:           ") + str( port))
                 self.textEdit.repaint()
-
+                
         
     def goHelp(self):
         msgBox = QMessageBox()

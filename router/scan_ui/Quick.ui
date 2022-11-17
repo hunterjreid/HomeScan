@@ -310,8 +310,14 @@ font-size:22px;</string>
           </item>
           <item>
            <widget class="QTextEdit" name="textEdit">
-            <property name="styleSheet">
-             <string notr="true">color: grey;</string>
+            <property name="undoRedoEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="acceptRichText">
+             <bool>false</bool>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::NoTextInteraction</set>
             </property>
            </widget>
           </item>
