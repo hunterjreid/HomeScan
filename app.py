@@ -21,6 +21,7 @@ from PyQt5.QtWidgets import *
 import os.path
 import time
 import ctypes
+
 import speedtest
 import platform
 
@@ -1347,6 +1348,9 @@ class AScan(QMainWindow):
         homeScanMain = HomeScanMain()
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
+
+
+
 
 
 
