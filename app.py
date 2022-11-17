@@ -262,34 +262,40 @@ class HomeScanMain(QMainWindow):
         
 
         for person in people:
-            
-            self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(person[5])))
-            self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(people[row][3][0])))
-            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(people[row][3][1])))
-            self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(person[6])))
-            self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(person[2])))
+
+
+
+
+            self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(people[row][3][0])))
+            self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(person[6])))
+            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(person[5])))
+            self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(people[row][3][1])))
+
 
 
             if str(person[5]) == "NONE":
-                self.tableWidget.item(row, 0).setBackground(QColor(33,34,31))
+                self.tableWidget.item(row, 2).setBackground(QColor(33,34,31))
             elif str(person[5]) == "CLOSE_WAIT":
-                self.tableWidget.item(row, 0).setBackground(QColor(255,255,102))
+                self.tableWidget.item(row, 2).setBackground(QColor(255,255,102))
+                self.tableWidget.item(row, 2).setForeground(QColor(0,0,0))
             elif str(person[5]) == "ESTABLISHED":
-                self.tableWidget.item(row, 0).setBackground(QColor(76,154,1))
+                self.tableWidget.item(row, 2).setBackground(QColor(76,154,1))
             elif str(person[5]) == "LISTEN":
-                self.tableWidget.item(row, 0).setBackground(QColor(0,254,251))
+                self.tableWidget.item(row, 2).setBackground(QColor(0,254,255))
+                self.tableWidget.item(row, 2).setForeground(QColor(0,0,0))
             elif str(person[5]) == "SYN_SENT":
-                self.tableWidget.item(row, 0).setBackground(QColor(255,4,111))
+                self.tableWidget.item(row, 2).setBackground(QColor(255,4,111))
             elif str(person[5]) == "FIN_WAIT2":
-                self.tableWidget.item(row, 0).setBackground(QColor(150,145,251))
-     
+                self.tableWidget.item(row, 2).setBackground(QColor(150,145,251))
+
             # self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(person[row][1])))
             # self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(person[row][5])))
             # self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(person[row][3])))
             row=row+1
-        
+    
         self.tableWidget.resizeRowsToContents()
         self.tableWidget.resizeColumnsToContents()  
+
 
     def loadtable2(self):
         people=psutil.net_if_stats()
@@ -320,7 +326,8 @@ class HomeScanMain(QMainWindow):
             row=row+1
 
         row = 0
-
+        self.tableWidget_2.resizeRowsToContents()
+        self.tableWidget_2.resizeColumnsToContents()  
 
 
     # router
@@ -1285,11 +1292,13 @@ if __name__ == '__main__':
     user32 = ctypes.windll.user32
     screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
+    
+    widget.setFixedSize(920, 550)
+
     if (user32.GetSystemMetrics(1) < 1281):
         widget.setFixedSize(920, 550)
     else:
         widget.setFixedSize(920, 900)
-    
 
     widget.setWindowFlags(Qt.FramelessWindowHint)
     widget.addWidget(window)

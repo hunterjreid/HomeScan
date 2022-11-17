@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>885</width>
-    <height>850</height>
+    <width>1056</width>
+    <height>924</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -81,7 +81,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color:rgb(236, 62, 39);</string>
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(54, 54, 54, 255), stop:1 rgba(44, 48, 50, 255));</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -150,7 +150,8 @@ font-size:14px;</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">border:none;background: rgb(186, 186, 186);</string>
+          <string notr="true">border:none;
+background-color: rgb(217, 217, 217);</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -377,7 +378,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background:rgb(255, 113, 12);
+                <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0.00568182 rgba(227, 198, 43, 255), stop:1 rgba(191, 32, 32, 255));
 color:white;font-size:17px;
 padding:5px;</string>
                </property>
@@ -798,7 +799,7 @@ padding:5px;
 margin:10px;</string>
             </property>
             <property name="text">
-             <string>Welcome Back, your home networks details are ___, ____, and ___ with XX new alerts</string>
+             <string>This is an Example Notification</string>
             </property>
            </widget>
           </item>
@@ -813,21 +814,9 @@ margin:10px;</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="leftMargin">
-           <number>10</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>10</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_19">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_14">
+           <layout class="QVBoxLayout" name="verticalLayout_13">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_13">
               <property name="spacing">
@@ -913,26 +902,9 @@ margin:10px;</string>
                  </property>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_15">
-                   <item>
-                    <widget class="QPushButton" name="pushButton_20">
-                     <property name="styleSheet">
-                      <string notr="true">background:none;margin:0px;</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>assets/warning.png</normaloff>assets/warning.png</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>19</width>
-                       <height>19</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
                    <item>
                     <widget class="QPushButton" name="pushButton_21">
                      <property name="styleSheet">
@@ -953,27 +925,7 @@ margin:10px;</string>
                      </property>
                     </widget>
                    </item>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_22">
-                     <property name="styleSheet">
-                      <string notr="true">background:none;margin:0px;</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>assets/red.png</normaloff>assets/red.png</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>19</width>
-                       <height>19</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
+                   <item alignment="Qt::AlignRight">
                     <widget class="QPushButton" name="pushButton_23">
                      <property name="styleSheet">
                       <string notr="true">background:none;margin:0px;</string>
@@ -1002,6 +954,12 @@ margin:10px;</string>
             </item>
             <item>
              <widget class="PlotWidget" name="graphicsView">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>120</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -1014,26 +972,78 @@ margin:10px;</string>
              </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_11">
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
               <item>
-               <widget class="QLabel" name="label_11">
-                <property name="styleSheet">
-                 <string notr="true">color:white;font-size:18px;background:none;margin:0px;</string>
-                </property>
-                <property name="text">
-                 <string>Connection IP/Port status and ID</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_11">
+                <item>
+                 <widget class="QLabel" name="label_11">
+                  <property name="styleSheet">
+                   <string notr="true">color:white;font-size:18px;background:none;margin:0px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Connection IP/Port status and ID</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_13">
+                  <property name="styleSheet">
+                   <string notr="true">color:grey;background:none;margin:0px;
+padding:0;</string>
+                  </property>
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QLabel" name="label_13">
-                <property name="styleSheet">
-                 <string notr="true">color:grey;background:none;margin:0px;</string>
+               <layout class="QHBoxLayout" name="horizontalLayout_17">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetMaximumSize</enum>
                 </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QPushButton" name="pushButton_17">
+                  <property name="styleSheet">
+                   <string notr="true">background:none;margin:0px;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>assets/warning.png</normaloff>assets/warning.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>19</width>
+                    <height>19</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QPushButton" name="pushButton_25">
+                  <property name="styleSheet">
+                   <string notr="true">background:none;margin:0px;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>assets/red.png</normaloff>assets/red.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>19</width>
+                    <height>19</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -1046,7 +1056,7 @@ margin:10px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">font-size:10px;
+               <string notr="true">font-size:13px;
 padding:0px;
 background: (12,12,12);
 color:white;
@@ -1078,6 +1088,11 @@ margin:0px;</string>
               </attribute>
               <column>
                <property name="text">
+                <string>PID</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
                 <string>Status</string>
                </property>
               </column>
@@ -1091,17 +1106,12 @@ margin:0px;</string>
                 <string>Port</string>
                </property>
               </column>
-              <column>
-               <property name="text">
-                <string>PID</string>
-               </property>
-              </column>
              </widget>
             </item>
            </layout>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_13">
+           <layout class="QVBoxLayout" name="verticalLayout_14">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
               <property name="spacing">
@@ -1188,26 +1198,6 @@ margin:0px;</string>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_11">
                    <item>
-                    <widget class="QPushButton" name="pushButton_14">
-                     <property name="styleSheet">
-                      <string notr="true">background:none;margin:0px;</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>assets/warning.png</normaloff>assets/warning.png</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>19</width>
-                       <height>19</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
                     <widget class="QPushButton" name="pushButton_12">
                      <property name="styleSheet">
                       <string notr="true">background:none;margin:0px;</string>
@@ -1227,27 +1217,7 @@ margin:0px;</string>
                      </property>
                     </widget>
                    </item>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_17">
-                     <property name="styleSheet">
-                      <string notr="true">background:none;margin:0px;</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>assets/red.png</normaloff>assets/red.png</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>19</width>
-                       <height>19</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
+                   <item alignment="Qt::AlignRight">
                     <widget class="QPushButton" name="pushButton_19">
                      <property name="styleSheet">
                       <string notr="true">background:none;margin:0px;</string>
@@ -1276,6 +1246,12 @@ margin:0px;</string>
             </item>
             <item>
              <widget class="PlotWidget" name="graphicsView2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>120</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -1288,26 +1264,74 @@ margin:0px;</string>
              </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_8">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QLabel" name="label_12">
-                <property name="styleSheet">
-                 <string notr="true">color:white;font-size:18px;background:none;margin:0px;</string>
-                </property>
-                <property name="text">
-                 <string>Network Interfaces Devices</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item alignment="Qt::AlignBottom">
+                 <widget class="QLabel" name="label_12">
+                  <property name="styleSheet">
+                   <string notr="true">color:white;font-size:18px;background:none;margin:0px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Network Interfaces Devices</string>
+                  </property>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignBottom">
+                 <widget class="QLabel" name="label_14">
+                  <property name="styleSheet">
+                   <string notr="true">color:grey;background:none;margin:0px;</string>
+                  </property>
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QLabel" name="label_14">
-                <property name="styleSheet">
-                 <string notr="true">color:grey;background:none;margin:0px;</string>
-                </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_16">
+                <item alignment="Qt::AlignRight">
+                 <widget class="QPushButton" name="pushButton_15">
+                  <property name="styleSheet">
+                   <string notr="true">background:none;margin:0px;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>assets/warning.png</normaloff>assets/warning.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>19</width>
+                    <height>19</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QPushButton" name="pushButton_24">
+                  <property name="styleSheet">
+                   <string notr="true">background:none;margin:0px;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>assets/red.png</normaloff>assets/red.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>19</width>
+                    <height>19</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -1320,7 +1344,7 @@ margin:0px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">font-size:10px;
+               <string notr="true">font-size:13px;
 padding:0px;
 background: (12,12,12);
 color:white;
