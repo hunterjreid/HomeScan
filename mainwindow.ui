@@ -725,7 +725,7 @@ background: none;
 font-size: 19px;</string>
                    </property>
                    <property name="text">
-                    <string>Network Errors</string>
+                    <string>Connected IPs</string>
                    </property>
                   </widget>
                  </item>

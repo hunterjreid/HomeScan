@@ -24,9 +24,15 @@ import ctypes
 import speedtest
 import platform
 
-
-
-
+#Settings !! set defualt settings here. otherwise user can change it in application !
+global privateMode,VpnMode,isSound,warnMessageOnExit, alerts
+privateMode = False
+VpnMode = False
+isSound = False
+warnMessageOnExit = True
+showMainMessage = True
+alerts = []
+#Settings !!
 
 #main Window
 class HomeScanMain(QMainWindow):
@@ -39,6 +45,10 @@ class HomeScanMain(QMainWindow):
         hostname=socket.gethostname()   
         IPAddr=socket.gethostbyname(hostname) 
         self.label_TimerText.setText(str(IPAddr))
+
+        self.label_3.setHidden(not showMainMessage)
+
+
 
 
         #connect min full and exit tab (top right) to UI
@@ -117,6 +127,7 @@ class HomeScanMain(QMainWindow):
  
         self.data_line = self.graphicsView.plot(self.x3, self.y3, pen=pen)
         self.data_line_2 = self.graphicsView2.plot(self.x3, self.y5, pen=pen2)
+
 
         
 
@@ -208,21 +219,25 @@ class HomeScanMain(QMainWindow):
         widget.showMinimized()
     # x btn
     def quit(self):
-        msgBox = QMessageBox()
-        msgBox.setIcon(QMessageBox.Information)
-        msgBox.setText("Are you sure you want to exit HomeScan?")
-        msgBox.setWindowTitle("HomeScan")
-        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
-
-        returnValue = msgBox.exec()
-        if returnValue == QMessageBox.Yes:
-            for i in range(20):
-                i = i / 20
-                widget.setWindowOpacity(1 - i)
-                time.sleep(0.1)
-
+        global warnMessageOnExit
+        if (warnMessageOnExit == False):
             QtWidgets.qApp.quit()
+        else:
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setText("Are you sure you want to exit HomeScan?")
+            msgBox.setWindowTitle("HomeScan")
+            msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+            msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+
+            returnValue = msgBox.exec()
+            if returnValue == QMessageBox.Yes:
+                for i in range(20):
+                    i = i / 20
+                    widget.setWindowOpacity(1 - i)
+                    time.sleep(0.1)
+
+                QtWidgets.qApp.quit()
 
 
 
@@ -283,6 +298,7 @@ class HomeScanMain(QMainWindow):
                 self.tableWidget.item(row, 2).setForeground(QColor(0,0,0))
             elif str(person[5]) == "ESTABLISHED":
                 self.tableWidget.item(row, 2).setBackground(QColor(255,215,0))
+                self.tableWidget.item(row, 2).setForeground(QColor(0,0,0))
             elif str(person[5]) == "LISTEN":
                 self.tableWidget.item(row, 2).setBackground(QColor(255,99,71))
 
@@ -318,10 +334,8 @@ class HomeScanMain(QMainWindow):
 
 
 
-            if people[key][0] == False:
-                self.tableWidget_2.item(row, 1).setBackground(QColor(100,4,1))
-            else:
-                self.tableWidget_2.item(row, 1).setBackground(QColor(1,100,1))
+            if people[key][0] == True:
+                self.tableWidget_2.item(row, 1).setBackground(QColor(191, 32, 32))
 
 
                 
@@ -639,6 +653,57 @@ class Settings(QMainWindow):
         self.back.clicked.connect(self.goBack)
         self.help.clicked.connect(self.goHelp)
 
+
+        self.pushButton_11.clicked.connect(self.togglePrivateMode)
+        self.pushButton_9.clicked.connect(self.togglePrivateMode)
+
+        self.pushButton_5.clicked.connect(self.toggleVpnMode)
+        self.pushButton_6.clicked.connect(self.toggleVpnMode)
+
+        
+        self.pushButton.clicked.connect(self.togglesound)
+        self.pushButton_2.clicked.connect(self.togglesound)
+
+        self.pushButton_3.clicked.connect(self.togglemainwarnMessageOnExit)
+        self.pushButton_4.clicked.connect(self.togglemainwarnMessageOnExit)
+
+        self.pushButton_8.clicked.connect(self.togshowMainMessage)
+        self.pushButton_7.clicked.connect(self.togshowMainMessage)
+
+        global privateMode, VpnMode, isSound, showMainMessage
+        if (not privateMode):
+            self.pushButton_9.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton_11.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+        else:
+            self.pushButton_9.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton_11.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+        if (not VpnMode):
+            self.pushButton_6.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton_5.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+        else:
+            self.pushButton_6.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton_5.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+        if (not isSound):
+            self.pushButton_2.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+        else:
+            self.pushButton_2.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+
+        if (not showMainMessage):
+            self.pushButton_4.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton_3.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+        else:
+            self.pushButton_4.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton_3.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+        if (not warnMessageOnExit):
+            self.pushButton_8.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton_7.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+        else:
+            self.pushButton_8.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton_7.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+
+
         
     def goHelp(self):
         msgBox = QMessageBox()
@@ -661,13 +726,73 @@ class Settings(QMainWindow):
         widget.addWidget(homeScanMain)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+    def togglePrivateMode(self):
+        global privateMode
+        if (privateMode):
+            self.pushButton_9.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton_11.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            privateMode = not privateMode
+        else:
+            self.pushButton_9.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton_11.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+            privateMode = not privateMode
+
+    def toggleVpnMode(self):
+        global VpnMode
+        if (VpnMode):
+            self.pushButton_6.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton_5.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            VpnMode = not VpnMode
+        else:
+            self.pushButton_6.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton_5.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+            VpnMode = not VpnMode
+
+    def togglesound(self):
+        global isSound
+        if (isSound):
+            self.pushButton_2.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            isSound = not isSound
+        else:
+            self.pushButton_2.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+            isSound = not isSound
+
+
+    def togglemainwarnMessageOnExit(self):
+        global warnMessageOnExit
+        if (warnMessageOnExit):
+            self.pushButton_4.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton_3.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            warnMessageOnExit = not warnMessageOnExit
+        else:
+            self.pushButton_4.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton_3.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+            warnMessageOnExit = not warnMessageOnExit
+
+    def togshowMainMessage(self):
+        global showMainMessage
+        if (showMainMessage):
+            self.pushButton_8.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
+            self.pushButton_7.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            showMainMessage = not showMainMessage
+        else:
+            self.pushButton_8.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
+            self.pushButton_7.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
+            showMainMessage = not showMainMessage
 
 class Alerts(QMainWindow):
     def __init__(self):
         super(Alerts,self).__init__()
         uic.loadUi('router/alert.ui',self)
 
+        global alerts
         
+
+        for i in alerts:
+            print(i)
+            self.listWidget_2.addItem(str(i))
 
         self.back.clicked.connect(self.goBack)
         self.help.clicked.connect(self.goHelp)
@@ -1286,6 +1411,7 @@ class Devices(QMainWindow):
         self.back.clicked.connect(self.goBack)
         self.help.clicked.connect(self.goHelp)
 
+
         
         #connect min full and exit tab (top right) to UI
 
@@ -1294,12 +1420,20 @@ class Devices(QMainWindow):
 
         last_received = psutil.net_io_counters().bytes_recv
         last_sent = psutil.net_io_counters().bytes_sent
+
+        packet_sent = psutil.net_io_counters().packets_sent
+        packet_recv = psutil.net_io_counters().packets_recv
+
+
         last_total = last_received + last_sent
         mb_new_received = last_received / 1024 / 1024
         mb_new_sent = last_sent / 1024 / 1024
         mb_new_total = last_total / 1024 / 1024
-        self.listWidget.addItem(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total.")
+        self.listWidget.addItem(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total. {mb_new_total:.2f}. {packet_sent:.2f}. {packet_recv:.2f}")
         
+        for device in psutil.net_connections(kind='tcp'):
+            if str(device.raddr) != "()":
+                self.listWidget.addItem(str(device.raddr))
 
     def export(self):
         now = datetime.now()
@@ -1379,6 +1513,10 @@ if __name__ == '__main__':
     widget.addWidget(window)
     widget.setWindowIcon(QIcon('assets/icon.ico'))
     widget.show()
+
+    
+
+    alerts.append('Notice: App started on ' + str(datetime.now()))
 
 
     QFontDatabase.addApplicationFont("assets/Gilroy.ttf")

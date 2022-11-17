@@ -20,10 +20,11 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 
 # final todos
 - [x] clean mainwindow remove white bars / Fix the two listwidgets on main screen
+- [x] finish Network Errors
+- [x] Link settings
+
+
 - [ ] finish Basic Scan
-- [ ] finish Network Errors
-- [ ] hook up all the export buttons
-- [ ] Link settings
 - [ ] Majority Help Icons displaying helpful text
 - [ ] white intro screen 2s
 

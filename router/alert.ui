@@ -278,7 +278,7 @@ padding:5px;</string>
 font-size:22px;</string>
             </property>
             <property name="text">
-             <string>3 New alert(s)</string>
+             <string>Your Alerts</string>
             </property>
            </widget>
           </item>
@@ -301,79 +301,6 @@ font-size:19px;
 border:1px solid grey;
 padding:10px;</string>
             </property>
-            <item>
-             <property name="text">
-              <string>Test alert 2 - Important Fail</string>
-             </property>
-             <property name="background">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>171</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Test alert 1 - Notice / info / system</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Test alert 3 - Important Sucess</string>
-             </property>
-             <property name="background">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>0</red>
-                <green>139</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
            </widget>
           </item>
          </layout>

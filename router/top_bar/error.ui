@@ -129,13 +129,13 @@ color:white;</string>
            <item>
             <widget class="QPushButton" name="back_2">
              <property name="styleSheet">
-              <string notr="true">font-size:18px;
+              <string notr="true">font-size:12px;
 background:none;
 text-align:left;
 </string>
              </property>
              <property name="text">
-              <string>Errors</string>
+              <string>Connected Addresses</string>
              </property>
              <property name="icon">
               <iconset>
@@ -266,7 +266,7 @@ padding:5px;</string>
 font-size:22px;</string>
             </property>
             <property name="text">
-             <string>Network Errors</string>
+             <string>Connected Addresses</string>
             </property>
            </widget>
           </item>
@@ -276,7 +276,7 @@ font-size:22px;</string>
              <string notr="true">color:grey;</string>
             </property>
             <property name="text">
-             <string>Eroor</string>
+             <string>This shows you a list of addresses you are connected too:</string>
             </property>
            </widget>
           </item>
@@ -296,7 +296,7 @@ font-size:22px;</string>
 font-size:18px;</string>
               </property>
               <property name="text">
-               <string>Error</string>
+               <string>Click to view more</string>
               </property>
              </widget>
             </item>
