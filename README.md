@@ -32,7 +32,7 @@ HomeScan scans your home network for misconfigured or infected devices. Vulnerab
 <i>Usage case may differ</i>
 1. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
 2. Enter directory ``` cd HomeScan```
-3. Install the pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib socket```
+3. Install the pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib socket speedtest-cli```
 4. Run app.py
 
 ![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)

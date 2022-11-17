@@ -21,6 +21,8 @@ from PyQt5.QtWidgets import *
 import os.path
 import time
 import ctypes
+import speedtest
+import platform
 
 
 
@@ -1122,12 +1124,84 @@ class AScan(QMainWindow):
 
         
         #connect min full and exit tab (top right) to UI
-        
 
+
+      
+        self.BasicScanBtn.clicked.connect(self.BasicScan)
+        self.BasicScanBtn_2.clicked.connect(self.InternetSpeed)
         self.back.clicked.connect(self.goBack)
         self.help.clicked.connect(self.goHelp)
 
+    def InternetSpeed(self):
+        st = speedtest.Speedtest(secure=True)
+
+        print("Download Speed testing...")
+        print(st.download())
+        down = st.download()
+        conDown = (down/1024)/1000 #Converting the internet speed to MBps takes ages tbh
+        finalDownSpeed = round(conDown, 2)
+
+        print(str(finalDownSpeed) + "MBps")
+        self.DwnLSp.setText(str(finalDownSpeed)+" MBps")
+
+        print("Upload Speed Testing....")
+        upload = st.upload()
+        conup = (upload/1024)/1000
+        finalupSpeed = round(conup, 2)
+        self.UpLSpd.setText(str(finalupSpeed) + "MBps")
+
+        print("Internetspeed clicked")
+
+
+    def BasicScan(self):
+
+        print("ping clicked")
+       
+        # Gets the host IP address
+        ip = socket.gethostbyname(socket.gethostname())
+        self.Ipaddy.setText(ip)
+        deviceName =  socket.gethostname()
+        self.DevName.setText(deviceName)
+
+        self.Os_sys.setText(platform.system())
+
+        # Tests Internet Connection
+
+         #Shows if there is an internet connection indirectly by checking the sockets rather than a URL
+        if ip == "127.0.0.1":
+         #If the IP is 12.0.0.1 there is no internet connection
+            self.Intconn.setText("No Connection")
+
+        else:
+            self.Intconn.setText("Connected")
+
         
+        #Ping test
+        
+
+        ip = socket.gethostbyname(socket.gethostname())
+
+        dot = ip.rfind(".")
+        ip = ip[0:dot +1]
+        op = platform.system()
+
+        operatorsys = platform.system()
+
+        for i in range(1, 5):
+            host = ip + str(i)
+            if operatorsys == "Windows":
+                ping = "ping -n 1  "
+                response = os.system(ping + host + ">nul")
+            else:
+                ping = "ping -c 1 "
+                response = os.system(ping + host + ">/dev/null")
+
+            if response == 0:
+                self.textEdit.append(host + " is Active")
+            else:
+                self.textEdit.append(host + " in Not Active")
+        print("BasicScan Clicked")
+
     def goHelp(self):
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)
