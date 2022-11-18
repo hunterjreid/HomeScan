@@ -18,7 +18,7 @@ HomeScan helps scans your home network for misconfigured or infected devices. Vu
 2. Enter directory ``` cd HomeScan```
 3. Install the pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib socket speedtest-cli```
 4. If you have *speedtest* please uninstall ```pip uninstall speedtest-cli``` 
-5. Run app.py
+5. Run app.py inside of 
 
 ![image](https://user-images.githubusercontent.com/62681404/202367532-3920a1cc-62f2-4dbd-8186-de3e9afe9fc2.png)
 ![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)
