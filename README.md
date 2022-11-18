@@ -34,5 +34,13 @@ HomeScan helps scans your home network for misconfigured or infected devices. Vu
 
 ### Virus Total : 14/ 71 
 <hr>
-![image](https://user-images.githubusercontent.com/62681404/202602696-280bbd2e-80f9-4f81-9124-b9c110d34953.png)
+
+
+![image](https://user-images.githubusercontent.com/62681404/202602823-16036ebb-03cb-4ef1-89fe-13bd63ea8e81.png)  
+
+
+
+
+
+
 
