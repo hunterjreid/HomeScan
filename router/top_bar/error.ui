@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>914</width>
-    <height>508</height>
+    <width>941</width>
+    <height>1016</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -20,7 +20,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">border: unset;</string>
+   <string notr="true">border: unset;
+background: rgb(12,12,12);</string>
   </property>
   <widget class="QWidget" name="app">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -226,7 +227,7 @@ padding:5px;</string>
       </layout>
      </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignVCenter">
      <widget class="QFrame" name="body">
       <property name="styleSheet">
        <string notr="true">background-color:rgb(12, 12, 12);</string>
@@ -259,14 +260,14 @@ padding:5px;</string>
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_6">
-          <item>
+          <item alignment="Qt::AlignVCenter">
            <widget class="QLabel" name="label_3">
             <property name="styleSheet">
              <string notr="true">color:orange;
 font-size:22px;</string>
             </property>
             <property name="text">
-             <string>Connected Addresses</string>
+             <string>Connected IPs</string>
             </property>
            </widget>
           </item>
@@ -293,10 +294,11 @@ font-size:22px;</string>
              <widget class="QLabel" name="label_8">
               <property name="styleSheet">
                <string notr="true">color:white;
-font-size:18px;</string>
+font-size:18px;
+color:grey;</string>
               </property>
               <property name="text">
-               <string>Click to view more</string>
+               <string>Click on an address to learn more.</string>
               </property>
              </widget>
             </item>

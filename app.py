@@ -70,15 +70,18 @@ class HomeScanMain(QMainWindow):
         self.pushButton_4.clicked.connect(self.goToAScan)
         self.pushButton_11.clicked.connect(self.goToQscan)
         self.pushButton_19.clicked.connect(self.goHashhtag)
+        self.pushButton_23.clicked.connect(self.popupNetworkConns)
+
+        self.pushButton_25.clicked.connect(self.goToScan)
    
-       #graphs
+        #graphs
         global conn
         conn=psutil.net_connections()
 
 
 
         
-        pen = pg.mkPen(color=(227, 198, 43), width=4, style=QtCore.Qt.DashLine)
+        pen = pg.mkPen(color=(255, 165, 0), width=4, style=QtCore.Qt.DashLine)
         pen2 = pg.mkPen(color=(191, 32, 32), width=5, style=QtCore.Qt.DashLine)
 
 
@@ -152,6 +155,7 @@ class HomeScanMain(QMainWindow):
 
         theval = round(round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2) + round(psutil.net_io_counters().bytes_recv / 1024.0 / 1024, 2), 2)
 
+
         self.y5 = self.y5[1:]  # Remove the first
         self.graphicsView2.setRange(yRange=[(theval-1),(theval+1)])
         self.y5.append(round(theval, 2))  # Add a new random value.
@@ -162,9 +166,11 @@ class HomeScanMain(QMainWindow):
 
 
 
-
         self.label_7.setText("Net Conns Live: " + str(len(conn_nol)))
-        self.label_9.setText("Total transfer: " + str(theval) + " MBs")
+        self.label_9.setText("Total transfer: " + str(theval) + " Mbs")
+        self.label_15.setText(str(len(conn_nol)))
+        self.label_16.setText("Sent: " + str(round(psutil.net_io_counters().bytes_sent / 1024.0 / 1024, 2)) + "Mbs - Recv: " + str(round(psutil.net_io_counters().bytes_recv / 1024.0 / 1024, 2)) + "Mbs")
+
 
 
 
@@ -235,8 +241,23 @@ class HomeScanMain(QMainWindow):
         msgBox.setIcon(QMessageBox.Information)
         msgBox.setText(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent")
         msgBox.setWindowTitle("HomeScan")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+        msgBox.exec()
+
+    def popupNetworkConns(self):
+        
+
+
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText(f"{conn}")
+        msgBox.setWindowTitle("HomeScan")
         msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msgBox.setWindowIcon(QIcon("assets/icon.ico"))
+        msgBox.exec()
+
+
 
     def quit(self):
         global warnMessageOnExit
@@ -1451,7 +1472,7 @@ class Devices(QMainWindow):
         mb_new_received = last_received / 1024 / 1024
         mb_new_sent = last_sent / 1024 / 1024
         mb_new_total = last_total / 1024 / 1024
-        self.listWidget.addItem(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total. {mb_new_total:.2f}. {packet_sent:.2f}. {packet_recv:.2f}")
+        #self.listWidget.addItem(f"{mb_new_received:.2f} MB received, {mb_new_sent:.2f} MB sent, {mb_new_total:.2f} MB total. {mb_new_total:.2f}. {packet_sent:.2f}. {packet_recv:.2f}")
         
         for device in psutil.net_connections(kind='tcp'):
             if str(device.raddr) != "()":
@@ -1526,10 +1547,10 @@ if __name__ == '__main__':
     
     widget.setFixedSize(920, 550)
 
-    if (user32.GetSystemMetrics(1) < 1281):
-        widget.setFixedSize(920, 550)
-    else:
-        widget.setFixedSize(920, 900)
+    # if (user32.GetSystemMetrics(1) < 1281):
+    #     widget.setFixedSize(920, 550)
+    # else:
+    #     widget.setFixedSize(920, 900)
 
     widget.setWindowFlags(Qt.FramelessWindowHint)
     widget.addWidget(window)
