@@ -35,6 +35,8 @@ showMainMessage = True
 alerts = []
 #Settings !!
 
+is_Started = False
+
 #main Window
 class HomeScanMain(QMainWindow):
     def __init__(self):
@@ -118,11 +120,11 @@ class HomeScanMain(QMainWindow):
         self.loadtable()
         self.loadtable2()
 
-        self.x3 = list(range(50))  # 100 time points
-        self.y3 = [randint(0,0) for _ in range(50)]  # 100 data points'
+        self.x3 = list(range(20))  # 100 time points
+        self.y3 = [randint(0,0) for _ in range(20)]  # 100 data points'
 
  
-        self.y5 = [randint(0,0) for _ in range(50)]  # 100 data points'
+        self.y5 = [randint(0,0) for _ in range(20)]  # 100 data points'
 
         # styles = {"color": "#f00", "font-size": "20px"}
         # self.graphicsView.setLabel("left", "Connections", **styles)
@@ -135,11 +137,14 @@ class HomeScanMain(QMainWindow):
 
 
         
-
+    
         self.timer4 = QtCore.QTimer()
-        self.timer4.setInterval(50)
+        self.timer4.stop()
+        self.timer4.setInterval(30)
         self.timer4.timeout.connect(self.update_plot_data)
         self.timer4.start()
+
+
                 
 
     def update_plot_data(self):
@@ -157,7 +162,7 @@ class HomeScanMain(QMainWindow):
 
 
         self.y5 = self.y5[1:]  # Remove the first
-        self.graphicsView2.setRange(yRange=[(theval-1),(theval+1)])
+        self.graphicsView2.setRange(yRange=[(theval-0.7),(theval+0.7)])
         self.y5.append(round(theval, 2))  # Add a new random value.
 
         self.data_line.setData(self.x3, self.y3)  # Update the data.
@@ -305,7 +310,9 @@ class HomeScanMain(QMainWindow):
  
    
         msgBox.exec()
-       
+    
+    def clamp(n, minn, maxn):
+        return max(min(maxn, n), minn)
 
 
     def loadtable(self):
@@ -323,7 +330,7 @@ class HomeScanMain(QMainWindow):
 
 
 
-
+            
             self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(people[row][3][0])))
             self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(person[6])))
             self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(person[5])))
@@ -491,7 +498,7 @@ class LivePanel(QMainWindow):
         self.graphicsView_2.showGrid(x=True, y=True)
 
         self.timer = QtCore.QTimer()
-        self.timer.setInterval(200)
+        self.timer.setInterval(10)
         self.timer.timeout.connect(self.update_plot_data)
         self.timer.start()
 
@@ -731,13 +738,13 @@ class Settings(QMainWindow):
             self.pushButton_2.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
             self.pushButton.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
 
-        if (not showMainMessage):
+        if (not warnMessageOnExit):
             self.pushButton_4.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
             self.pushButton_3.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
         else:
             self.pushButton_4.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
             self.pushButton_3.setStyleSheet("background-color: rgb(0, 139, 0);color:white;font-size:13px;padding:10px;")
-        if (not warnMessageOnExit):
+        if (not showMainMessage):
             self.pushButton_8.setStyleSheet("background:rgb(171, 0, 0);font-size:13px;padding:10px;color:white;")
             self.pushButton_7.setStyleSheet("background:grey;color:darkgrey;font-size:13px;padding:10px;")
         else:
@@ -1547,10 +1554,10 @@ if __name__ == '__main__':
     
     widget.setFixedSize(920, 550)
 
-    # if (user32.GetSystemMetrics(1) < 1281):
-    #     widget.setFixedSize(920, 550)
-    # else:
-    #     widget.setFixedSize(920, 900)
+    if (user32.GetSystemMetrics(1) < 1281):
+        widget.setFixedSize(920, 550)
+    else:
+        widget.setFixedSize(920, 900)
 
     widget.setWindowFlags(Qt.FramelessWindowHint)
     widget.addWidget(window)
