@@ -29,29 +29,17 @@ Requirements: Python 3.7
 2. Enter directory ``` cd HomeScan```
 3. Install the pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib socket speedtest-cli```
 4. If you have *speedtest* please uninstall ```pip uninstall speedtest-cli``` 
-5. Run app.py inside of Visual Studio
+5. Run app.py inside of Visual Studio  
 
-![image](https://user-images.githubusercontent.com/62681404/202367532-3920a1cc-62f2-4dbd-8186-de3e9afe9fc2.png)
-![e12e21](https://user-images.githubusercontent.com/62681404/198426104-c007fa2e-f2ad-4fc0-ba7c-7bb13846dd61.png)
+![image](https://user-images.githubusercontent.com/62681404/202837741-3f1ad456-08a6-42a3-85ae-0360b10c6d00.png)
 # download .exe file (not recommeneded)
 <i>.exe only: May get detected by anti virus, recommened running app.py only. Some features require /sudo so the program will detected by anti virus.</i>
 
-![MicrosoftTeams-image (15)](https://user-images.githubusercontent.com/62681404/201068694-0a2f57b6-b7e7-4cac-b412-23dd6fdd0349.png)  
-
-
 <a target="_blank" href="https://www.mediafire.com/file/6kwtied4bzbg434/HomeScan.exe">
-	<img src="https://user-images.githubusercontent.com/62681404/202579245-638761b8-3ae7-476c-a15a-cb2c8c307447.png"/>
+<img src="https://user-images.githubusercontent.com/62681404/202579245-638761b8-3ae7-476c-a15a-cb2c8c307447.png"/>
 </a>
 
 ### Virus Total : 14/ 71 
 <hr>
 
-
 ![image](https://user-images.githubusercontent.com/62681404/202602823-16036ebb-03cb-4ef1-89fe-13bd63ea8e81.png)  
-
-
-
-
-
-
-
