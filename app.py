@@ -219,19 +219,12 @@ class HomeScanMain(QMainWindow):
         header_style = "::section {""background-color: #0C0C0C; color: lightgrey; }"
         self.tableWidget.verticalHeader().setStyleSheet(header_style)
         self.tableWidget.horizontalHeader().setStyleSheet(header_style)
-        
-
-        for person in people:
-
-
-
-            
+       
+        for person in people: 
             self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(people[row][3][0])))
             self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(str(person[6])))
             self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(person[5])))
             self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(people[row][3][1])))
-
-
 
             if str(person[5]) == "NONE":
                 self.tableWidget.item(row, 2).setForeground(QColor(255,255,255))
@@ -274,14 +267,9 @@ class HomeScanMain(QMainWindow):
             self.tableWidget_2.setItem(row, 2, QtWidgets.QTableWidgetItem(str(people[key][2])))
             self.tableWidget_2.setItem(row, 3, QtWidgets.QTableWidgetItem(str(people[key][3])))
 
-
-
             if people[key][0] == True:
                 self.tableWidget_2.item(row, 1).setBackground(QColor(191, 32, 32))
-
-
-                
-
+             
             row=row+1
 
         row = 0
@@ -294,61 +282,46 @@ class HomeScanMain(QMainWindow):
         trafficHistory = TrafficHistory()
         widget.addWidget(trafficHistory)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def goToLivePanel(self):
         livePanel = LivePanel()
         widget.addWidget(livePanel)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def advanced_module(self):
         Advancedscreen = AdvancedScreen()
         widget.addWidget(Advancedscreen)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
-
-
     def goToSettings(self):
         settings = Settings()
         widget.addWidget(settings)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
-
     def goToQscan(self):
         qscan = Qscan()
         widget.addWidget(qscan)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def goToArp_scan(self):
         arp_scan = ARP()
         widget.addWidget(arp_scan)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def goToAlerts(self):
         alerts = Alerts()
         widget.addWidget(alerts)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def goToDevices(self):
         devices = Devices()
         widget.addWidget(devices)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
-    
     def goToScan(self):
         scan = Scan()
         widget.addWidget(scan)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def goToAScan(self):
         ascan = AScan()
         widget.addWidget(ascan)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def goToHelp(self):
         help = Help()
         widget.addWidget(help)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def goToOverview(self):
         overview = Overview()
         widget.addWidget(overview)
@@ -388,7 +361,6 @@ class LivePanel(QMainWindow):
         self.timer.start()
 
         self.graphicsView_2.setBackground(QColor(12, 12, 12))
-
 
         self.pushButton.clicked.connect(self.goBack)
 
@@ -433,7 +405,6 @@ class LivePanel(QMainWindow):
 
 
         #self.graphicsView_2.setRange(yRange=[-0.10, 0.5])
-
 
 
 
