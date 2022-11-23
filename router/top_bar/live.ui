@@ -317,7 +317,7 @@ color:white;</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="warning">
          <property name="styleSheet">
           <string notr="true">background:none;</string>
          </property>

@@ -33,14 +33,3 @@ Requirements: Python 3.7
 6. Never panic about your network again !
 
 ![image](https://user-images.githubusercontent.com/62681404/202837741-3f1ad456-08a6-42a3-85ae-0360b10c6d00.png)
-# download .exe file (not recommeneded)
-<i>.exe only: May get detected by anti virus, recommened running app.py only. Some features require /sudo so the program will detected by anti virus.</i>
-
-<a target="_blank" href="https://www.mediafire.com/file/6kwtied4bzbg434/HomeScan.exe">
-<img src="https://user-images.githubusercontent.com/62681404/202579245-638761b8-3ae7-476c-a15a-cb2c8c307447.png"/>
-</a>
-
-### Virus Total : 14/ 71 
-<hr>
-
-![image](https://user-images.githubusercontent.com/62681404/202602823-16036ebb-03cb-4ef1-89fe-13bd63ea8e81.png)  

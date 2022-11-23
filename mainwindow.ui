@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>976</width>
-    <height>524</height>
+    <width>969</width>
+    <height>1016</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -81,7 +81,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(54, 54, 54, 255), stop:1 rgba(44, 48, 50, 255));</string>
+          <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(144, 144, 144, 255), stop:1 rgba(137, 137, 137, 255))</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -119,7 +119,7 @@ font-size:14px;</string>
            </layout>
           </item>
           <item alignment="Qt::AlignRight">
-           <widget class="QPushButton" name="pushButton_5">
+           <widget class="QPushButton" name="alertBtn">
             <property name="styleSheet">
              <string notr="true">background:none;</string>
             </property>
@@ -151,7 +151,7 @@ font-size:14px;</string>
          </property>
          <property name="styleSheet">
           <string notr="true">border:none;
-background-color: rgb(217, 217, 217);</string>
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(54, 54, 54, 255), stop:1 rgba(44, 48, 50, 255))</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -163,8 +163,9 @@ background-color: rgb(217, 217, 217);</string>
           <item>
            <widget class="QLabel" name="label_6">
             <property name="styleSheet">
-             <string notr="true">color:rgb(43, 43, 43);
-font-size:15px;</string>
+             <string notr="true">color:white;
+font-size:15px;
+background:none;</string>
             </property>
             <property name="text">
              <string>Main menu:</string>
@@ -172,7 +173,7 @@ font-size:15px;</string>
            </widget>
           </item>
           <item alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="pushButton_8">
+           <widget class="QPushButton" name="netOverviewBtn">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -187,7 +188,7 @@ font-size:15px;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">border:none;background: none;
-color:rgb(15, 15, 15);
+color:orange;
 font-size: 13px;
 margin-top: 10px;</string>
             </property>
@@ -207,7 +208,7 @@ margin-top: 10px;</string>
            </widget>
           </item>
           <item alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="pushButton_9">
+           <widget class="QPushButton" name="settings">
             <property name="minimumSize">
              <size>
               <width>30</width>
@@ -219,9 +220,9 @@ margin-top: 10px;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">border:none;background: none;
-color:rgb(15, 15, 15);
-font-size: 19px;
-margin-top: 15px;font-size: 13px;</string>
+color:orange;
+font-size: 13px;
+margin-top: 10px;</string>
             </property>
             <property name="text">
              <string>Settings</string>
@@ -239,12 +240,12 @@ margin-top: 15px;font-size: 13px;</string>
            </widget>
           </item>
           <item alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="pushButton_13">
+           <widget class="QPushButton" name="help">
             <property name="styleSheet">
              <string notr="true">border:none;background: none;
-color:rgb(15, 15, 15);
-font-size: 17px;
-margin-top: 15px;font-size: 13px;</string>
+color:orange;
+font-size: 13px;
+margin-top: 10px;</string>
             </property>
             <property name="text">
              <string>Help</string>
@@ -277,7 +278,7 @@ margin-top: 15px;font-size: 13px;</string>
           <item>
            <widget class="QLabel" name="label_4">
             <property name="styleSheet">
-             <string notr="true">color:rgb(43, 43, 43);
+             <string notr="true">color:white;
 font-size:15px;</string>
             </property>
             <property name="text">
@@ -286,26 +287,7 @@ font-size:15px;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_16">
-            <property name="styleSheet">
-             <string notr="true">background: rgb(85, 0, 0);
-color:white;font-size:13px;
-padding:5px;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));</string>
-            </property>
-            <property name="text">
-             <string>Anrgy Scan</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>30</width>
-              <height>30</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame">
+           <widget class="QFrame" name="scanbtns">
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
@@ -326,7 +308,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
               <number>0</number>
              </property>
              <item>
-              <widget class="QPushButton" name="pushButton_11">
+              <widget class="QPushButton" name="qScanBtn">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -334,10 +316,10 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background: rgb(85, 0, 0);
-color:white;font-size:13px;padding:5px;
-
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));</string>
+                <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(144, 144, 144, 255), stop:1 rgba(137, 137, 137, 255));
+color:white;font-size:13px;
+padding:5px;
+</string>
                </property>
                <property name="text">
                 <string>Quick Scan</string>
@@ -351,12 +333,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_4">
+              <widget class="QPushButton" name="basicScanBtn">
                <property name="styleSheet">
-                <string notr="true">background: rgb(85, 0, 0);
+                <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(144, 144, 144, 255), stop:1 rgba(137, 137, 137, 255));
 color:white;font-size:13px;
 padding:5px;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));</string>
+</string>
                </property>
                <property name="text">
                 <string>Basic Scan</string>
@@ -370,7 +352,30 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_10">
+              <widget class="QPushButton" name="angryScanBtn">
+               <property name="styleSheet">
+                <string notr="true">background:qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(216, 0, 0, 255), stop:1 rgba(111, 3, 3, 255));
+color:white;font-size:13px;
+padding:5px;
+</string>
+               </property>
+               <property name="text">
+                <string>Anrgy Scan</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>assets/devil.png</normaloff>assets/devil.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>18</width>
+                 <height>16</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="SCAN">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -589,7 +594,7 @@ margin-top:0px;</string>
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_7">
+        <layout class="QVBoxLayout" name="header">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -679,7 +684,7 @@ margin-top:0px;</string>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
-                  <widget class="QPushButton" name="pushButton">
+                  <widget class="QPushButton" name="livepanelBtn">
                    <property name="toolTip">
                     <string/>
                    </property>
@@ -700,7 +705,7 @@ font-size: 19px;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButton_2">
+                  <widget class="QPushButton" name="arpBtn">
                    <property name="styleSheet">
                     <string notr="true">color: white;
 border: 20px;
@@ -715,7 +720,7 @@ font-size: 19px;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButton_3">
+                  <widget class="QPushButton" name="connectedIpBtn">
                    <property name="styleSheet">
                     <string notr="true">color: white;
 border: 20px;
@@ -740,7 +745,7 @@ font-size: 19px;</string>
         </layout>
        </item>
        <item>
-        <widget class="QFrame" name="frame_3">
+        <widget class="QFrame" name="notify">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -796,10 +801,31 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091,
 
 color:orange;font-size:14px;
 padding:5px;
-margin:10px;</string>
+margin:10px;
+margin-bottom:0px;</string>
             </property>
             <property name="text">
-             <string>This is an Example Notification</string>
+             <string>Welcome back to HomeScan, We hope you and your network is having a good day :)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_17">
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid grey;
+color:white;font-size:17px;
+margin:10px;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.306, y2:0.909091, stop:0 rgba(23, 23, 23, 255), stop:1 rgba(46, 46, 46, 255));
+
+
+font-size:14px;
+padding:5px;
+margin:10px;
+margin-top:0px;</string>
+            </property>
+            <property name="text">
+             <string>Found a bug? report it to https://github.com/hunterjreid/HomeScan/issues</string>
             </property>
            </widget>
           </item>
@@ -807,7 +833,7 @@ margin:10px;</string>
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="frame_5">
+        <widget class="QFrame" name="body">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -934,7 +960,7 @@ margin:10px;</string>
                     <number>0</number>
                    </property>
                    <item alignment="Qt::AlignRight">
-                    <widget class="QPushButton" name="pushButton_23">
+                    <widget class="QPushButton" name="popup">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -1027,7 +1053,7 @@ padding:0;</string>
                  <enum>QLayout::SetMaximumSize</enum>
                 </property>
                 <item alignment="Qt::AlignRight">
-                 <widget class="QPushButton" name="pushButton_25">
+                 <widget class="QPushButton" name="warningBtn">
                   <property name="styleSheet">
                    <string notr="true">background:none;margin:0px;</string>
                   </property>
@@ -1214,7 +1240,7 @@ margin:0px;</string>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_11">
                    <item alignment="Qt::AlignRight">
-                    <widget class="QPushButton" name="pushButton_19">
+                    <widget class="QPushButton" name="hashtagbtn">
                      <property name="styleSheet">
                       <string notr="true">background:none;margin:0px;</string>
                      </property>
@@ -1291,7 +1317,7 @@ margin:0px;</string>
                  <number>0</number>
                 </property>
                 <item alignment="Qt::AlignRight">
-                 <widget class="QPushButton" name="pushButton_24">
+                 <widget class="QPushButton" name="refreshGraph">
                   <property name="styleSheet">
                    <string notr="true">background:none;margin:0px;</string>
                   </property>
@@ -1366,7 +1392,7 @@ margin:0px;</string>
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="frame_4">
+        <widget class="QFrame" name="footer">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
