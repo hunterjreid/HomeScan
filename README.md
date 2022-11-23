@@ -28,7 +28,7 @@ Requirements: Python 3.7
 1. Clone repo ```git clone https://github.com/hunterjreid/HomeScan```
 2. Enter directory ``` cd HomeScan```
 3. Install the pip required packages ``` pip install PyQt5 psutil pyqtgraph matplotlib socket speedtest-cli```
-4. If you have *speedtest* please uninstall ```pip uninstall speedtest-cli``` 
+4. If you have *speedtest* please uninstall ```pip uninstall speedtest``` 
 5. Run app.py inside of Visual Studio
 6. Never panic about your network again !
 
