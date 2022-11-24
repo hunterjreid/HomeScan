@@ -111,7 +111,6 @@ class HomeScanMain(QMainWindow):
         self.y5.append(round(theval, 2))  # Add a new random value.
         self.data_line.setData(self.x3, self.y3)  # Update the data.
         self.data_line_2.setData(self.x3, self.y5) # Update the data.
-
         #UPDATE TEXT ASWELL
         self.label_7.setText("Net Conns Live: " + str(len(conn_nol)))
         self.label_9.setText("Total transfer: " + str(theval) + " Mbs")
@@ -201,7 +200,6 @@ class HomeScanMain(QMainWindow):
             msgBox.setWindowTitle("HomeScan")
             msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
             msgBox.setWindowIcon(QIcon("assets/icon.ico"))
-
             returnValue = msgBox.exec()
             if returnValue == QMessageBox.Yes:
                 for i in range(20):
@@ -241,33 +239,26 @@ class HomeScanMain(QMainWindow):
                 self.tableWidget.item(row, 2).setBackground(QColor(255,127,80))
             elif str(person[5]) == "FIN_WAIT2":
                 self.tableWidget.item(row, 2).setBackground(QColor(150,145,251))
-
             row=row+1
-    
         self.tableWidget.resizeRowsToContents()
         self.tableWidget.resizeColumnsToContents()  
     #load table 2 NETWORK INTERFACE TABLE
     def loadtable_NETWORK_INTERFACETABLE(self):
         people=psutil.net_if_stats()
-
         row = 0
         self.tableWidget_2.setRowCount(len(people))
         header_style = "::section {""background-color: #0C0C0C; color: lightgrey; }"
         self.tableWidget_2.verticalHeader().setStyleSheet(header_style)
         self.tableWidget_2.horizontalHeader().setStyleSheet(header_style)
         app.setStyleSheet(' QTableWidget QTableCornerButton::section {background-color: #0C0C0C; }')
-        
         for key in people:
             self.tableWidget_2.setItem(row, 0, QtWidgets.QTableWidgetItem(str(key)))
             self.tableWidget_2.setItem(row, 1, QtWidgets.QTableWidgetItem(str(people[key][0])))
             self.tableWidget_2.setItem(row, 2, QtWidgets.QTableWidgetItem(str(people[key][2])))
             self.tableWidget_2.setItem(row, 3, QtWidgets.QTableWidgetItem(str(people[key][3])))
-
             if people[key][0] == True:
                 self.tableWidget_2.item(row, 1).setBackground(QColor(191, 32, 32))
-             
             row=row+1
-
         row = 0
         self.tableWidget_2.resizeRowsToContents()
         self.tableWidget_2.resizeColumnsToContents()  
