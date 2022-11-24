@@ -33,3 +33,12 @@ Requirements: Python 3.7
 6. Never panic about your network again !
 
 ![image](https://user-images.githubusercontent.com/62681404/202837741-3f1ad456-08a6-42a3-85ae-0360b10c6d00.png)
+### More screenshots:
+![Capture](https://user-images.githubusercontent.com/62681404/203746535-c1934e60-1551-4d71-884e-f35320e024ec.JPG)
+![dqdwdqwdw](https://user-images.githubusercontent.com/62681404/203746553-13bf442a-4d85-496f-b1b3-4bde3ce41078.JPG)
+![dqwdqqdwdqw](https://user-images.githubusercontent.com/62681404/203746565-f0a7c88b-0ba0-4644-8e22-41a15b5b6c08.JPG)
+![dqwdwqdqw](https://user-images.githubusercontent.com/62681404/203746581-8fab5681-e529-41b2-91f5-791a5304a5b8.JPG)
+![dwqdqddwwd](https://user-images.githubusercontent.com/62681404/203746594-402a4400-5a8b-467b-afce-5fcc8119d435.JPG)
+![dwqdwdwqdwq](https://user-images.githubusercontent.com/62681404/203746609-b296192b-59eb-4e21-965b-752901944abf.JPG)
+![ewqewq](https://user-images.githubusercontent.com/62681404/203746624-e3298aa1-4c33-4518-b9c4-b5811654b6b6.JPG)
+![ewqqewqw](https://user-images.githubusercontent.com/62681404/203746631-ea4c89a9-f902-4bf1-9611-bd3f63ed8a00.JPG)
