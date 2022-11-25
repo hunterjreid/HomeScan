@@ -34,7 +34,6 @@ Requirements: Python 3.7
 
 ![image](https://user-images.githubusercontent.com/62681404/202837741-3f1ad456-08a6-42a3-85ae-0360b10c6d00.png)
 ### More screenshots:
-![Capture](https://user-images.githubusercontent.com/62681404/203746535-c1934e60-1551-4d71-884e-f35320e024ec.JPG)
 ![dqdwdqwdw](https://user-images.githubusercontent.com/62681404/203746553-13bf442a-4d85-496f-b1b3-4bde3ce41078.JPG)
 ![dqwdqqdwdqw](https://user-images.githubusercontent.com/62681404/203746565-f0a7c88b-0ba0-4644-8e22-41a15b5b6c08.JPG)
 ![dqwdwqdqw](https://user-images.githubusercontent.com/62681404/203746581-8fab5681-e529-41b2-91f5-791a5304a5b8.JPG)
