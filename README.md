@@ -1,4 +1,7 @@
-![Promo](HomeScan.mp4)
+
+
+https://github.com/hunterjreid/HomeScan/assets/62681404/552775a2-d80f-4b5c-8f19-10355eb6d7e0
+
 
 
 <p align="center">
